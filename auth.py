@@ -56,4 +56,3 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
         print("Contraseña incorrecta.")
         return False
 
-registrar_usuario("Sebastian", "123")
