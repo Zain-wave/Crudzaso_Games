@@ -20,6 +20,7 @@ def cargar_usuarios():
 def guardar_usuarios(usuarios):
     with open(ARCHIVO_USUARIOS, "w", encoding="utf-8") as archivo_json:
         json.dump(usuarios, archivo_json, indent=4, ensure_ascii=False)
+        
 
 def registrar_usuario(nombre_usuario: str, contraseña: str):
     usuarios = cargar_usuarios()
@@ -38,10 +39,21 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
 
     usuarios.append(nuevo_usuario)
     guardar_usuarios(usuarios)
-    print(f"Usuario '{nombre_usuario}' creadp correctamente.")
+    print(f"Usuario '{nombre_usuario}' creado correctamente.")
     return True
 
 def iniciar_sesion(nombre_usuario: str, contraseña: str):
-    pass
+    usuarios = cargar_usuarios()
+    usuario = next((u for u in usuarios if u["usuario"] == nombre_usuario), None)
+    if not usuario:
+        print("Usuario no existe")
+        return False
+
+    if bcrypt.checkpw(contraseña.encode('utf-8'), usuario["contraseña"].encode('utf-8')):
+        print(f"Iniciaste seccion exitosamente - '{nombre_usuario}'.")
+        return True
+    else:
+        print("Contraseña incorrecta.")
+        return False
 
 registrar_usuario("Sebastian", "123")
