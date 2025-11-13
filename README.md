@@ -12,7 +12,7 @@ Cada uno debe clonar el proyecto en su equipo:
 git clone [<URL-del-repo>](https://github.com/Zain-wave/Crudzaso_Games)
 ```
 
-### ⚙️ Configurar tu identidad en Git (solo una vez/ si es necesario)
+### ⚙️ Configuren su identidad en Git de ser necesario(solo una vez)
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu_correo@ejemplo.com"
@@ -22,15 +22,15 @@ git config --global user.email "tu_correo@ejemplo.com"
 
 ## 🌿 2. Trabajaremos todos en la misma rama
 
-Todos los integrantes trabajaremos sobre la **rama principal (`main`)**.  
-Esto es válido **solo si cada uno edita archivos diferentes o módulos independientes** del proyecto.
+Todos trabajaremos sobre la **rama principal (`main`)**.  
+Esto sirve **solo si cada uno edita archivos diferentes o módulos independientes** del proyecto.
 
-Verifica que estás en la rama correcta:
+Verifiquen que estan en la rama correcta usando:
 ```bash
 git branch
 ```
 
-Si no estás en `main` usa:
+Si no estan en `main` usen:
 ```bash
 git checkout main
 ```
@@ -39,7 +39,7 @@ git checkout main
 
 ## 💾 3. Guardar y subir cambios
 
-Cuando termines una parte o hagas avances importantes:
+Cuando terminen una parte o hagan un avancen importantes:
 
 ```bash
 git add .
@@ -54,7 +54,7 @@ git push origin main
 
 ---
 
-## 🔄 4. Mantener tu repositorio actualizado
+## 🔄 4. Mantengan su repositorio local actualizado
 
 Antes de empezar a trabajar cada día:
 
@@ -62,8 +62,8 @@ Antes de empezar a trabajar cada día:
 git pull origin main
 ```
 
-Esto descarga los cambios que subieron los otros.  
-Si no haces este paso, podrías tener problemas al subir tus propios cambios.
+Esto descarga los cambios que subieron los demas.  
+Si no hacen este paso, podrías tener algun problema al subir sus cambios.
 
 ---
 
@@ -72,21 +72,21 @@ Si no haces este paso, podrías tener problemas al subir tus propios cambios.
 Si dos personas modifican el mismo archivo, Git mostrará un conflicto.  
 Para solucionarlo:
 
-1. Ejecuta:
+1. Ejecutamos:
    ```bash
    git status
    ```
-2. Abre los archivos marcados en conflicto.  
-   Verás secciones como:
+2. Abrimos los archivos marcados en conflicto.  
+   Vamos a ver secciones como:
    ```
    <<<<<<< HEAD
    # Tu versión
    =======
-   # Versión del otro miembro
+   # Versión del otro
    >>>>>>>
    ```
-3. Elimina los marcadores (`<<<<<<<`, `=======`, `>>>>>>>`) y deja la versión correcta.
-4. Guarda el archivo y ejecuta:
+3. Eliminamos los marcadores (`<<<<<<<`, `=======`, `>>>>>>>`) y dejamos la versión correcta.
+4. Guardamos el archivo y ejecutamos:
    ```bash
    git add <archivo-resuelto>
    git commit
@@ -96,28 +96,27 @@ Para solucionarlo:
 
 ## 🧹 6. Buenas prácticas
 
-- **Antes de subir**, haz `git pull origin main` para traer los últimos cambios.  
-- **Evita modificar archivos que estén siendo trabajados por otros.**
-- **Usa mensajes de commit descriptivos.**
-- **No subas** carpetas o archivos temporales.
+- **Antes de subir**, usen `git pull origin main` para traer los últimos cambios.  
+- **Eviten modificar archivos que estén siendo trabajados por los otros.**
+- **Usen mensajes de commit descriptivos.**
 
 ---
 
 ## 🧠 7. Flujo recomendado diario
 
-1️⃣ Actualiza tu código local  
+1️⃣ Actualizen su código local  
 ```bash
 git pull origin main
 ```
 
-2️⃣ Realiza tus cambios en los archivos asignados  
-3️⃣ Guarda y sube tu trabajo  
+2️⃣ Realizen cambios en los archivos asignados  
+3️⃣ Guarden y suban su trabajo
 ```bash
 git add .
 git commit -m "Mensaje descriptivo"
 git push origin main
 ```
 
-4️⃣ Avisa al grupo que tus cambios ya están en GitHub ✅
+4️⃣ Avisen a los otros que sus cambios ya están en GitHub ✅
 
 ---
