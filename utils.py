@@ -1,17 +1,40 @@
-import simpleaudio as sa
-import threading
+import pygame
+import os
 
-def reproducir_en_fondo():
-    def _loop():
-        wave = sa.WaveObject.from_wave_file("sounds/fondo.wav")
-        while True:
-            play_obj = wave.play()
-            play_obj.wait_done()
-    threading.Thread(target=_loop, daemon=True).start()
+musica_iniciada = False
 
+
+def iniciar_musica():
+    global musica_iniciada
     
-def dar_formato_pregunta(pregunta):
+    if musica_iniciada:
+        return
+    
+    ruta = os.path.join(os.getcwd(), "sounds", "fondo.wav")
+    
+    if not os.path.exists(ruta):
+        print(f"No se encontró el archivo de música en {ruta}")
+        return
+    
+    try:
+        pygame.mixer.init()
+        pygame.mixer.music.load(ruta)
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.5)       
+        musica_iniciada = True      
+    except Exception as e:
+        print(f"Error al reproducir música: {e}")
 
+
+def ajustar_volumen(volumen):
+    """Ajusta el volumen de la música (0.0 a 1.0)"""
+    if musica_iniciada:
+        pygame.mixer.music.set_volume(volumen)
+
+
+def dar_formato_pregunta(pregunta):
+    """Formatea una pregunta para mostrarla con colores"""
+    
     dificultad_color = {
         "facil": "green",
         "media": "yellow",
@@ -21,9 +44,7 @@ def dar_formato_pregunta(pregunta):
     color = dificultad_color.get(pregunta['dificultad'].lower(), "white")
 
     titulo = f"[b blue]ID {pregunta['id']} | {pregunta['categoria']}[/b blue]\n"
-
     dificultad = f"[{color}]Dificultad: {pregunta['dificultad']}[/{color}]\n"
-
     cuerpo = f"[bold white]{pregunta['pregunta']}[/bold white]\n"
 
     opciones_str = ""

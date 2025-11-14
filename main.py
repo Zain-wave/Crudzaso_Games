@@ -1,12 +1,15 @@
+import asyncio
+import multiprocessing
+
 from auth import iniciar_sesion, registrar_usuario
 from admin import menu_admin
 from data import log_in, registrar
-from utils import reproducir_en_fondo
+from utils import iniciar_musica
 from menu import mostrar_menu_pp, menu
 
+async def main():
+    iniciar_musica()
 
-def main():
-    reproducir_en_fondo()
     salir = False
     
     while not salir:
@@ -54,4 +57,6 @@ def main():
     print("Saliendo del sistema... Gracias por jugar :)")
 
 if __name__ == "__main__":
-    main()
+    #para que windows permita el loop
+    multiprocessing.freeze_support()
+    asyncio.run(main())
