@@ -47,6 +47,7 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
     usuario = next((u for u in usuarios if u["usuario"] == nombre_usuario), None)
     if not usuario:
         print("Usuario no existe")
+        
         return False
 
     if bcrypt.checkpw(contraseña.encode('utf-8'), usuario["contraseña"].encode('utf-8')):
