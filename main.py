@@ -1,8 +1,12 @@
 from auth import iniciar_sesion, registrar_usuario
-from menu import mostrar_menu_pp, menu
+from admin import menu_admin
 from data import log_in, registrar
+from utils import reproducir_en_fondo
+from menu import mostrar_menu_pp, menu
+
 
 def main():
+    reproducir_en_fondo()
     salir = False
     
     while not salir:
@@ -14,9 +18,17 @@ def main():
                 usuario, contraseña = log_in()
                 print("")
 
-                if iniciar_sesion(usuario, contraseña):
-                    print(f"\n¡Bienvenido de nuevo, {usuario}!\n")
-                    menu()
+                datos_usuario = iniciar_sesion(usuario, contraseña)
+
+                if datos_usuario:
+                    rol = datos_usuario["rol"]
+
+                    if rol == "admin":
+                        print("\nBienvenido administrador.\n")
+                        menu_admin()
+                    else:
+                        print(f"\n¡Bienvenido de nuevo, {usuario}!\n")
+                        menu()
                 else:
                     print("\nUsuario o contraseña incorrectos.\n")
 

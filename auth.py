@@ -34,6 +34,7 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
     nuevo_usuario = {
         "usuario": nombre_usuario,
         "contraseña": hash_contraseña.decode('utf-8'),
+        "rol": "user",
         "puntuaciones": []
     }
 
@@ -45,15 +46,14 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
 def iniciar_sesion(nombre_usuario: str, contraseña: str):
     usuarios = cargar_usuarios()
     usuario = next((u for u in usuarios if u["usuario"] == nombre_usuario), None)
+
     if not usuario:
         print("Usuario no existe")
-        
-        return False
+        return None
 
     if bcrypt.checkpw(contraseña.encode('utf-8'), usuario["contraseña"].encode('utf-8')):
-        print(f"Iniciaste seccion exitosamente - '{nombre_usuario}'.")
-        return True
+        print(f"Iniciaste sesión exitosamente - '{nombre_usuario}'.")
+        return usuario
     else:
         print("Contraseña incorrecta.")
-        return False
-
+        return None

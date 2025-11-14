@@ -5,8 +5,6 @@ from rich.console import Console
 from rich.columns import Columns
 from rich.panel import Panel
 
-
-from utils import reproducir_en_fondo
 from utils import dar_formato_pregunta
 ARCHIVO_PREGUNTAS = "preguntas.json"
 
@@ -208,6 +206,3 @@ def menu_admin():
         except ValueError:
             print("¡Eso no es una opción numérica!")
             continue
-        
-reproducir_en_fondo()
-menu_admin()

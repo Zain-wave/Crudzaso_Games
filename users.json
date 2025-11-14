@@ -1,12 +1,20 @@
 [
-    {
-        "usuario": "Sebastian",
-        "contraseña": "$2b$12$eVph/QRt7dps4hYgcpzk2uD17/67zrDyleKAlafwL59yUscfvvK4C",
-        "puntuaciones": []
-    },
-    {
-        "usuario": "Alyx",
-        "contraseña": "$2b$12$N8BEeeI8szFZqvZD3OXX0.PZdESsSQt/tlo0p51ePO2WhW.LCTO/a",
-        "puntuaciones": []
-    }
+  {
+    "usuario": "Sebastian",
+    "contraseña": "$2b$12$eVph/QRt7dps4hYgcpzk2uD17/67zrDyleKAlafwL59yUscfvvK4C",
+    "rol": "user",
+    "puntuaciones": []
+  },
+  {
+    "usuario": "Alyx",
+    "contraseña": "$2b$12$N8BEeeI8szFZqvZD3OXX0.PZdESsSQt/tlo0p51ePO2WhW.LCTO/a",
+    "rol": "user",
+    "puntuaciones": []
+  },
+  {
+    "usuario": "admin",
+    "contraseña": "$2b$12$At0i5u6yfhbfjwfjqbAH../GqwUXcMx8Q935uyZ5R.CvsOdgte4zW",
+    "rol": "admin",
+    "puntuaciones": []
+  }
 ]
