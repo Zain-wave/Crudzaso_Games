@@ -5,9 +5,10 @@ def reproducir_en_fondo():
     def _loop():
         wave = sa.WaveObject.from_wave_file("sounds/fondo.wav")
         while True:
-            wave.play().wait_done()
+            play_obj = wave.play()
+            play_obj.wait_done()
     threading.Thread(target=_loop, daemon=True).start()
-    
+
     
 def dar_formato_pregunta(pregunta):
 
