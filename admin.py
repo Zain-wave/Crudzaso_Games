@@ -10,8 +10,6 @@ from utils import reproducir_en_fondo
 from utils import dar_formato_pregunta
 ARCHIVO_PREGUNTAS = "preguntas.json"
 
-
-
 def cargar_preguntas():
     if not os.path.exists(ARCHIVO_PREGUNTAS):
         return []
@@ -32,8 +30,15 @@ def crear_pregunta():
     for i in range(4):
         opcion = input(f"Ingresa la opción {i+1}: ").strip()
         opciones.append(opcion)
-        
-    categoria = input("Ingresa la categoría (ej: Geografía, Historia, etc.): ").strip()
+         
+    categoria_valida = False
+    categoria = ""
+    while not categoria_valida:
+        categoria = input("Ingresa la categoría (geografía, historia, deportes, arte, entretenimiento").strip()
+        if categoria in ["historia", "geografía", "deportes", "arte", "entretenimiento"]:
+            categoria_valida = True
+        else:
+            print("Categoria inválida. Solo 'geografía', 'historia', 'deportes', 'arte' o 'entretenimiento'")
     
     dificultad_valida = False
     dificultad = ""
@@ -76,22 +81,22 @@ def ver_preguntas():
         return
     console = Console()
     
-    renderables_preguntas = []
+    render_preguntas = []
     for p in preguntas:
         try:
             contenido = dar_formato_pregunta(p)
-            renderables_preguntas.append(
+            render_preguntas.append(
                 Panel(contenido, expand=True, border_style="cyan")
             )
         except (TypeError, KeyError):
             pass 
             
-    if not renderables_preguntas:
+    if not render_preguntas:
         console.print("[bold red]Error:[/bold red] No se encontraron preguntas válidas.")
         return
 
     console.print("\n=== INVENTARIO DE PREGUNTAS ===")
-    console.print(Columns(renderables_preguntas, equal=True, padding=(1, 2)))
+    console.print(Columns(render_preguntas, equal=True, padding=(1, 2)))
     print("-" * console.width)
 
 def editar_pregunta():
@@ -166,7 +171,7 @@ def eliminar_pregunta():
 
     preguntas_nuevas = [p for p in preguntas if p["id"] != id_del]
 
-    if ( len(preguntas)) == len(preguntas_nuevas):
+    if (len(preguntas)) == len(preguntas_nuevas):
         print("Ese ID no está en la lista")
         return
 
@@ -204,5 +209,5 @@ def menu_admin():
             print("¡Eso no es una opción numérica!")
             continue
         
-reproducir_en_fondo("/sounds/fondo.wav")
+reproducir_en_fondo()
 menu_admin()

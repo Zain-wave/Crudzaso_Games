@@ -1,9 +1,9 @@
 import simpleaudio as sa
 import threading
 
-def reproducir_en_fondo(file):
+def reproducir_en_fondo():
     def _loop():
-        wave = sa.WaveObject.from_wave_file(file)
+        wave = sa.WaveObject.from_wave_file("sounds/fondo.wav")
         while True:
             wave.play().wait_done()
     threading.Thread(target=_loop, daemon=True).start()

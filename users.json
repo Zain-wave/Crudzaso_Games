@@ -3,5 +3,10 @@
         "usuario": "Sebastian",
         "contraseña": "$2b$12$eVph/QRt7dps4hYgcpzk2uD17/67zrDyleKAlafwL59yUscfvvK4C",
         "puntuaciones": []
+    },
+    {
+        "usuario": "Alyx",
+        "contraseña": "$2b$12$N8BEeeI8szFZqvZD3OXX0.PZdESsSQt/tlo0p51ePO2WhW.LCTO/a",
+        "puntuaciones": []
     }
 ]
