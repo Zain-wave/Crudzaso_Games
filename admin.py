@@ -24,7 +24,6 @@ def crear_pregunta():
         opcion = input(f"Ingresa la opción {i+1}: ").strip()
         opciones.append(opcion)
         
-    # --- ENTRADAS DE METADATOS ---
     categoria = input("Ingresa la categoría (ej: Geografía, Historia, etc.): ").strip()
     
     dificultad_valida = False
@@ -35,7 +34,6 @@ def crear_pregunta():
             dificultad_valida = True
         else:
             print("Dificultad inválida. Solo 'Fácil', 'Media' o 'Difícil'.")
-    # -----------------------------
 
     entrada_valida = False
     respuesta = 0
@@ -69,7 +67,7 @@ def ver_preguntas():
         return
     for p in preguntas:
         print(f"ID {p['id']} | Cat: {p['categoria']} | Dif: {p['dificultad']}")
-        # --------------------------
+
         print(f"Pregunta: {p['pregunta']}")
         for idx, opt in enumerate(p['opciones']):
             print(f"   {idx+1}. {opt}")
@@ -148,7 +146,6 @@ def eliminar_pregunta():
 
     preguntas_nuevas = [p for p in preguntas if p["id"] != id_del]
 
-
     if ( len(preguntas)) == len(preguntas_nuevas):
         print("Ese ID no está en la lista")
         return
@@ -188,5 +185,3 @@ def menu_admin():
             continue
 
 menu_admin()
-# if __name__ == "__main__":
-#     menu_principal()
