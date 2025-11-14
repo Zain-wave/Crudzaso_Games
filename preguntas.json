@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "pregunta": "¿Capital de Francia?",
+        "opciones": [
+            "Madrid",
+            "París",
+            "Berlín",
+            "Roma"
+        ],
+        "respuesta": 1,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    }
+]
