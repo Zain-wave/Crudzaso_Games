@@ -1,3 +1,9 @@
+from game import (
+    jugar_trivia,
+    jugar_suicida,
+    jugar_contrarreloj
+)
+
 def mostrar_menu_pp():
     print("==================================")
     print("=     Bienvenido a Cursdazo Trivia     =")
@@ -13,7 +19,6 @@ def mostrar_menu_pp():
     if opcion in ("1", "2", "3"):
         return opcion
     return None
-    
 
 
 def menu():
@@ -21,7 +26,7 @@ def menu():
     print("=          Menú de Juego          =")
     print("==================================")
 
-    print("1. Iniciar juego")
+    print("1. Iniciar juego (Trivia Normal)")
     print("2. Puntuación")
     print("3. Jugar Punto Suicida")
     print("4. Jugar Contrarreloj")
@@ -31,6 +36,17 @@ def menu():
 
     opcion_juego = input("Selecciona una opción (1-6): ").strip()
 
-    if opcion_juego in ("1", "2", "3", "4", "5", "6"):
-        return opcion_juego
-    return None
+    if opcion_juego == "1":
+        jugar_trivia()
+    elif opcion_juego == "2":
+        print("Sistema de puntuación en desarrollo.")
+    elif opcion_juego == "3":
+        jugar_suicida()
+    elif opcion_juego == "4":
+        jugar_contrarreloj()
+    elif opcion_juego == "5":
+        print("Randomize aún no está implementado.")
+    elif opcion_juego == "6":
+        return 
+    else:
+        print("Opción no válida.")
