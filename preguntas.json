@@ -50,5 +50,18 @@
         "respuesta": 1,
         "categoria": "historia",
         "dificultad": "Media"
+    },
+    {
+        "id": 5,
+        "pregunta": "pepe el pollo?",
+        "opciones": [
+            "si",
+            "no",
+            "talvez",
+            ".l."
+        ],
+        "respuesta": 3,
+        "categoria": "deportes",
+        "dificultad": "Media"
     }
 ]

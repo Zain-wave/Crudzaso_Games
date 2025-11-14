@@ -2,6 +2,7 @@ def tiene_numero(cadena: str) -> bool:
     return any(char.isdigit() for char in cadena)
 
 
+
 def registrar():
     try:
         edad = int(input("¿Cuál es tu edad?: "))

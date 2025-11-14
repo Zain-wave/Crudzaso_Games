@@ -22,5 +22,17 @@
         "contraseña": "$2b$12$gXTDplj2E3un9c/yWUXFmegQxUTiDrn2xFSK1h/LvFhVBDOE6bKw6",
         "rol": "user",
         "puntuaciones": []
+    },
+    {
+        "usuario": "Choklitos",
+        "contraseña": "$2b$12$IvOtLOr/YWg1EbEkTisCfeV/JgluL0Vyks4hOMaNFLf2/nM61YG9u",
+        "rol": "user",
+        "puntuaciones": []
+    },
+    {
+        "usuario": "Josefin",
+        "contraseña": "$2b$12$wTXaAd5DFevBXdNLLKCn9O474RDNe8vYCtdYLH.xrcJ7vORrTEzsK",
+        "rol": "user",
+        "puntuaciones": []
     }
 ]
