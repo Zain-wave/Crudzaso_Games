@@ -11,5 +11,44 @@
         "respuesta": 1,
         "categoria": "Geografía",
         "dificultad": "Fácil"
+    },
+    {
+        "id": 2,
+        "pregunta": "¿Capital de Francia?",
+        "opciones": [
+            "Madrid",
+            "París",
+            "Berlín",
+            "Roma"
+        ],
+        "respuesta": 1,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 3,
+        "pregunta": "¿Capital de Francia?",
+        "opciones": [
+            "Madrid",
+            "París",
+            "Berlín",
+            "Roma"
+        ],
+        "respuesta": 1,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 4,
+        "pregunta": "hoa",
+        "opciones": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "respuesta": 1,
+        "categoria": "historia",
+        "dificultad": "Media"
     }
 ]

@@ -1,7 +1,16 @@
 import json
 import os
 
+from rich.console import Console 
+from rich.columns import Columns
+from rich.panel import Panel
+
+
+from utils import reproducir_en_fondo
+from utils import dar_formato_pregunta
 ARCHIVO_PREGUNTAS = "preguntas.json"
+
+
 
 def cargar_preguntas():
     if not os.path.exists(ARCHIVO_PREGUNTAS):
@@ -65,14 +74,25 @@ def ver_preguntas():
     if not preguntas:
         print("No hay preguntas registradas. ¡Añade algunas!")
         return
+    console = Console()
+    
+    renderables_preguntas = []
     for p in preguntas:
-        print(f"ID {p['id']} | Cat: {p['categoria']} | Dif: {p['dificultad']}")
+        try:
+            contenido = dar_formato_pregunta(p)
+            renderables_preguntas.append(
+                Panel(contenido, expand=True, border_style="cyan")
+            )
+        except (TypeError, KeyError):
+            pass 
+            
+    if not renderables_preguntas:
+        console.print("[bold red]Error:[/bold red] No se encontraron preguntas válidas.")
+        return
 
-        print(f"Pregunta: {p['pregunta']}")
-        for idx, opt in enumerate(p['opciones']):
-            print(f"   {idx+1}. {opt}")
-        print(f"   La respuesta correcta es: {p['respuesta'] + 1}")
-        print("-" * 30)
+    console.print("\n=== INVENTARIO DE PREGUNTAS ===")
+    console.print(Columns(renderables_preguntas, equal=True, padding=(1, 2)))
+    print("-" * console.width)
 
 def editar_pregunta():
     preguntas = cargar_preguntas()
@@ -183,5 +203,6 @@ def menu_admin():
         except ValueError:
             print("¡Eso no es una opción numérica!")
             continue
-
+        
+reproducir_en_fondo("/sounds/fondo.wav")
 menu_admin()

@@ -1,3 +1,5 @@
 json
 os
 bcrypt
+rich
+simpleaudio
