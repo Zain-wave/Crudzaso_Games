@@ -111,14 +111,3 @@ def seleccionar_opcion(opciones, pregunta = None):
         # ENTER
         elif key == b'\r':
             return seleccion
-
-
-def mostrar_pregunta_con_seleccion(pregunta):
-    console.clear()
-    console.print("\n")
-    console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
-    console.print("\n")
-
-    seleccion = seleccionar_opcion(pregunta["opciones"])
-    return seleccion
-
