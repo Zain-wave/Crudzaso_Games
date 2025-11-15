@@ -1,6 +1,8 @@
-import json
 import random
 from admin import cargar_preguntas
+from utils import mostrar_pregunta_bonita, console
+from utils import seleccionar_opcion
+import time
 
 
 def seleccionar_preguntas(categoria=None, dificultad=None, cantidad=5):
@@ -17,7 +19,7 @@ def seleccionar_preguntas(categoria=None, dificultad=None, cantidad=5):
 
 
 def jugar_trivia():
-    print("\n=== MODO DE JUEGO: TRIVIA NORMAL ===\n")
+    console.print("\n[bold green]=== MODO DE JUEGO: TRIVIA NORMAL ===[/bold green]\n")
 
     preguntas = seleccionar_preguntas(cantidad=5)
 
@@ -28,57 +30,51 @@ def jugar_trivia():
     puntaje = 0
 
     for pregunta in preguntas:
-        print(f"\nPregunta: {pregunta['pregunta']}")
+        # Título
+        mostrar_pregunta_bonita(pregunta)
 
-        for idx, op in enumerate(pregunta["opciones"], start=1):
-            print(f" {idx}. {op}")
-
-        try:
-            respuesta = int(input("Tu respuesta: ")) - 1
-        except ValueError:
-            print("Respuesta inválida. Se contará como incorrecta.")
-            respuesta = -1
+        # Selección bonita
+        respuesta = seleccionar_opcion(pregunta["opciones"], pregunta)
 
         if respuesta == pregunta["respuesta"]:
-            print("Correcto!")
+            console.print("[bold green]✔ Correcto![/bold green]")
             puntaje += 1
         else:
-            print(f"Incorrecto! La respuesta correcta era: {pregunta['opciones'][pregunta['respuesta']]}")
+            console.print("[bold red]✘ Incorrecto![/bold red] ")
+        
+        time.sleep(2)
+        
 
-    print(f"\nJuego terminado. Tu puntaje final es: {puntaje}")
-    print("=======================================\n")
-
+    console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
 
 def jugar_suicida():
-    print("\n=== MODO: PUNTO SUICIDA ===\n")
+    console.print("\n[bold green]=== MODO: PUNTO SUICIDA ===[/bold green]\n")
 
     preguntas = seleccionar_preguntas(cantidad=20)
     puntaje = 0
 
     for pregunta in preguntas:
-        print(f"\nPregunta: {pregunta['pregunta']}")
-        for idx, op in enumerate(pregunta["opciones"], start=1):
-            print(f" {idx}. {op}")
+        mostrar_pregunta_bonita(pregunta)
 
         try:
-            resp = int(input("Tu respuesta: ")) - 1
+            resp = int(input("Selecciona una opción (1-4): ")) - 1
         except ValueError:
             resp = -1
 
         if resp == pregunta["respuesta"]:
+            console.print("[green]✔ Correcto! Continúas...[/green]")
             puntaje += 1
-            print("Correcto! Continuas...")
         else:
-            print("Incorrecto! Fin del juego.")
+            console.print("[red]✘ Incorrecto! Fin del juego.[/red]")
             break
 
-    print(f"\nPuntaje final: {puntaje}")
+    console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
 
 
 def jugar_contrarreloj():
     import time
 
-    print("\n=== MODO: CONTRARRELOJ ===\n")
+    console.print("\n[bold green]=== MODO: CONTRARRELOJ ===[/bold green]\n")
     preguntas = seleccionar_preguntas(cantidad=10)
 
     tiempo_limite = 30
@@ -86,26 +82,25 @@ def jugar_contrarreloj():
     puntaje = 0
 
     for pregunta in preguntas:
-        if time.time() - inicio >= tiempo_limite:
-            print("\nTiempo agotado!")
+        tiempo_transcurrido = time.time() - inicio
+        if tiempo_transcurrido >= tiempo_limite:
+            console.print("\n[bold red]⏳ Tiempo agotado![/bold red]")
             break
 
-        print(f"\nPregunta: {pregunta['pregunta']}")
-        for idx, op in enumerate(pregunta["opciones"], start=1):
-            print(f" {idx}. {op}")
+        mostrar_pregunta_bonita(pregunta)
 
-        restante = tiempo_limite - (time.time() - inicio)
-        print(f"Tiempo restante: {restante:.1f}s")
+        restante = tiempo_limite - tiempo_transcurrido
+        console.print(f"[yellow]Tiempo restante: {restante:.1f}s[/yellow]")
 
         try:
-            resp = int(input("Tu respuesta: ")) - 1
+            resp = int(input("Selecciona una opción (1-4): ")) - 1
         except ValueError:
             resp = -1
 
         if resp == pregunta["respuesta"]:
-            print("Correcto!")
+            console.print("[green]✔ Correcto![/green]")
             puntaje += 1
         else:
-            print("Incorrecto!")
+            console.print("[red]✘ Incorrecto![/red]")
 
-    print(f"\nPuntaje final: {puntaje}")
+    console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
