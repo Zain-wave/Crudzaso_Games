@@ -10,10 +10,6 @@ console = Console()
 
 musica_iniciada = False
 
-
-# ================================
-#   MÚSICA DE FONDO
-# ================================
 def iniciar_musica():
     global musica_iniciada
 
@@ -40,11 +36,6 @@ def ajustar_volumen(volumen):
     if musica_iniciada:
         pygame.mixer.music.set_volume(volumen)
 
-
-
-# ================================
-#   FORMATO PARA ADMIN (NO TOCAR)
-# ================================
 def dar_formato_pregunta(pregunta): 
     dificultad_color = { 
                         "facil": "green", 
@@ -64,10 +55,6 @@ def dar_formato_pregunta(pregunta):
     return titulo + dificultad + "\n" + cuerpo + opciones_str.strip()
 
 
-
-# ================================
-#   TRIVIA INTERACTIVA
-# ================================
 def mostrar_pregunta_bonita(pregunta, seleccion = None):
     console.print("\n")
     console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
@@ -77,13 +64,11 @@ def mostrar_pregunta_bonita(pregunta, seleccion = None):
 def seleccionar_opcion(opciones, pregunta = None):
     seleccion = 0
     while True:
-        #console.clear()
         os.system("cls")
     
         if pregunta:
             console.print("\n")
             console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
-            #console.print("\n")
         
         tabla = Table(show_header=False, box=None, padding=(0, 2))
         for _ in opciones:
