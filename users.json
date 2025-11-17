@@ -41,6 +41,21 @@
                 "modo": "suicida",
                 "dificultad": "Fácil",
                 "puntaje": 19
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 5
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 4
             }
         ]
     },

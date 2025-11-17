@@ -64,15 +64,19 @@ def mostrar_pregunta_bonita(pregunta, seleccion = None):
 def seleccionar_opcion(opciones, pregunta = None):
     seleccion = 0
     while True:
-# Solo limpiar pantalla si es una pregunta de juego
-        if pregunta:
+
+        if pregunta == "dificultad":
+            os.system("cls")
+            
+            console.print("\n")
+            console.print(Align.center("[bold cyan]Selecciona la dificultad[/bold cyan]"))
+            console.print("\n")
+            pass
+        elif pregunta:
             os.system("cls")
             console.print("\n")
             console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
             console.print("\n")
-        else:
-            # Si NO es pregunta, NO limpiar pantalla.
-            pass
 
 
         
@@ -122,11 +126,7 @@ def seleccionar_opcion(opciones, pregunta = None):
 def seleccionar_dificultad():
     opciones = ["Fácil", "Media", "Difícil"]
     
-    console.print("\n")
-    console.print(Align.center("[bold cyan]Selecciona la dificultad[/bold cyan]"))
-    console.print("\n")
-    
-    seleccion = seleccionar_opcion(opciones)
+    seleccion = seleccionar_opcion(opciones, "dificultad")
 
     if seleccion == 0:
         return "Fácil"

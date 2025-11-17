@@ -14,7 +14,7 @@ def mostrar_puntuaciones(usuario_actual):
     ruta = "users.json"
 
     if not os.path.exists(ruta):
-        console.print("\n[bold yellow]⚠ No existe el archivo users.json[/bold yellow]\n")
+        console.print("\n[bold yellow] No existe el archivo users.json[/bold yellow]\n")
         return
 
     with open(ruta, "r", encoding="utf-8") as f:
@@ -29,7 +29,7 @@ def mostrar_puntuaciones(usuario_actual):
     puntuaciones = usuario.get("puntuaciones", [])
 
     if not puntuaciones:
-        console.print(f"\n[bold yellow]⚠ {usuario_actual['usuario']} no tiene puntuaciones registradas.[/bold yellow]\n")
+        console.print(f"\n[bold yellow] {usuario_actual['usuario']} no tiene puntuaciones registradas.[/bold yellow]\n")
         return
 
     tabla = Table(title=f"Puntuaciones de {usuario_actual['usuario']}", header_style="bold magenta")
@@ -52,7 +52,7 @@ def mostrar_top_global():
     ruta = "users.json"
 
     if not os.path.exists(ruta):
-        console.print("\n[bold yellow]⚠ No existe el archivo users.json[/bold yellow]\n")
+        console.print("\n[bold yellow] No existe el archivo users.json[/bold yellow]\n")
         return
 
     with open(ruta, "r", encoding="utf-8") as f:
@@ -82,7 +82,7 @@ def mostrar_top_global():
         })
 
     if not ranking:
-        console.print("\n[bold yellow]⚠ No hay puntuaciones registradas aún.[/bold yellow]\n")
+        console.print("\n[bold yellow] No hay puntuaciones registradas aún.[/bold yellow]\n")
         return
 
     ranking.sort(key=lambda x: x["puntaje"], reverse=True)
@@ -126,9 +126,10 @@ def menu(usuario_actual=None):
         elif opcion_juego == "3":
             jugar_suicida(usuario_actual)
         elif opcion_juego == "4":
-            jugar_contrarreloj(usuario_actual)
+            #jugar_contrarreloj(usuario_actual)
+            print("En desarrollo")
         elif opcion_juego == "5":
-            print("Randomize aún no está implementado.")
+            print("En desarrollo")
         elif opcion_juego == "6":
             mostrar_top_global()
         elif opcion_juego == "7":
