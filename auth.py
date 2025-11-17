@@ -57,3 +57,20 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
     else:
         print("Contraseña incorrecta.")
         return None
+
+def guardar_puntaje(usuario_actual, modo, dificultad, puntaje):
+    usuarios = cargar_usuarios()
+
+    for u in usuarios:
+        if u["usuario"] == usuario_actual["usuario"]:
+            if "puntuaciones" not in u:
+                u["puntuaciones"] = []
+            
+            u["puntuaciones"].append({
+                "modo": modo,
+                "dificultad": dificultad,
+                "puntaje": puntaje
+            })
+            break
+
+    guardar_usuarios(usuarios)

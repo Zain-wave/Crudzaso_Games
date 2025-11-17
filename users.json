@@ -21,7 +21,28 @@
         "usuario": "alyx",
         "contraseña": "$2b$12$gXTDplj2E3un9c/yWUXFmegQxUTiDrn2xFSK1h/LvFhVBDOE6bKw6",
         "rol": "user",
-        "puntuaciones": []
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "media",
+                "puntaje": 5
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "dificil",
+                "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 3
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 19
+            }
+        ]
     },
     {
         "usuario": "Choklitos",

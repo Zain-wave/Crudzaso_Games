@@ -1,67 +1,2602 @@
 [
     {
         "id": 1,
-        "pregunta": "¿Capital de Francia?",
+        "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
         "opciones": [
-            "Madrid",
-            "París",
-            "Berlín",
-            "Roma"
+            "1914",
+            "1939",
+            "1898",
+            "1920"
         ],
-        "respuesta": 1,
-        "categoria": "Geografía",
+        "respuesta": 0,
+        "categoria": "Historia",
         "dificultad": "Fácil"
     },
     {
         "id": 2,
-        "pregunta": "¿Capital de Francia?",
+        "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
         "opciones": [
-            "Madrid",
-            "París",
-            "Berlín",
-            "Roma"
+            "George Washington",
+            "Thomas Jefferson",
+            "Abraham Lincoln",
+            "John Adams"
         ],
-        "respuesta": 1,
-        "categoria": "Geografía",
+        "respuesta": 0,
+        "categoria": "Historia",
         "dificultad": "Fácil"
     },
     {
         "id": 3,
-        "pregunta": "¿Capital de Francia?",
+        "pregunta": "¿Qué imperio construyó las pirámides de Guiza?",
         "opciones": [
-            "Madrid",
-            "París",
-            "Berlín",
-            "Roma"
+            "Egipto",
+            "Roma",
+            "Babilonia",
+            "Persia"
         ],
-        "respuesta": 1,
-        "categoria": "Geografía",
+        "respuesta": 0,
+        "categoria": "Historia",
         "dificultad": "Fácil"
     },
     {
         "id": 4,
-        "pregunta": "hoa",
+        "pregunta": "¿En qué siglo ocurrió la conquista de América?",
         "opciones": [
-            "a",
-            "b",
-            "c",
-            "d"
+            "XV",
+            "XVI",
+            "XVII",
+            "XIV"
         ],
         "respuesta": 1,
-        "categoria": "historia",
-        "dificultad": "Media"
+        "categoria": "Historia",
+        "dificultad": "Fácil"
     },
     {
         "id": 5,
-        "pregunta": "pepe el pollo?",
+        "pregunta": "¿Quién lideró la independencia de Colombia?",
         "opciones": [
-            "si",
-            "no",
-            "talvez",
-            ".l."
+            "Simón Bolívar",
+            "San Martín",
+            "Sucre",
+            "O'Higgins"
         ],
-        "respuesta": 3,
-        "categoria": "deportes",
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 6,
+        "pregunta": "¿Qué civilización creó Machu Picchu?",
+        "opciones": [
+            "Inca",
+            "Maya",
+            "Azteca",
+            "Olmeca"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 7,
+        "pregunta": "¿En qué país nació Napoleón Bonaparte?",
+        "opciones": [
+            "Francia",
+            "Italia",
+            "Córcega",
+            "España"
+        ],
+        "respuesta": 2,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 8,
+        "pregunta": "¿Qué muro cayó en 1989?",
+        "opciones": [
+            "Muro de Berlín",
+            "Muro de Varsovia",
+            "Muro de Roma",
+            "Muro de Viena"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 9,
+        "pregunta": "¿Quién descubrió América?",
+        "opciones": [
+            "Colón",
+            "Vespucci",
+            "Magallanes",
+            "Caboto"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 10,
+        "pregunta": "¿Qué civilización usaba jeroglíficos?",
+        "opciones": [
+            "Egipcia",
+            "Griega",
+            "Romana",
+            "Fenicia"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 11,
+        "pregunta": "¿Cuál era la capital del Imperio Romano?",
+        "opciones": [
+            "Roma",
+            "Atenas",
+            "Cartago",
+            "Pompeya"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 12,
+        "pregunta": "¿Quién fue Cleopatra?",
+        "opciones": [
+            "Reina egipcia",
+            "Filósofa",
+            "Guerra",
+            "Esclava"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 13,
+        "pregunta": "¿Qué país inició la Revolución Industrial?",
+        "opciones": [
+            "Inglaterra",
+            "Francia",
+            "Alemania",
+            "Estados Unidos"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 14,
+        "pregunta": "¿Qué nave llevó a Colón al “nuevo mundo”?",
+        "opciones": [
+            "Santa María",
+            "Mayflower",
+            "Victoria",
+            "Trinidad"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 15,
+        "pregunta": "¿Capital de Alemania?",
+        "opciones": [
+            "Berlín",
+            "Hamburgo",
+            "Fráncfort",
+            "Múnich"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 16,
+        "pregunta": "¿Capital de Japón?",
+        "opciones": [
+            "Tokio",
+            "Kioto",
+            "Osaka",
+            "Hiroshima"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 17,
+        "pregunta": "¿Capital de Canadá?",
+        "opciones": [
+            "Ottawa",
+            "Toronto",
+            "Vancouver",
+            "Montreal"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 18,
+        "pregunta": "¿Capital de Brasil?",
+        "opciones": [
+            "Brasilia",
+            "Río",
+            "Sao Paulo",
+            "Recife"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 19,
+        "pregunta": "¿Capital de Italia?",
+        "opciones": [
+            "Roma",
+            "Milán",
+            "Turín",
+            "Nápoles"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 20,
+        "pregunta": "¿Capital de España?",
+        "opciones": [
+            "Madrid",
+            "Barcelona",
+            "Valencia",
+            "Sevilla"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 21,
+        "pregunta": "¿Capital de Rusia?",
+        "opciones": [
+            "Moscú",
+            "San Petersburgo",
+            "Kiev",
+            "Novosibirsk"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 22,
+        "pregunta": "¿Capital de Australia?",
+        "opciones": [
+            "Canberra",
+            "Sídney",
+            "Melbourne",
+            "Perth"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 23,
+        "pregunta": "¿Capital de México?",
+        "opciones": [
+            "Ciudad de México",
+            "Guadalajara",
+            "Puebla",
+            "Monterrey"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 24,
+        "pregunta": "¿Capital de Perú?",
+        "opciones": [
+            "Lima",
+            "Cusco",
+            "Arequipa",
+            "Trujillo"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 25,
+        "pregunta": "¿Capital de China?",
+        "opciones": [
+            "Pekín",
+            "Shanghái",
+            "Cantón",
+            "Shenzhen"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 26,
+        "pregunta": "¿Capital de Argentina?",
+        "opciones": [
+            "Buenos Aires",
+            "Córdoba",
+            "Rosario",
+            "Mendoza"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 27,
+        "pregunta": "¿Capital de Grecia?",
+        "opciones": [
+            "Atenas",
+            "Esparta",
+            "Creta",
+            "Tesalónica"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 28,
+        "pregunta": "¿Capital de Corea del Sur?",
+        "opciones": [
+            "Seúl",
+            "Busan",
+            "Incheon",
+            "Daegu"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 29,
+        "pregunta": "¿Cuántos jugadores tiene un equipo de fútbol en cancha?",
+        "opciones": [
+            "11",
+            "10",
+            "12",
+            "9"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 30,
+        "pregunta": "¿De qué país es originario el karate?",
+        "opciones": [
+            "Japón",
+            "China",
+            "Corea",
+            "Filipinas"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 31,
+        "pregunta": "¿Cuántos puntos vale un triple en baloncesto?",
+        "opciones": [
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 32,
+        "pregunta": "¿Qué deporte practica Lionel Messi?",
+        "opciones": [
+            "Fútbol",
+            "Básquet",
+            "Tenis",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 33,
+        "pregunta": "¿En qué deporte se usa un bate?",
+        "opciones": [
+            "Béisbol",
+            "Hockey",
+            "Críquet",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 34,
+        "pregunta": "¿Qué deporte se juega en Wimbledon?",
+        "opciones": [
+            "Tenis",
+            "Fútbol",
+            "Rugby",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 35,
+        "pregunta": "¿Qué selección ganó el mundial 2010?",
+        "opciones": [
+            "España",
+            "Brasil",
+            "Alemania",
+            "Francia"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 36,
+        "pregunta": "¿En qué deporte se usa una tabla y olas?",
+        "opciones": [
+            "Surf",
+            "Ski",
+            "Natación",
+            "Remo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 37,
+        "pregunta": "¿Qué deporte incluye saltos al agua?",
+        "opciones": [
+            "Clavados",
+            "Remo",
+            "Vela",
+            "Waterpolo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 38,
+        "pregunta": "¿Qué deporte usa aro y driblar?",
+        "opciones": [
+            "Baloncesto",
+            "Balonmano",
+            "Fútbol sala",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 39,
+        "pregunta": "¿Qué deporte se practica en ring?",
+        "opciones": [
+            "Boxeo",
+            "Tenis",
+            "Natación",
+            "Ciclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 40,
+        "pregunta": "¿Qué deporte usa patines sobre hielo?",
+        "opciones": [
+            "Hockey hielo",
+            "Curling",
+            "Esquí",
+            "Skate"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 41,
+        "pregunta": "¿Qué deporte usa arco y flecha?",
+        "opciones": [
+            "Tiro con arco",
+            "Caza",
+            "Airsoft",
+            "Paintball"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 42,
+        "pregunta": "¿Qué deporte es la Fórmula 1?",
+        "opciones": [
+            "Automovilismo",
+            "Ciclismo",
+            "Rally",
+            "Motociclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 43,
+        "pregunta": "¿Quién pintó La Mona Lisa?",
+        "opciones": [
+            "Da Vinci",
+            "Picasso",
+            "Dalí",
+            "Van Gogh"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 44,
+        "pregunta": "¿Quién pintó La noche estrellada?",
+        "opciones": [
+            "Van Gogh",
+            "Monet",
+            "Da Vinci",
+            "Goya"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 45,
+        "pregunta": "¿Qué instrumento tocaba Mozart?",
+        "opciones": [
+            "Piano",
+            "Violín",
+            "Arpa",
+            "Flauta"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 46,
+        "pregunta": "¿Qué arte usa arcilla?",
+        "opciones": [
+            "Escultura",
+            "Pintura",
+            "Danza",
+            "Teatro"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 47,
+        "pregunta": "¿A qué arte pertenece El David?",
+        "opciones": [
+            "Escultura",
+            "Música",
+            "Pintura",
+            "Arquitectura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 48,
+        "pregunta": "¿Quién pintó Guernica?",
+        "opciones": [
+            "Picasso",
+            "Velázquez",
+            "Dalí",
+            "Monet"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 49,
+        "pregunta": "¿Qué arte usa lienzo y pinceles?",
+        "opciones": [
+            "Pintura",
+            "Teatro",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 50,
+        "pregunta": "¿Qué país originó el flamenco?",
+        "opciones": [
+            "España",
+            "México",
+            "Brasil",
+            "Italia"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 51,
+        "pregunta": "¿El “Requiem” es de qué compositor?",
+        "opciones": [
+            "Mozart",
+            "Beethoven",
+            "Bach",
+            "Vivaldi"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 52,
+        "pregunta": "¿Quién pintó Las Meninas?",
+        "opciones": [
+            "Velázquez",
+            "Goya",
+            "Rubens",
+            "Rafael"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 53,
+        "pregunta": "¿Qué arte usa notas musicales?",
+        "opciones": [
+            "Música",
+            "Pintura",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 54,
+        "pregunta": "¿Qué escultura famosa no tiene brazos?",
+        "opciones": [
+            "Venus de Milo",
+            "El David",
+            "La Piedad",
+            "Moai"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 55,
+        "pregunta": "¿Quién escribió El Quijote?",
+        "opciones": [
+            "Cervantes",
+            "Shakespeare",
+            "Quevedo",
+            "Bécquer"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 56,
+        "pregunta": "¿Qué arte se presenta en un escenario?",
+        "opciones": [
+            "Teatro",
+            "Poesía",
+            "Arquitectura",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 57,
+        "pregunta": "¿Qué personaje vive en una piña bajo el mar?",
+        "opciones": [
+            "Bob Esponja",
+            "Patricio",
+            "Calamardo",
+            "Arenita"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 58,
+        "pregunta": "¿De qué saga es el anillo único?",
+        "opciones": [
+            "El Señor de los Anillos",
+            "Harry Potter",
+            "Narnia",
+            "Star Wars"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 59,
+        "pregunta": "¿Qué superhéroe es Bruce Wayne?",
+        "opciones": [
+            "Batman",
+            "Superman",
+            "Flash",
+            "Iron Man"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 60,
+        "pregunta": "¿Qué película tiene a Woody y Buzz?",
+        "opciones": [
+            "Toy Story",
+            "Cars",
+            "Shrek",
+            "Frozen"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 61,
+        "pregunta": "¿Qué cantante interpreta “Thriller”?",
+        "opciones": [
+            "Michael Jackson",
+            "Prince",
+            "The Weeknd",
+            "Bruno Mars"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 62,
+        "pregunta": "¿En qué serie aparece Eleven?",
+        "opciones": [
+            "Stranger Things",
+            "Dark",
+            "The Boys",
+            "Loki"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 63,
+        "pregunta": "¿Qué saga tiene sables láser?",
+        "opciones": [
+            "Star Wars",
+            "Marvel",
+            "Matrix",
+            "Dune"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 64,
+        "pregunta": "¿Qué mago va a Hogwarts?",
+        "opciones": [
+            "Harry Potter",
+            "Gandalf",
+            "Merlín",
+            "Strange"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 65,
+        "pregunta": "¿Qué dinosaurio es famoso en Jurassic Park?",
+        "opciones": [
+            "T-Rex",
+            "Velociraptor",
+            "Triceratops",
+            "Spinosaurus"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 66,
+        "pregunta": "¿Qué personaje dice “Hakuna Matata”?",
+        "opciones": [
+            "Timon y Pumba",
+            "Simba",
+            "Scar",
+            "Rafiki"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 67,
+        "pregunta": "¿Qué héroe usa traje de hierro?",
+        "opciones": [
+            "Iron Man",
+            "Batman",
+            "Flash",
+            "Thor"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 68,
+        "pregunta": "¿Qué película tiene un ogro verde?",
+        "opciones": [
+            "Shrek",
+            "Hulk",
+            "Kung Fu Panda",
+            "Ice Age"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 69,
+        "pregunta": "¿Qué saga incluye Pokebolas?",
+        "opciones": [
+            "Pokémon",
+            "Digimon",
+            "Yu-Gi-Oh",
+            "Zelda"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 70,
+        "pregunta": "¿Quién es el capitán del Going Merry?",
+        "opciones": [
+            "Luffy",
+            "Zoro",
+            "Sanji",
+            "Usopp"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Fácil"
+    },
+    {
+        "id": 71,
+        "pregunta": "¿En qué año comenzó la Primera Guerra Mundial? (Nivel Medio)",
+        "opciones": [
+            "1914",
+            "1939",
+            "1898",
+            "1920"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
         "dificultad": "Media"
+    },
+    {
+        "id": 72,
+        "pregunta": "¿Quién fue el primer presidente de Estados Unidos? (Nivel Medio)",
+        "opciones": [
+            "George Washington",
+            "Thomas Jefferson",
+            "Abraham Lincoln",
+            "John Adams"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 73,
+        "pregunta": "¿Qué imperio construyó las pirámides de Guiza? (Nivel Medio)",
+        "opciones": [
+            "Egipto",
+            "Roma",
+            "Babilonia",
+            "Persia"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 74,
+        "pregunta": "¿En qué siglo ocurrió la conquista de América? (Nivel Medio)",
+        "opciones": [
+            "XV",
+            "XVI",
+            "XVII",
+            "XIV"
+        ],
+        "respuesta": 1,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 75,
+        "pregunta": "¿Quién lideró la independencia de Colombia? (Nivel Medio)",
+        "opciones": [
+            "Simón Bolívar",
+            "San Martín",
+            "Sucre",
+            "O'Higgins"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 76,
+        "pregunta": "¿Qué civilización creó Machu Picchu? (Nivel Medio)",
+        "opciones": [
+            "Inca",
+            "Maya",
+            "Azteca",
+            "Olmeca"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 77,
+        "pregunta": "¿En qué país nació Napoleón Bonaparte? (Nivel Medio)",
+        "opciones": [
+            "Francia",
+            "Italia",
+            "Córcega",
+            "España"
+        ],
+        "respuesta": 2,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 78,
+        "pregunta": "¿Qué muro cayó en 1989? (Nivel Medio)",
+        "opciones": [
+            "Muro de Berlín",
+            "Muro de Varsovia",
+            "Muro de Roma",
+            "Muro de Viena"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 79,
+        "pregunta": "¿Quién descubrió América? (Nivel Medio)",
+        "opciones": [
+            "Colón",
+            "Vespucci",
+            "Magallanes",
+            "Caboto"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 80,
+        "pregunta": "¿Qué civilización usaba jeroglíficos? (Nivel Medio)",
+        "opciones": [
+            "Egipcia",
+            "Griega",
+            "Romana",
+            "Fenicia"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 81,
+        "pregunta": "¿Cuál era la capital del Imperio Romano? (Nivel Medio)",
+        "opciones": [
+            "Roma",
+            "Atenas",
+            "Cartago",
+            "Pompeya"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 82,
+        "pregunta": "¿Quién fue Cleopatra? (Nivel Medio)",
+        "opciones": [
+            "Reina egipcia",
+            "Filósofa",
+            "Guerra",
+            "Esclava"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 83,
+        "pregunta": "¿Qué país inició la Revolución Industrial? (Nivel Medio)",
+        "opciones": [
+            "Inglaterra",
+            "Francia",
+            "Alemania",
+            "Estados Unidos"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 84,
+        "pregunta": "¿Qué nave llevó a Colón al “nuevo mundo”? (Nivel Medio)",
+        "opciones": [
+            "Santa María",
+            "Mayflower",
+            "Victoria",
+            "Trinidad"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Media"
+    },
+    {
+        "id": 85,
+        "pregunta": "¿Capital de Alemania? (Nivel Medio)",
+        "opciones": [
+            "Berlín",
+            "Hamburgo",
+            "Fráncfort",
+            "Múnich"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 86,
+        "pregunta": "¿Capital de Japón? (Nivel Medio)",
+        "opciones": [
+            "Tokio",
+            "Kioto",
+            "Osaka",
+            "Hiroshima"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 87,
+        "pregunta": "¿Capital de Canadá? (Nivel Medio)",
+        "opciones": [
+            "Ottawa",
+            "Toronto",
+            "Vancouver",
+            "Montreal"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 88,
+        "pregunta": "¿Capital de Brasil? (Nivel Medio)",
+        "opciones": [
+            "Brasilia",
+            "Río",
+            "Sao Paulo",
+            "Recife"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 89,
+        "pregunta": "¿Capital de Italia? (Nivel Medio)",
+        "opciones": [
+            "Roma",
+            "Milán",
+            "Turín",
+            "Nápoles"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 90,
+        "pregunta": "¿Capital de España? (Nivel Medio)",
+        "opciones": [
+            "Madrid",
+            "Barcelona",
+            "Valencia",
+            "Sevilla"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 91,
+        "pregunta": "¿Capital de Rusia? (Nivel Medio)",
+        "opciones": [
+            "Moscú",
+            "San Petersburgo",
+            "Kiev",
+            "Novosibirsk"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 92,
+        "pregunta": "¿Capital de Australia? (Nivel Medio)",
+        "opciones": [
+            "Canberra",
+            "Sídney",
+            "Melbourne",
+            "Perth"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 93,
+        "pregunta": "¿Capital de México? (Nivel Medio)",
+        "opciones": [
+            "Ciudad de México",
+            "Guadalajara",
+            "Puebla",
+            "Monterrey"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 94,
+        "pregunta": "¿Capital de Perú? (Nivel Medio)",
+        "opciones": [
+            "Lima",
+            "Cusco",
+            "Arequipa",
+            "Trujillo"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 95,
+        "pregunta": "¿Capital de China? (Nivel Medio)",
+        "opciones": [
+            "Pekín",
+            "Shanghái",
+            "Cantón",
+            "Shenzhen"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 96,
+        "pregunta": "¿Capital de Argentina? (Nivel Medio)",
+        "opciones": [
+            "Buenos Aires",
+            "Córdoba",
+            "Rosario",
+            "Mendoza"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 97,
+        "pregunta": "¿Capital de Grecia? (Nivel Medio)",
+        "opciones": [
+            "Atenas",
+            "Esparta",
+            "Creta",
+            "Tesalónica"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 98,
+        "pregunta": "¿Capital de Corea del Sur? (Nivel Medio)",
+        "opciones": [
+            "Seúl",
+            "Busan",
+            "Incheon",
+            "Daegu"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Media"
+    },
+    {
+        "id": 99,
+        "pregunta": "¿Cuántos jugadores tiene un equipo de fútbol en cancha? (Nivel Medio)",
+        "opciones": [
+            "11",
+            "10",
+            "12",
+            "9"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 100,
+        "pregunta": "¿De qué país es originario el karate? (Nivel Medio)",
+        "opciones": [
+            "Japón",
+            "China",
+            "Corea",
+            "Filipinas"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 101,
+        "pregunta": "¿Cuántos puntos vale un triple en baloncesto? (Nivel Medio)",
+        "opciones": [
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 102,
+        "pregunta": "¿Qué deporte practica Lionel Messi? (Nivel Medio)",
+        "opciones": [
+            "Fútbol",
+            "Básquet",
+            "Tenis",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 103,
+        "pregunta": "¿En qué deporte se usa un bate? (Nivel Medio)",
+        "opciones": [
+            "Béisbol",
+            "Hockey",
+            "Críquet",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 104,
+        "pregunta": "¿Qué deporte se juega en Wimbledon? (Nivel Medio)",
+        "opciones": [
+            "Tenis",
+            "Fútbol",
+            "Rugby",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 105,
+        "pregunta": "¿Qué selección ganó el mundial 2010? (Nivel Medio)",
+        "opciones": [
+            "España",
+            "Brasil",
+            "Alemania",
+            "Francia"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 106,
+        "pregunta": "¿En qué deporte se usa una tabla y olas? (Nivel Medio)",
+        "opciones": [
+            "Surf",
+            "Ski",
+            "Natación",
+            "Remo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 107,
+        "pregunta": "¿Qué deporte incluye saltos al agua? (Nivel Medio)",
+        "opciones": [
+            "Clavados",
+            "Remo",
+            "Vela",
+            "Waterpolo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 108,
+        "pregunta": "¿Qué deporte usa aro y driblar? (Nivel Medio)",
+        "opciones": [
+            "Baloncesto",
+            "Balonmano",
+            "Fútbol sala",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 109,
+        "pregunta": "¿Qué deporte se practica en ring? (Nivel Medio)",
+        "opciones": [
+            "Boxeo",
+            "Tenis",
+            "Natación",
+            "Ciclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 110,
+        "pregunta": "¿Qué deporte usa patines sobre hielo? (Nivel Medio)",
+        "opciones": [
+            "Hockey hielo",
+            "Curling",
+            "Esquí",
+            "Skate"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 111,
+        "pregunta": "¿Qué deporte usa arco y flecha? (Nivel Medio)",
+        "opciones": [
+            "Tiro con arco",
+            "Caza",
+            "Airsoft",
+            "Paintball"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 112,
+        "pregunta": "¿Qué deporte es la Fórmula 1? (Nivel Medio)",
+        "opciones": [
+            "Automovilismo",
+            "Ciclismo",
+            "Rally",
+            "Motociclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Media"
+    },
+    {
+        "id": 113,
+        "pregunta": "¿Quién pintó La Mona Lisa? (Nivel Medio)",
+        "opciones": [
+            "Da Vinci",
+            "Picasso",
+            "Dalí",
+            "Van Gogh"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 114,
+        "pregunta": "¿Quién pintó La noche estrellada? (Nivel Medio)",
+        "opciones": [
+            "Van Gogh",
+            "Monet",
+            "Da Vinci",
+            "Goya"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 115,
+        "pregunta": "¿Qué instrumento tocaba Mozart? (Nivel Medio)",
+        "opciones": [
+            "Piano",
+            "Violín",
+            "Arpa",
+            "Flauta"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 116,
+        "pregunta": "¿Qué arte usa arcilla? (Nivel Medio)",
+        "opciones": [
+            "Escultura",
+            "Pintura",
+            "Danza",
+            "Teatro"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 117,
+        "pregunta": "¿A qué arte pertenece El David? (Nivel Medio)",
+        "opciones": [
+            "Escultura",
+            "Música",
+            "Pintura",
+            "Arquitectura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 118,
+        "pregunta": "¿Quién pintó Guernica? (Nivel Medio)",
+        "opciones": [
+            "Picasso",
+            "Velázquez",
+            "Dalí",
+            "Monet"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 119,
+        "pregunta": "¿Qué arte usa lienzo y pinceles? (Nivel Medio)",
+        "opciones": [
+            "Pintura",
+            "Teatro",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 120,
+        "pregunta": "¿Qué país originó el flamenco? (Nivel Medio)",
+        "opciones": [
+            "España",
+            "México",
+            "Brasil",
+            "Italia"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 121,
+        "pregunta": "¿El “Requiem” es de qué compositor? (Nivel Medio)",
+        "opciones": [
+            "Mozart",
+            "Beethoven",
+            "Bach",
+            "Vivaldi"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 122,
+        "pregunta": "¿Quién pintó Las Meninas? (Nivel Medio)",
+        "opciones": [
+            "Velázquez",
+            "Goya",
+            "Rubens",
+            "Rafael"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 123,
+        "pregunta": "¿Qué arte usa notas musicales? (Nivel Medio)",
+        "opciones": [
+            "Música",
+            "Pintura",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 124,
+        "pregunta": "¿Qué escultura famosa no tiene brazos? (Nivel Medio)",
+        "opciones": [
+            "Venus de Milo",
+            "El David",
+            "La Piedad",
+            "Moai"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 125,
+        "pregunta": "¿Quién escribió El Quijote? (Nivel Medio)",
+        "opciones": [
+            "Cervantes",
+            "Shakespeare",
+            "Quevedo",
+            "Bécquer"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 126,
+        "pregunta": "¿Qué arte se presenta en un escenario? (Nivel Medio)",
+        "opciones": [
+            "Teatro",
+            "Poesía",
+            "Arquitectura",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Media"
+    },
+    {
+        "id": 127,
+        "pregunta": "¿Qué personaje vive en una piña bajo el mar? (Nivel Medio)",
+        "opciones": [
+            "Bob Esponja",
+            "Patricio",
+            "Calamardo",
+            "Arenita"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 128,
+        "pregunta": "¿De qué saga es el anillo único? (Nivel Medio)",
+        "opciones": [
+            "El Señor de los Anillos",
+            "Harry Potter",
+            "Narnia",
+            "Star Wars"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 129,
+        "pregunta": "¿Qué superhéroe es Bruce Wayne? (Nivel Medio)",
+        "opciones": [
+            "Batman",
+            "Superman",
+            "Flash",
+            "Iron Man"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 130,
+        "pregunta": "¿Qué película tiene a Woody y Buzz? (Nivel Medio)",
+        "opciones": [
+            "Toy Story",
+            "Cars",
+            "Shrek",
+            "Frozen"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 131,
+        "pregunta": "¿Qué cantante interpreta “Thriller”? (Nivel Medio)",
+        "opciones": [
+            "Michael Jackson",
+            "Prince",
+            "The Weeknd",
+            "Bruno Mars"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 132,
+        "pregunta": "¿En qué serie aparece Eleven? (Nivel Medio)",
+        "opciones": [
+            "Stranger Things",
+            "Dark",
+            "The Boys",
+            "Loki"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 133,
+        "pregunta": "¿Qué saga tiene sables láser? (Nivel Medio)",
+        "opciones": [
+            "Star Wars",
+            "Marvel",
+            "Matrix",
+            "Dune"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 134,
+        "pregunta": "¿Qué mago va a Hogwarts? (Nivel Medio)",
+        "opciones": [
+            "Harry Potter",
+            "Gandalf",
+            "Merlín",
+            "Strange"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 135,
+        "pregunta": "¿Qué dinosaurio es famoso en Jurassic Park? (Nivel Medio)",
+        "opciones": [
+            "T-Rex",
+            "Velociraptor",
+            "Triceratops",
+            "Spinosaurus"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 136,
+        "pregunta": "¿Qué personaje dice “Hakuna Matata”? (Nivel Medio)",
+        "opciones": [
+            "Timon y Pumba",
+            "Simba",
+            "Scar",
+            "Rafiki"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 137,
+        "pregunta": "¿Qué héroe usa traje de hierro? (Nivel Medio)",
+        "opciones": [
+            "Iron Man",
+            "Batman",
+            "Flash",
+            "Thor"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 138,
+        "pregunta": "¿Qué película tiene un ogro verde? (Nivel Medio)",
+        "opciones": [
+            "Shrek",
+            "Hulk",
+            "Kung Fu Panda",
+            "Ice Age"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 139,
+        "pregunta": "¿Qué saga incluye Pokebolas? (Nivel Medio)",
+        "opciones": [
+            "Pokémon",
+            "Digimon",
+            "Yu-Gi-Oh",
+            "Zelda"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 140,
+        "pregunta": "¿Quién es el capitán del Going Merry? (Nivel Medio)",
+        "opciones": [
+            "Luffy",
+            "Zoro",
+            "Sanji",
+            "Usopp"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Media"
+    },
+    {
+        "id": 141,
+        "pregunta": "¿En qué año comenzó la Primera Guerra Mundial? (Nivel Difícil)",
+        "opciones": [
+            "1914",
+            "1939",
+            "1898",
+            "1920"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 142,
+        "pregunta": "¿Quién fue el primer presidente de Estados Unidos? (Nivel Difícil)",
+        "opciones": [
+            "George Washington",
+            "Thomas Jefferson",
+            "Abraham Lincoln",
+            "John Adams"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 143,
+        "pregunta": "¿Qué imperio construyó las pirámides de Guiza? (Nivel Difícil)",
+        "opciones": [
+            "Egipto",
+            "Roma",
+            "Babilonia",
+            "Persia"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 144,
+        "pregunta": "¿En qué siglo ocurrió la conquista de América? (Nivel Difícil)",
+        "opciones": [
+            "XV",
+            "XVI",
+            "XVII",
+            "XIV"
+        ],
+        "respuesta": 1,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 145,
+        "pregunta": "¿Quién lideró la independencia de Colombia? (Nivel Difícil)",
+        "opciones": [
+            "Simón Bolívar",
+            "San Martín",
+            "Sucre",
+            "O'Higgins"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 146,
+        "pregunta": "¿Qué civilización creó Machu Picchu? (Nivel Difícil)",
+        "opciones": [
+            "Inca",
+            "Maya",
+            "Azteca",
+            "Olmeca"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 147,
+        "pregunta": "¿En qué país nació Napoleón Bonaparte? (Nivel Difícil)",
+        "opciones": [
+            "Francia",
+            "Italia",
+            "Córcega",
+            "España"
+        ],
+        "respuesta": 2,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 148,
+        "pregunta": "¿Qué muro cayó en 1989? (Nivel Difícil)",
+        "opciones": [
+            "Muro de Berlín",
+            "Muro de Varsovia",
+            "Muro de Roma",
+            "Muro de Viena"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 149,
+        "pregunta": "¿Quién descubrió América? (Nivel Difícil)",
+        "opciones": [
+            "Colón",
+            "Vespucci",
+            "Magallanes",
+            "Caboto"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 150,
+        "pregunta": "¿Qué civilización usaba jeroglíficos? (Nivel Difícil)",
+        "opciones": [
+            "Egipcia",
+            "Griega",
+            "Romana",
+            "Fenicia"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 151,
+        "pregunta": "¿Cuál era la capital del Imperio Romano? (Nivel Difícil)",
+        "opciones": [
+            "Roma",
+            "Atenas",
+            "Cartago",
+            "Pompeya"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 152,
+        "pregunta": "¿Quién fue Cleopatra? (Nivel Difícil)",
+        "opciones": [
+            "Reina egipcia",
+            "Filósofa",
+            "Guerra",
+            "Esclava"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 153,
+        "pregunta": "¿Qué país inició la Revolución Industrial? (Nivel Difícil)",
+        "opciones": [
+            "Inglaterra",
+            "Francia",
+            "Alemania",
+            "Estados Unidos"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 154,
+        "pregunta": "¿Qué nave llevó a Colón al “nuevo mundo”? (Nivel Difícil)",
+        "opciones": [
+            "Santa María",
+            "Mayflower",
+            "Victoria",
+            "Trinidad"
+        ],
+        "respuesta": 0,
+        "categoria": "Historia",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 155,
+        "pregunta": "¿Capital de Alemania? (Nivel Difícil)",
+        "opciones": [
+            "Berlín",
+            "Hamburgo",
+            "Fráncfort",
+            "Múnich"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 156,
+        "pregunta": "¿Capital de Japón? (Nivel Difícil)",
+        "opciones": [
+            "Tokio",
+            "Kioto",
+            "Osaka",
+            "Hiroshima"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 157,
+        "pregunta": "¿Capital de Canadá? (Nivel Difícil)",
+        "opciones": [
+            "Ottawa",
+            "Toronto",
+            "Vancouver",
+            "Montreal"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 158,
+        "pregunta": "¿Capital de Brasil? (Nivel Difícil)",
+        "opciones": [
+            "Brasilia",
+            "Río",
+            "Sao Paulo",
+            "Recife"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 159,
+        "pregunta": "¿Capital de Italia? (Nivel Difícil)",
+        "opciones": [
+            "Roma",
+            "Milán",
+            "Turín",
+            "Nápoles"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 160,
+        "pregunta": "¿Capital de España? (Nivel Difícil)",
+        "opciones": [
+            "Madrid",
+            "Barcelona",
+            "Valencia",
+            "Sevilla"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 161,
+        "pregunta": "¿Capital de Rusia? (Nivel Difícil)",
+        "opciones": [
+            "Moscú",
+            "San Petersburgo",
+            "Kiev",
+            "Novosibirsk"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 162,
+        "pregunta": "¿Capital de Australia? (Nivel Difícil)",
+        "opciones": [
+            "Canberra",
+            "Sídney",
+            "Melbourne",
+            "Perth"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 163,
+        "pregunta": "¿Capital de México? (Nivel Difícil)",
+        "opciones": [
+            "Ciudad de México",
+            "Guadalajara",
+            "Puebla",
+            "Monterrey"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 164,
+        "pregunta": "¿Capital de Perú? (Nivel Difícil)",
+        "opciones": [
+            "Lima",
+            "Cusco",
+            "Arequipa",
+            "Trujillo"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 165,
+        "pregunta": "¿Capital de China? (Nivel Difícil)",
+        "opciones": [
+            "Pekín",
+            "Shanghái",
+            "Cantón",
+            "Shenzhen"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 166,
+        "pregunta": "¿Capital de Argentina? (Nivel Difícil)",
+        "opciones": [
+            "Buenos Aires",
+            "Córdoba",
+            "Rosario",
+            "Mendoza"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 167,
+        "pregunta": "¿Capital de Grecia? (Nivel Difícil)",
+        "opciones": [
+            "Atenas",
+            "Esparta",
+            "Creta",
+            "Tesalónica"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 168,
+        "pregunta": "¿Capital de Corea del Sur? (Nivel Difícil)",
+        "opciones": [
+            "Seúl",
+            "Busan",
+            "Incheon",
+            "Daegu"
+        ],
+        "respuesta": 0,
+        "categoria": "Geografía",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 169,
+        "pregunta": "¿Cuántos jugadores tiene un equipo de fútbol en cancha? (Nivel Difícil)",
+        "opciones": [
+            "11",
+            "10",
+            "12",
+            "9"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 170,
+        "pregunta": "¿De qué país es originario el karate? (Nivel Difícil)",
+        "opciones": [
+            "Japón",
+            "China",
+            "Corea",
+            "Filipinas"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 171,
+        "pregunta": "¿Cuántos puntos vale un triple en baloncesto? (Nivel Difícil)",
+        "opciones": [
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 172,
+        "pregunta": "¿Qué deporte practica Lionel Messi? (Nivel Difícil)",
+        "opciones": [
+            "Fútbol",
+            "Básquet",
+            "Tenis",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 173,
+        "pregunta": "¿En qué deporte se usa un bate? (Nivel Difícil)",
+        "opciones": [
+            "Béisbol",
+            "Hockey",
+            "Críquet",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 174,
+        "pregunta": "¿Qué deporte se juega en Wimbledon? (Nivel Difícil)",
+        "opciones": [
+            "Tenis",
+            "Fútbol",
+            "Rugby",
+            "Golf"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 175,
+        "pregunta": "¿Qué selección ganó el mundial 2010? (Nivel Difícil)",
+        "opciones": [
+            "España",
+            "Brasil",
+            "Alemania",
+            "Francia"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 176,
+        "pregunta": "¿En qué deporte se usa una tabla y olas? (Nivel Difícil)",
+        "opciones": [
+            "Surf",
+            "Ski",
+            "Natación",
+            "Remo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 177,
+        "pregunta": "¿Qué deporte incluye saltos al agua? (Nivel Difícil)",
+        "opciones": [
+            "Clavados",
+            "Remo",
+            "Vela",
+            "Waterpolo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 178,
+        "pregunta": "¿Qué deporte usa aro y driblar? (Nivel Difícil)",
+        "opciones": [
+            "Baloncesto",
+            "Balonmano",
+            "Fútbol sala",
+            "Rugby"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 179,
+        "pregunta": "¿Qué deporte se practica en ring? (Nivel Difícil)",
+        "opciones": [
+            "Boxeo",
+            "Tenis",
+            "Natación",
+            "Ciclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 180,
+        "pregunta": "¿Qué deporte usa patines sobre hielo? (Nivel Difícil)",
+        "opciones": [
+            "Hockey hielo",
+            "Curling",
+            "Esquí",
+            "Skate"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 181,
+        "pregunta": "¿Qué deporte usa arco y flecha? (Nivel Difícil)",
+        "opciones": [
+            "Tiro con arco",
+            "Caza",
+            "Airsoft",
+            "Paintball"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 182,
+        "pregunta": "¿Qué deporte es la Fórmula 1? (Nivel Difícil)",
+        "opciones": [
+            "Automovilismo",
+            "Ciclismo",
+            "Rally",
+            "Motociclismo"
+        ],
+        "respuesta": 0,
+        "categoria": "Deportes",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 183,
+        "pregunta": "¿Quién pintó La Mona Lisa? (Nivel Difícil)",
+        "opciones": [
+            "Da Vinci",
+            "Picasso",
+            "Dalí",
+            "Van Gogh"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 184,
+        "pregunta": "¿Quién pintó La noche estrellada? (Nivel Difícil)",
+        "opciones": [
+            "Van Gogh",
+            "Monet",
+            "Da Vinci",
+            "Goya"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 185,
+        "pregunta": "¿Qué instrumento tocaba Mozart? (Nivel Difícil)",
+        "opciones": [
+            "Piano",
+            "Violín",
+            "Arpa",
+            "Flauta"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 186,
+        "pregunta": "¿Qué arte usa arcilla? (Nivel Difícil)",
+        "opciones": [
+            "Escultura",
+            "Pintura",
+            "Danza",
+            "Teatro"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 187,
+        "pregunta": "¿A qué arte pertenece El David? (Nivel Difícil)",
+        "opciones": [
+            "Escultura",
+            "Música",
+            "Pintura",
+            "Arquitectura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 188,
+        "pregunta": "¿Quién pintó Guernica? (Nivel Difícil)",
+        "opciones": [
+            "Picasso",
+            "Velázquez",
+            "Dalí",
+            "Monet"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 189,
+        "pregunta": "¿Qué arte usa lienzo y pinceles? (Nivel Difícil)",
+        "opciones": [
+            "Pintura",
+            "Teatro",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 190,
+        "pregunta": "¿Qué país originó el flamenco? (Nivel Difícil)",
+        "opciones": [
+            "España",
+            "México",
+            "Brasil",
+            "Italia"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 191,
+        "pregunta": "¿El “Requiem” es de qué compositor? (Nivel Difícil)",
+        "opciones": [
+            "Mozart",
+            "Beethoven",
+            "Bach",
+            "Vivaldi"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 192,
+        "pregunta": "¿Quién pintó Las Meninas? (Nivel Difícil)",
+        "opciones": [
+            "Velázquez",
+            "Goya",
+            "Rubens",
+            "Rafael"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 193,
+        "pregunta": "¿Qué arte usa notas musicales? (Nivel Difícil)",
+        "opciones": [
+            "Música",
+            "Pintura",
+            "Danza",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 194,
+        "pregunta": "¿Qué escultura famosa no tiene brazos? (Nivel Difícil)",
+        "opciones": [
+            "Venus de Milo",
+            "El David",
+            "La Piedad",
+            "Moai"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 195,
+        "pregunta": "¿Quién escribió El Quijote? (Nivel Difícil)",
+        "opciones": [
+            "Cervantes",
+            "Shakespeare",
+            "Quevedo",
+            "Bécquer"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 196,
+        "pregunta": "¿Qué arte se presenta en un escenario? (Nivel Difícil)",
+        "opciones": [
+            "Teatro",
+            "Poesía",
+            "Arquitectura",
+            "Escultura"
+        ],
+        "respuesta": 0,
+        "categoria": "Arte",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 197,
+        "pregunta": "¿Qué personaje vive en una piña bajo el mar? (Nivel Difícil)",
+        "opciones": [
+            "Bob Esponja",
+            "Patricio",
+            "Calamardo",
+            "Arenita"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 198,
+        "pregunta": "¿De qué saga es el anillo único? (Nivel Difícil)",
+        "opciones": [
+            "El Señor de los Anillos",
+            "Harry Potter",
+            "Narnia",
+            "Star Wars"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 199,
+        "pregunta": "¿Qué superhéroe es Bruce Wayne? (Nivel Difícil)",
+        "opciones": [
+            "Batman",
+            "Superman",
+            "Flash",
+            "Iron Man"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Difícil"
+    },
+    {
+        "id": 200,
+        "pregunta": "¿Qué película tiene a Woody y Buzz? (Nivel Difícil)",
+        "opciones": [
+            "Toy Story",
+            "Cars",
+            "Shrek",
+            "Frozen"
+        ],
+        "respuesta": 0,
+        "categoria": "Entretenimiento",
+        "dificultad": "Difícil"
     }
 ]

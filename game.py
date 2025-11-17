@@ -1,10 +1,15 @@
 import random
-from admin import cargar_preguntas
-from utils import mostrar_pregunta_bonita, console
-from utils import seleccionar_opcion
 import time
 
+from admin import cargar_preguntas
+from utils import mostrar_pregunta_bonita, console
+from utils import seleccionar_opcion, seleccionar_dificultad
+from auth import guardar_puntaje
 
+
+# ----------------------------------------------------
+#   SELECCIONAR PREGUNTAS
+# ----------------------------------------------------
 def seleccionar_preguntas(categoria=None, dificultad=None, cantidad=5):
     preguntas = cargar_preguntas()
 
@@ -18,48 +23,58 @@ def seleccionar_preguntas(categoria=None, dificultad=None, cantidad=5):
     return preguntas[:cantidad]
 
 
-def jugar_trivia():
+# ----------------------------------------------------
+#   MODO TRIVIA NORMAL
+# ----------------------------------------------------
+def jugar_trivia(usuario_actual):
     console.print("\n[bold green]=== MODO DE JUEGO: TRIVIA NORMAL ===[/bold green]\n")
 
-    preguntas = seleccionar_preguntas(cantidad=5)
+    dificultad = seleccionar_dificultad()
+
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=5)
 
     if not preguntas:
-        print("No hay preguntas disponibles")
+        console.print("[bold red] No hay preguntas para esa dificultad[/bold red]")
         return
 
     puntaje = 0
 
     for pregunta in preguntas:
-        # Título
         mostrar_pregunta_bonita(pregunta)
 
-        # Selección bonita
         respuesta = seleccionar_opcion(pregunta["opciones"], pregunta)
 
         if respuesta == pregunta["respuesta"]:
             console.print("[bold green]✔ Correcto![/bold green]")
             puntaje += 1
         else:
-            console.print("[bold red]✘ Incorrecto![/bold red] ")
+            console.print("[bold red]✘ Incorrecto![/bold red]")
         
-        time.sleep(2)
-        
+        time.sleep(1.5)
 
     console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
 
-def jugar_suicida():
+    guardar_puntaje(usuario_actual, "trivia", dificultad, puntaje)
+
+
+
+# ----------------------------------------------------
+#   MODO PUNTO SUICIDA
+# ----------------------------------------------------
+def jugar_suicida(usuario_actual):
     console.print("\n[bold green]=== MODO: PUNTO SUICIDA ===[/bold green]\n")
 
-    preguntas = seleccionar_preguntas(cantidad=20)
+    console.print("[cyan]Selecciona la dificultad:[/cyan]")
+    dificultad = seleccionar_dificultad()
+
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=20)
+
     puntaje = 0
 
     for pregunta in preguntas:
         mostrar_pregunta_bonita(pregunta)
 
-        try:
-            resp = int(input("Selecciona una opción (1-4): ")) - 1
-        except ValueError:
-            resp = -1
+        resp = seleccionar_opcion(pregunta["opciones"], pregunta)
 
         if resp == pregunta["respuesta"]:
             console.print("[green]✔ Correcto! Continúas...[/green]")
@@ -70,12 +85,20 @@ def jugar_suicida():
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
 
+    guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
 
-def jugar_contrarreloj():
-    import time
 
+
+# ----------------------------------------------------
+#   MODO CONTRARRELOJ
+# ----------------------------------------------------
+def jugar_contrarreloj(usuario_actual):
     console.print("\n[bold green]=== MODO: CONTRARRELOJ ===[/bold green]\n")
-    preguntas = seleccionar_preguntas(cantidad=10)
+
+    console.print("[cyan]Selecciona la dificultad:[/cyan]")
+    dificultad = seleccionar_dificultad()
+
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=10)
 
     tiempo_limite = 30
     inicio = time.time()
@@ -92,10 +115,7 @@ def jugar_contrarreloj():
         restante = tiempo_limite - tiempo_transcurrido
         console.print(f"[yellow]Tiempo restante: {restante:.1f}s[/yellow]")
 
-        try:
-            resp = int(input("Selecciona una opción (1-4): ")) - 1
-        except ValueError:
-            resp = -1
+        resp = seleccionar_opcion(pregunta["opciones"], pregunta)
 
         if resp == pregunta["respuesta"]:
             console.print("[green]✔ Correcto![/green]")
@@ -104,3 +124,5 @@ def jugar_contrarreloj():
             console.print("[red]✘ Incorrecto![/red]")
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
+
+    guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)
