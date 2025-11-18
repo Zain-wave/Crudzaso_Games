@@ -7,8 +7,12 @@ from rich.table import Table
 from rich.panel import Panel
 
 from admin import cargar_preguntas
-from utils import mostrar_pregunta_bonita, console
-from utils import seleccionar_opcion, seleccionar_dificultad
+from utils import (mezclar_opciones,
+                   seleccionar_opcion,
+                   seleccionar_dificultad,
+                   mostrar_pregunta_bonita,
+                   console
+                   )
 from auth import guardar_puntaje
 
 
@@ -45,9 +49,11 @@ def jugar_trivia(usuario_actual):
     puntaje = 0
 
     for pregunta in preguntas:
-        mostrar_pregunta_bonita(pregunta)
+        pregunta = mezclar_opciones(pregunta)
 
+        mostrar_pregunta_bonita(pregunta)
         respuesta = seleccionar_opcion(pregunta["opciones"], pregunta)
+
 
         if respuesta == pregunta["respuesta"]:
             console.print("[bold green]✔ Correcto![/bold green]")
@@ -76,9 +82,11 @@ def jugar_suicida(usuario_actual):
     puntaje = 0
 
     for pregunta in preguntas:
-        mostrar_pregunta_bonita(pregunta)
+        pregunta = mezclar_opciones(pregunta)   # <<<<<<<<<< NUEVO
 
+        mostrar_pregunta_bonita(pregunta)
         resp = seleccionar_opcion(pregunta["opciones"], pregunta)
+
 
         if resp == pregunta["respuesta"]:
             console.print("[green]✔ Correcto! Continúas...[/green]")

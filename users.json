@@ -56,6 +56,11 @@
                 "modo": "trivia",
                 "dificultad": "Fácil",
                 "puntaje": 4
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 2
             }
         ]
     },

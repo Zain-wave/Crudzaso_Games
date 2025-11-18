@@ -1,6 +1,7 @@
 import pygame
 import os
 import msvcrt
+import random
 from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
@@ -134,3 +135,59 @@ def seleccionar_dificultad():
         return "Media"
     else:
         return "Difícil"
+
+console = Console()
+
+def menu_vertical(titulo, opciones):
+    seleccion = 0
+    width = 40  # ancho fijo real
+
+    while True:
+        os.system("cls")
+
+        console.print("\n")
+        console.print(Align.center(f"[bold cyan]{titulo}[/bold cyan]"))
+        console.print("\n")
+
+        for i, opt in enumerate(opciones):
+            panel = Panel(
+                Align.center(f"[white]{opt}[/white]"),
+                border_style="bright_magenta" if i == seleccion else "white",
+                padding=(1, 2),
+                width=width
+            )
+
+            console.print("     ", panel, justify="center")
+
+        key = msvcrt.getch()
+
+        if key == b"\xe0":
+            k = msvcrt.getch()
+
+            if k == b"H":   # arriba
+                seleccion = (seleccion - 1) % len(opciones)
+            elif k == b"P":  # abajo
+                seleccion = (seleccion + 1) % len(opciones)
+
+        elif key == b"\r":
+            return seleccion + 1
+        
+def mezclar_opciones(pregunta):
+    opciones = pregunta["opciones"]
+    correcta = pregunta["respuesta"]
+
+    pares = list(enumerate(opciones))
+
+    random.shuffle(pares)
+
+    nueva_respuesta = next(
+        i for i, (idx_original, _) in enumerate(pares) if idx_original == correcta
+    )
+
+    nuevas_opciones = [texto for _, texto in pares]
+
+    pregunta["opciones"] = nuevas_opciones
+    pregunta["respuesta"] = nueva_respuesta
+
+    return pregunta
+
