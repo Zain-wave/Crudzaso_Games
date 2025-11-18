@@ -4,7 +4,7 @@ Cursdazo Trivia es un juego de trivia interactivo por consola, desarrollado comp
 
 ---
 
-## 📘 Descripción Breve
+# 📘 Descripción Breve
 
 Cursdazo Trivia es un juego tipo quiz donde los usuarios responden preguntas en diferentes categorías y niveles de dificultad.  
 Incluye:
@@ -21,7 +21,7 @@ Incluye:
 
 ---
 
-## 🚀 Instrucciones para Ejecutarlo
+# 🚀 Instrucciones para Ejecutarlo
 
 1. Instala **Python 3.10+**
 2. Instala las dependencias:
@@ -31,8 +31,9 @@ Incluye:
    ```bash
    python main.py
 
+---
 
-📚 Librerías Externas Utilizadas
+# 📚 Librerías Externas Utilizadas
 
 | Librería             | Uso                                                                |
 | -------------------- | ------------------------------------------------------------------ |
@@ -41,11 +42,13 @@ Incluye:
 | **msvcrt**           | Lectura inmediata de teclas en Windows                             |
 | **os / json / time** | Gestión interna de archivos, sesiones, puntuaciones y datos        |
 
-🗂️ Gestión de Información Implementada
+---
+
+# 🗂️ Gestión de Información Implementada
 
 El sistema usa una arquitectura modular que incluye:
 
-🔐 Autenticación
+## 🔐 Autenticación
 
 Archivos: auth.py, data.py
 
@@ -55,7 +58,7 @@ Validación de credenciales
 
 Almacenamiento en JSON
 
-🛠️ Administración
+## 🛠️ Administración
 
 Archivos: admin.py
 
@@ -65,7 +68,7 @@ Gestión de categorías y niveles
 
 Panel exclusivo para usuarios administradores
 
-🎮 Lógica del Juego
+## 🎮 Lógica del Juego
 
 Archivos: game.py
 Modos implementados:
@@ -76,7 +79,7 @@ Punto Suicida → Un error y pierdes
 
 Contrarreloj → Tiempo limitado por pregunta
 
-🧭 Menús e Interfaz
+## 🧭 Menús e Interfaz
 
 Archivos: menu.py, utils.py
 
@@ -88,16 +91,18 @@ Controles de entrada con msvcrt
 
 Música de fondo con pygame
 
-💾 Persistencia de Datos
+## 💾 Persistencia de Datos
 
 Preguntas guardadas en JSON
 
 Puntuaciones almacenadas por usuario
 
+---
+
+# 🧪 Escenarios de Prueba
 
 
-🧪 Escenarios de Prueba
-🟦 Escenario 1 — Inicio de Sesión Exitoso
+## Escenario 1 — Inicio de Sesión Exitoso
 
 Entrada:
 Usuario: juan
@@ -106,7 +111,7 @@ Contraseña: 1234
 Resultado Esperado:
 El sistema valida las credenciales, inicia la música, muestra el menú con el nickname del usuario y habilita los modos de juego.
 
-🟦 Escenario 2 — Trivia Normal (respuesta correcta)
+## Escenario 2 — Trivia Normal (respuesta correcta)
 
 Entrada:
 
@@ -124,7 +129,7 @@ Se muestra retroalimentación correcta.
 
 Se pasa a la siguiente pregunta.
 
-🟦 Escenario 3 — Modo Punto Suicida (respuesta incorrecta)
+## Escenario 3 — Modo Punto Suicida (respuesta incorrecta)
 
 Entrada:
 
@@ -140,6 +145,8 @@ Puntuación final mostrada.
 
 Se registra la partida en datos del usuario (si corresponde).
 
+
+---
 
 # 🧑‍💻 Crudzaso_Games   ------   Guía de Trabajo en Equipo con GitHub
 
