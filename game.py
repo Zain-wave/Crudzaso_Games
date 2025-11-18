@@ -175,14 +175,13 @@ def jugar_contrarreloj(usuario_actual):
 
                 time.sleep(0.05)
 
-        # Evaluar respuesta
         if resp == pregunta["respuesta"]:
             console.print("[bold green]✔ Correcto![/bold green]")
             puntaje += 1
         else:
             console.print("[bold red]✘ Incorrecto![/bold red]")
 
-        time.sleep(1.2)  # pequeño descanso antes de la siguiente pregunta
+        time.sleep(1.2)
 
     console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)
