@@ -35,12 +35,19 @@ Incluye:
 
 # 📚 Librerías Externas Utilizadas
 
-| Librería             | Uso                                                                |
-| -------------------- | ------------------------------------------------------------------ |
-| **Rich**             | Interfaz visual en consola (colores, paneles, tablas, animaciones) |
-| **pygame**           | Reproducción de música de fondo                                    |
-| **msvcrt**           | Lectura inmediata de teclas en Windows                             |
-| **os / json / time** | Gestión interna de archivos, sesiones, puntuaciones y datos        |
+# 📚 Librerías Utilizadas
+
+| Librería                 | Uso                                                                 |
+| ------------------------ | ------------------------------------------------------------------- |
+| **Rich**                 | Interfaz visual en consola (colores, paneles, tablas, animaciones)  |
+| **pygame**               | Reproducción de música de fondo                                     |
+| **readchar**             | Lectura multiplataforma de teclas (Windows, Mac, Linux)             |
+| **asyncio**              | Programación asíncrona                                              |
+| **multiprocessing**      | Ejecutar procesos en paralelo                                       |
+| **threading**            | Ejecutar hilos en paralelo                                          |
+| **queue**                | Manejo de colas de datos entre hilos/procesos                       |
+| **os / json / time**     | Gestión interna de archivos, sesiones, puntuaciones y datos         |
+
 
 ---
 
