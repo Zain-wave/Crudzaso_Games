@@ -103,7 +103,6 @@ def jugar_suicida(usuario_actual):
 # ----------------------------------------------------
 #   MODO CONTRARRELOJ
 # ----------------------------------------------------
-
 def jugar_contrarreloj(usuario_actual):
     console.print("\n[bold green]=== MODO: CONTRARRELOJ ===[/bold green]\n", justify="center")
 
@@ -112,28 +111,29 @@ def jugar_contrarreloj(usuario_actual):
     preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=10)
     puntaje = 0
 
+    tiempo_limite_total = 60
+    inicio = time.time()
+
+    key_queue = queue.Queue()
+
+    def capturar_teclas():
+        while True:
+            key = readchar.readkey()
+            key_queue.put(key)
+            if key == readchar.key.ENTER:
+                pass
+
+    hilo = threading.Thread(target=capturar_teclas, daemon=True)
+    hilo.start()
+
     for pregunta in preguntas:
         pregunta = mezclar_opciones(pregunta)
         seleccion = 0
         resp = None
-        inicio = time.time()
-        tiempo_limite = 30
-
-        key_queue = queue.Queue()
-
-        def capturar_teclas():
-            while True:
-                key = readchar.readkey()
-                key_queue.put(key)
-                if key == readchar.key.ENTER:
-                    break
-
-        hilo = threading.Thread(target=capturar_teclas, daemon=True)
-        hilo.start()
 
         with Live(console=console, refresh_per_second=10) as live:
             while resp is None:
-                tiempo_restante = tiempo_limite - (time.time() - inicio)
+                tiempo_restante = tiempo_limite_total - (time.time() - inicio)
                 if tiempo_restante <= 0:
                     live.update(Align.center("[bold red]⏳ Tiempo agotado![/bold red]"))
                     guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)

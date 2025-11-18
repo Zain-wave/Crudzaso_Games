@@ -1,9 +1,3 @@
-# {
-#     "usuario": "nombre_de_usuario",
-#     "contraseña": "hash_bcrypt",
-#     "puntuaciones": []
-# }
-
 import json
 import os
 import bcrypt

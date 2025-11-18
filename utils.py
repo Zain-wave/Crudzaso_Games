@@ -1,7 +1,7 @@
 import pygame
 import os
-import msvcrt
 import random
+import readchar
 from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
@@ -32,17 +32,16 @@ def iniciar_musica():
     except Exception as e:
         print(f"Error al reproducir música: {e}")
 
-
 def ajustar_volumen(volumen):
     if musica_iniciada:
         pygame.mixer.music.set_volume(volumen)
 
 def dar_formato_pregunta(pregunta): 
     dificultad_color = { 
-                        "facil": "green", 
-                        "media": "yellow", 
-                        "dificil": "red" 
-                        } 
+        "facil": "green", 
+        "media": "yellow", 
+        "dificil": "red" 
+    } 
     color = dificultad_color.get(pregunta['dificultad'].lower(), "white") 
     titulo = f"[b blue]ID {pregunta['id']} | {pregunta['categoria']}[/b blue]\n" 
     dificultad = f"[{color}]Dificultad: {pregunta['dificultad']}[/{color}]\n" 
@@ -56,91 +55,56 @@ def dar_formato_pregunta(pregunta):
     return titulo + dificultad + "\n" + cuerpo + opciones_str.strip()
 
 
-def mostrar_pregunta_bonita(pregunta, seleccion = None):
+def mostrar_pregunta_bonita(pregunta, seleccion=None):
     console.print("\n")
     console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
     console.print("\n")
 
-
-def seleccionar_opcion(opciones, pregunta = None):
+def seleccionar_opcion(opciones, pregunta=None):
     seleccion = 0
     while True:
 
+        os.system("cls")
         if pregunta == "dificultad":
-            os.system("cls")
-            
             console.print("\n")
             console.print(Align.center("[bold cyan]Selecciona la dificultad[/bold cyan]"))
             console.print("\n")
-            pass
         elif pregunta:
-            os.system("cls")
             console.print("\n")
             console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
             console.print("\n")
 
-
-        
         tabla = Table(show_header=False, box=None, padding=(0, 2))
         for _ in opciones:
             tabla.add_column(justify="center")
 
         botones = []
         for i, opt in enumerate(opciones):
-            if i == seleccion:
-                panel = Panel(
-                    f"[bold yellow]{i+1}. {opt}[/bold yellow]",
-                    border_style="bright_magenta",
-                    padding=(0, 2),
-                    expand=False
-                )
-            else:
-                panel = Panel(
-                    f"[white]{i+1}. {opt}[/white]",
-                    border_style="white",
-                    padding=(0, 2),
-                    expand=False
-                )
+            color = "bold yellow" if i == seleccion else "white"
+            border = "bright_magenta" if i == seleccion else "white"
+            panel = Panel(f"[{color}]{i+1}. {opt}[/{color}]", border_style=border, padding=(0, 2), expand=False)
             botones.append(panel)
 
         tabla.add_row(*botones)
         console.print("\n")
         console.print(Align.center(tabla))
 
-        key = msvcrt.getch()
-
-        # Flechas
-        if key == b'\xe0':
-            flecha = msvcrt.getch()
-
-            if flecha == b'K':   # Izquierda
-                seleccion = (seleccion - 1) % len(opciones)
-
-            elif flecha == b'M':  # Derecha
-                seleccion = (seleccion + 1) % len(opciones)
-
-        # ENTER
-        elif key == b'\r':
+        key = readchar.readkey()
+        if key == readchar.key.LEFT:
+            seleccion = (seleccion - 1) % len(opciones)
+        elif key == readchar.key.RIGHT:
+            seleccion = (seleccion + 1) % len(opciones)
+        elif key == readchar.key.ENTER:
             return seleccion
-        
-        
+
 def seleccionar_dificultad():
     opciones = ["Fácil", "Media", "Difícil"]
-    
     seleccion = seleccionar_opcion(opciones, "dificultad")
-
-    if seleccion == 0:
-        return "Fácil"
-    elif seleccion == 1:
-        return "Media"
-    else:
-        return "Difícil"
-
-console = Console()
+    return opciones[seleccion]
 
 def menu_vertical(titulo, opciones):
     seleccion = 0
-    width = 40  # ancho fijo real
+    width = 40
 
     while True:
         os.system("cls")
@@ -156,28 +120,21 @@ def menu_vertical(titulo, opciones):
                 padding=(1, 2),
                 width=width
             )
-
             console.print("     ", panel, justify="center")
 
-        key = msvcrt.getch()
-
-        if key == b"\xe0":
-            k = msvcrt.getch()
-
-            if k == b"H":   # arriba
-                seleccion = (seleccion - 1) % len(opciones)
-            elif k == b"P":  # abajo
-                seleccion = (seleccion + 1) % len(opciones)
-
-        elif key == b"\r":
+        key = readchar.readkey()
+        if key == readchar.key.UP:
+            seleccion = (seleccion - 1) % len(opciones)
+        elif key == readchar.key.DOWN:
+            seleccion = (seleccion + 1) % len(opciones)
+        elif key == readchar.key.ENTER:
             return seleccion + 1
-        
+
 def mezclar_opciones(pregunta):
     opciones = pregunta["opciones"]
     correcta = pregunta["respuesta"]
 
     pares = list(enumerate(opciones))
-
     random.shuffle(pares)
 
     nueva_respuesta = next(
@@ -190,4 +147,3 @@ def mezclar_opciones(pregunta):
     pregunta["respuesta"] = nueva_respuesta
 
     return pregunta
-
