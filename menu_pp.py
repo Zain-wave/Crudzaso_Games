@@ -113,9 +113,8 @@ def menu(usuario_actual=None):
         print("2. Puntuación")
         print("3. Jugar Punto Suicida")
         print("4. Jugar Contrarreloj")
-        print("5. Randomize")
-        print("6. Top Global")
-        print("7. Cerrar sesión / Volver al menú principal\n")
+        print("5. Top Global")
+        print("6. Cerrar sesión / Volver al menú principal\n")
 
         opcion_juego = input("Selecciona una opción (1-6): ").strip()
 
@@ -126,13 +125,10 @@ def menu(usuario_actual=None):
         elif opcion_juego == "3":
             jugar_suicida(usuario_actual)
         elif opcion_juego == "4":
-            #jugar_contrarreloj(usuario_actual)
-            print("En desarrollo")
+            jugar_contrarreloj(usuario_actual)
         elif opcion_juego == "5":
-            print("En desarrollo")
-        elif opcion_juego == "6":
             mostrar_top_global()
-        elif opcion_juego == "7":
+        elif opcion_juego == "6":
             print("\nCerrando sesión...\n")
             break
         else:

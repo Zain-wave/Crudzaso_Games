@@ -61,6 +61,41 @@
                 "modo": "trivia",
                 "dificultad": "Fácil",
                 "puntaje": 2
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Media",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Media",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 4
             }
         ]
     },
