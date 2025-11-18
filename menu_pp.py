@@ -133,4 +133,5 @@ def menu(usuario_actual=None):
             mostrar_top_global()
         elif seleccion == 6:
             console.print("\n[bold cyan]Cerrando sesión...[/bold cyan]\n")
-            break
+            readchar.readkey()
+            return False

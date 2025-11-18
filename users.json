@@ -151,6 +151,16 @@
                 "modo": "suicida",
                 "dificultad": "Fácil",
                 "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 1
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
             }
         ]
     },
