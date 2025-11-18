@@ -26,7 +26,7 @@ Incluye:
 1. Instala **Python 3.10+**
 2. Instala las dependencias:
    ```bash
-   pip install rich pygame
+   pip install rich pygame readchar
 3. Ejecuta el juego
    ```bash
    python main.py
@@ -145,6 +145,11 @@ Puntuación final mostrada.
 
 Se registra la partida en datos del usuario (si corresponde).
 
+---
+
+# 🔀 Diagrama de flujo
+
+![Diagrama de flujo](triviagame.png)
 
 ---
 
