@@ -1,7 +1,7 @@
+import readchar
 import pygame
 import os
 import random
-import readchar
 from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
@@ -147,3 +147,7 @@ def mezclar_opciones(pregunta):
     pregunta["respuesta"] = nueva_respuesta
 
     return pregunta
+
+def esperar_tecla():
+    console.print("\n[bold cyan]Presiona cualquier tecla para continuar...[/bold cyan]")
+    readchar.readkey()

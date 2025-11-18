@@ -1,6 +1,7 @@
 import json
 import os
 import bcrypt
+from utils import esperar_tecla
 
 ARCHIVO_USUARIOS = "users.json"
 
@@ -35,6 +36,7 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
     usuarios.append(nuevo_usuario)
     guardar_usuarios(usuarios)
     print(f"Usuario '{nombre_usuario}' creado correctamente.")
+    esperar_tecla()
     return True
 
 def iniciar_sesion(nombre_usuario: str, contraseña: str):
@@ -43,6 +45,7 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
 
     if not usuario:
         print("Usuario no existe")
+        esperar_tecla()
         return None
 
     if bcrypt.checkpw(contraseña.encode('utf-8'), usuario["contraseña"].encode('utf-8')):
@@ -50,6 +53,7 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
         return usuario
     else:
         print("Contraseña incorrecta.")
+        esperar_tecla()
         return None
 
 def guardar_puntaje(usuario_actual, modo, dificultad, puntaje):

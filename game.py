@@ -17,26 +17,22 @@ from utils import (
     seleccionar_opcion,
     seleccionar_dificultad,
     mostrar_pregunta_bonita,
-    console
+    console,
+    esperar_tecla
 )
 from auth import guardar_puntaje
-
 
 # ----------------------------------------------------
 #   SELECCIONAR PREGUNTAS
 # ----------------------------------------------------
 def seleccionar_preguntas(categoria=None, dificultad=None, cantidad=5):
     preguntas = cargar_preguntas()
-
     if categoria:
         preguntas = [p for p in preguntas if p["categoria"].lower() == categoria.lower()]
-
     if dificultad:
         preguntas = [p for p in preguntas if p["dificultad"].lower() == dificultad.lower()]
-
     random.shuffle(preguntas)
     return preguntas[:cantidad]
-
 
 # ----------------------------------------------------
 #   MODO TRIVIA NORMAL
@@ -50,13 +46,13 @@ def jugar_trivia(usuario_actual):
 
     if not preguntas:
         console.print("[bold red] No hay preguntas para esa dificultad[/bold red]")
+        esperar_tecla()
         return
 
     puntaje = 0
 
     for pregunta in preguntas:
         pregunta = mezclar_opciones(pregunta)
-
         mostrar_pregunta_bonita(pregunta)
         respuesta = seleccionar_opcion(pregunta["opciones"], pregunta)
 
@@ -70,7 +66,7 @@ def jugar_trivia(usuario_actual):
 
     console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "trivia", dificultad, puntaje)
-
+    esperar_tecla()
 
 # ----------------------------------------------------
 #   MODO PUNTO SUICIDA
@@ -98,7 +94,7 @@ def jugar_suicida(usuario_actual):
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
-
+    esperar_tecla()
 
 # ----------------------------------------------------
 #   MODO CONTRARRELOJ
@@ -113,7 +109,6 @@ def jugar_contrarreloj(usuario_actual):
 
     tiempo_limite_total = 60
     inicio = time.time()
-
     key_queue = queue.Queue()
 
     def capturar_teclas():
@@ -137,6 +132,7 @@ def jugar_contrarreloj(usuario_actual):
                 if tiempo_restante <= 0:
                     live.update(Align.center("[bold red]⏳ Tiempo agotado![/bold red]"))
                     guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)
+                    esperar_tecla()
                     return
 
                 encabezado = Table.grid(expand=True)
@@ -185,3 +181,4 @@ def jugar_contrarreloj(usuario_actual):
 
     console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)
+    esperar_tecla()

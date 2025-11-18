@@ -5,16 +5,16 @@ from game import (
 )
 import os
 import json
-from rich.console import Console
+import readchar
 from rich.table import Table
-
-console = Console()
+from utils import menu_vertical, console
 
 def mostrar_puntuaciones(usuario_actual):
     ruta = "users.json"
 
     if not os.path.exists(ruta):
         console.print("\n[bold yellow] No existe el archivo users.json[/bold yellow]\n")
+        readchar.readkey()
         return
 
     with open(ruta, "r", encoding="utf-8") as f:
@@ -24,12 +24,14 @@ def mostrar_puntuaciones(usuario_actual):
 
     if not usuario:
         console.print("\n[bold red] Usuario no encontrado.[/bold red]\n")
+        readchar.readkey()
         return
 
     puntuaciones = usuario.get("puntuaciones", [])
 
     if not puntuaciones:
         console.print(f"\n[bold yellow] {usuario_actual['usuario']} no tiene puntuaciones registradas.[/bold yellow]\n")
+        readchar.readkey()
         return
 
     tabla = Table(title=f"Puntuaciones de {usuario_actual['usuario']}", header_style="bold magenta")
@@ -46,13 +48,16 @@ def mostrar_puntuaciones(usuario_actual):
 
     console.print("\n")
     console.print(tabla)
-    console.print("\n")
-    
+    console.print("\n[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]")
+    readchar.readkey()
+
+
 def mostrar_top_global():
     ruta = "users.json"
 
     if not os.path.exists(ruta):
         console.print("\n[bold yellow] No existe el archivo users.json[/bold yellow]\n")
+        readchar.readkey()
         return
 
     with open(ruta, "r", encoding="utf-8") as f:
@@ -71,9 +76,7 @@ def mostrar_top_global():
         puntuaciones = u.get("puntuaciones", [])
         if not puntuaciones:
             continue
-
         mejor = max(puntuaciones, key=lambda p: p["puntaje"])
-
         ranking.append({
             "usuario": u["usuario"],
             "puntaje": mejor["puntaje"],
@@ -83,6 +86,7 @@ def mostrar_top_global():
 
     if not ranking:
         console.print("\n[bold yellow] No hay puntuaciones registradas aún.[/bold yellow]\n")
+        readchar.readkey()
         return
 
     ranking.sort(key=lambda x: x["puntaje"], reverse=True)
@@ -98,38 +102,35 @@ def mostrar_top_global():
 
     console.print("\n")
     console.print(tabla)
-    console.print("\n")
+    console.print("\n[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]")
+    readchar.readkey()
 
 
 def menu(usuario_actual=None):
     nick = usuario_actual.get("usuario") if usuario_actual else "Invitado"
 
     while True:
-        print("\n==================================")
-        print(f"=      Menú de Juego - {nick}       =")
-        print("==================================\n")
+        opciones = [
+            "Iniciar juego (Trivia Normal)",
+            "Ver puntuaciones",
+            "Jugar Punto Suicida",
+            "Jugar Contrarreloj",
+            "Top Global",
+            "Cerrar sesión / Volver al menú principal"
+        ]
 
-        print("1. Iniciar juego (Trivia Normal)")
-        print("2. Puntuación")
-        print("3. Jugar Punto Suicida")
-        print("4. Jugar Contrarreloj")
-        print("5. Top Global")
-        print("6. Cerrar sesión / Volver al menú principal\n")
+        seleccion = menu_vertical(f"Menú de Juego - {nick}", opciones)
 
-        opcion_juego = input("Selecciona una opción (1-6): ").strip()
-
-        if opcion_juego == "1":
+        if seleccion == 1:
             jugar_trivia(usuario_actual)
-        elif opcion_juego == "2":
+        elif seleccion == 2:
             mostrar_puntuaciones(usuario_actual)
-        elif opcion_juego == "3":
+        elif seleccion == 3:
             jugar_suicida(usuario_actual)
-        elif opcion_juego == "4":
+        elif seleccion == 4:
             jugar_contrarreloj(usuario_actual)
-        elif opcion_juego == "5":
+        elif seleccion == 5:
             mostrar_top_global()
-        elif opcion_juego == "6":
-            print("\nCerrando sesión...\n")
+        elif seleccion == 6:
+            console.print("\n[bold cyan]Cerrando sesión...[/bold cyan]\n")
             break
-        else:
-            print("Opción no válida.")

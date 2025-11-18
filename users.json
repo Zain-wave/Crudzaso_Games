@@ -96,6 +96,61 @@
                 "modo": "trivia",
                 "dificultad": "Fácil",
                 "puntaje": 4
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 5
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 4
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 5
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 2
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 1
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 3
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 2
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
             }
         ]
     },

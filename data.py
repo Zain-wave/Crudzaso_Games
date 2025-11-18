@@ -1,3 +1,5 @@
+from utils import esperar_tecla
+
 def tiene_numero(cadena: str) -> bool:
     return any(char.isdigit() for char in cadena)
 
@@ -34,6 +36,7 @@ def registrar():
     print(f"Nombre real: {nombre}")
     print(f"Usuario: {nombre_usuario}")
     print ("==================================")
+    esperar_tecla()
 
 
     return nombre_usuario, contraseña
