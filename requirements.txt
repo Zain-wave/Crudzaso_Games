@@ -1,5 +1,4 @@
-json
-os
 bcrypt
 rich
 simpleaudio
+readchar

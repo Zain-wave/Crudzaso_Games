@@ -161,6 +161,51 @@
                 "modo": "suicida",
                 "dificultad": "Fácil",
                 "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 6
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Difícil",
+                "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Difícil",
+                "puntaje": 3
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 5
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 3
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Media",
+                "puntaje": 3
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Difícil",
+                "puntaje": 2
             }
         ]
     },
@@ -175,5 +220,49 @@
         "contraseña": "$2b$12$wTXaAd5DFevBXdNLLKCn9O474RDNe8vYCtdYLH.xrcJ7vORrTEzsK",
         "rol": "user",
         "puntuaciones": []
+    },
+    {
+        "usuario": "GUEVINN",
+        "contraseña": "$2b$12$6E6dJEgPZlDOQl1q77AlXO27A3xPIjnyl32QqTrp0aeEHxc6zIYCK",
+        "rol": "user",
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "Media",
+                "puntaje": 5
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Media",
+                "puntaje": 0
+            },
+            {
+                "modo": "contrarreloj",
+                "dificultad": "Fácil",
+                "puntaje": 4
+            }
+        ]
+    },
+    {
+        "usuario": "smv",
+        "contraseña": "$2b$12$R84YdJu3NSAkXdqqJdTZguN8OULI.AW1RaLrLQxR24PkZg/hlCmNm",
+        "rol": "user",
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 3
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Difícil",
+                "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            }
+        ]
     }
 ]

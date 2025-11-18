@@ -76,7 +76,7 @@ def jugar_suicida(usuario_actual):
 
     dificultad = seleccionar_dificultad()
     os.system("cls")
-    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=20)
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=50)
 
     puntaje = 0
 
@@ -104,10 +104,10 @@ def jugar_contrarreloj(usuario_actual):
 
     dificultad = seleccionar_dificultad()
     os.system("cls")
-    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=10)
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=50)
     puntaje = 0
 
-    tiempo_limite_total = 60
+    tiempo_limite_total = 30
     inicio = time.time()
     key_queue = queue.Queue()
 
