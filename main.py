@@ -75,27 +75,28 @@ def main():
 
             match opcion:
                 case 1:
-                    opcion_login = menu_vertical(
-                        "Iniciar Sesión", 
-                        ["Ingresar usuario y contraseña", "Volver"]
-                    )
-                    if opcion_login == 1:
-                        usuario, contraseña = log_in()
-                        datos_usuario = iniciar_sesion(usuario, contraseña)
+                        opcion_login = menu_vertical(
+                            "Iniciar Sesión", 
+                            ["Ingresar usuario y contraseña", "Volver"]
+                        )
+                        if opcion_login == 1:
+                            usuario, contraseña = log_in()
+                            datos_usuario = iniciar_sesion(usuario, contraseña)
 
-                        if datos_usuario:
-                            usuario_actual = datos_usuario
-
-                            if datos_usuario["rol"] == "admin":
-                                menu_admin()
-                                usuario_actual = None
-                            else:
-                                resultado = menu(usuario_actual)
-                                if resultado is False:
+                            if datos_usuario:
+                                usuario_actual = datos_usuario
+                                os.system("cls")
+                                
+                                if datos_usuario["rol"] == "admin":
+                                    menu_admin()
                                     usuario_actual = None
-                        else:
-                            print("\nUsuario o contraseña incorrectos.\n")
-                            readchar.readkey()
+                                else:
+                                    resultado = menu(usuario_actual)
+                                    if resultado is False:
+                                        usuario_actual = None
+                            else:
+                                print("\n❌ Usuario o contraseña incorrectos.\n")
+                                readchar.readkey()
 
                 case 2:
                     opcion_registro = menu_vertical(

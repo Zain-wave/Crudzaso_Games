@@ -178,5 +178,37 @@
         "puntuaciones": [],
         "puntos": 0,
         "logros": []
+    },
+    {
+        "usuario": "pepito",
+        "contraseña": "$2b$12$bvoMmz8nXeKtHxB4hBax/.N2NTYysMDZvqLI9fv968gEC1r8eLH8m",
+        "rol": "user",
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 2
+            }
+        ],
+        "puntos": 35,
+        "logros": [
+            "primer_juego"
+        ]
+    },
+    {
+        "usuario": "11",
+        "contraseña": "$2b$12$Z3Eb.juu6ASOhCDRmpMJG.kbCVj0jIYSv4d/eHyGn7dbm8vCXSd76",
+        "rol": "user",
+        "puntuaciones": [],
+        "puntos": 0,
+        "logros": []
+    },
+    {
+        "usuario": "ff",
+        "contraseña": "$2b$12$BquHQdMZp5ZD7IGW408f7.j.570hb4CjUOHYaDDdMfwixefXqiJIa",
+        "rol": "user",
+        "puntuaciones": [],
+        "puntos": 0,
+        "logros": []
     }
 ]

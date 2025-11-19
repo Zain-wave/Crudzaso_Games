@@ -351,3 +351,45 @@ def ofrecer_pista(usuario_actual, pregunta_actual):
                 
         elif key == '3':
             return pregunta_actual
+        
+def input_con_asteriscos(prompt="Contraseña: "):
+
+    from rich.console import Console
+    console = Console()
+    
+    console.print(f"[dim]{prompt}[/dim]", end="")
+    
+    contraseña = []
+    caracteres_escritos = 0
+    
+    while True:
+        try:
+            tecla = readchar.readkey()
+            
+            if tecla == readchar.key.ENTER:
+                console.print("")
+                break
+                
+            elif tecla in [readchar.key.BACKSPACE, '\b', '\x7f']:
+                if contraseña:
+                    contraseña.pop()
+                    caracteres_escritos -= 1
+                    console.print("\b \b", end="", style="white")
+                    
+            else:
+                if tecla.isprintable() and len(tecla) == 1:
+                    contraseña.append(tecla)
+                    caracteres_escritos += 1
+                    console.print("*", end="", style="yellow")
+                    
+        except KeyboardInterrupt:
+            console.print("\n\n[red]Operación cancelada por el usuario[/red]")
+            return None
+        except Exception as e:
+            console.print(f"\n[red]Error: {e}[/red]")
+            return None
+    
+    if contraseña:
+        console.print("[green]✓ Contraseña ingresada[/green]")
+    
+    return ''.join(contraseña)
