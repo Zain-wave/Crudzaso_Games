@@ -130,7 +130,7 @@ def seleccionar_dificultad(modo="trivia"):
     seleccion = 0
 
     descripciones = {
-        "trivia": "🎯 Responde 5 preguntas. Gana 5 puntos por cada acierto. Usa pistas para ayudarte.",
+        "trivia": "🎯 Responde preguntas con sistema de vidas. Fácil=3 vidas, Media=2 vidas, Difícil=1 vida",
         "suicida": "💀 Responde hasta que falles. Un error y el juego termina. ¡Consigue la mayor racha!",
         "historia": "📜 Viaja a través de épocas históricas y responde preguntas temáticas."
     }
@@ -395,3 +395,13 @@ def input_con_asteriscos(prompt="Contraseña: "):
         console.print("[green]✓ Contraseña ingresada[/green]")
     
     return ''.join(contraseña)
+
+def mostrar_progreso(texto, porcentaje, ancho=40):
+    bloques = int(porcentaje * ancho / 100)
+    barra = "█" * bloques + "░" * (ancho - bloques)
+    console.print(f"{texto} [{barra}] {porcentaje:.1f}%")
+
+def animacion_carga(texto, duracion=2):
+    with console.status(f"[bold green]{texto}[/bold green]") as status:
+        for i in range(duracion * 10):
+            time.sleep(0.1)

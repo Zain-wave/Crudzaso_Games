@@ -15,7 +15,9 @@ from utils import (
     ofrecer_pista,
     seleccionar_dificultad,
     console,
-    esperar_tecla
+    esperar_tecla,
+    mostrar_progreso,
+    animacion_carga
 )
 from auth import guardar_puntaje
 
@@ -91,13 +93,23 @@ def seleccionar_opcion_con_pistas(opciones, pregunta, usuario_actual):
 def jugar_trivia(usuario_actual):
     console.print("\n[bold green]=== MODO DE JUEGO: TRIVIA NORMAL ===[/bold green]\n")
     
+    animacion_carga("Cargando preguntas...", 1)
+    
     puntos = obtener_puntos(usuario_actual)
     console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
     console.print("[yellow]Durante el juego presiona 'P' para usar pistas[/yellow]\n")
 
     dificultad = seleccionar_dificultad("trivia")
     os.system("cls")
-    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=5)
+    
+    vidas_por_dificultad = {
+        "Fácil": 3,
+        "Media": 2, 
+        "Difícil": 1
+    }
+    vidas = vidas_por_dificultad.get(dificultad, 2)
+    
+    preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=10)
     
     if not preguntas:
         console.print("[bold red] No hay preguntas para esa dificultad[/bold red]")
@@ -105,8 +117,16 @@ def jugar_trivia(usuario_actual):
         return
     
     puntaje = 0
+    pregunta_actual_num = 0
     
     for pregunta in preguntas:
+        pregunta_actual_num += 1
+        
+        progreso = (pregunta_actual_num / len(preguntas)) * 100
+        mostrar_progreso("Progreso del juego", progreso)
+        console.print(f"[red]❤️  Vidas: {vidas}[/red]")
+        console.print(f"[yellow]📊 Puntuación actual: {puntaje}[/yellow]\n")
+        
         if 'pregunta' not in pregunta or 'opciones' not in pregunta or 'respuesta' not in pregunta:
             console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
             continue
@@ -118,15 +138,37 @@ def jugar_trivia(usuario_actual):
         if respuesta == pregunta_actual["respuesta"]:
             console.print("[bold green]✔ Correcto! +5 puntos[/bold green]")
             puntaje += 1
+            
+            if puntaje % 3 == 0:
+                console.print("[bold yellow]🎯 ¡Racha! +2 puntos extra[/bold yellow]")
+                puntaje += 2
         else:
             console.print("[bold red]✘ Incorrecto![/bold red]")
             console.print(f"[green]La respuesta correcta era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
+            vidas -= 1
+            
+            if vidas <= 0:
+                console.print("\n[bold red]💀 ¡Te has quedado sin vidas! Juego terminado.[/bold red]")
+                break
 
-        time.sleep(2)
+        time.sleep(1.5)
+        os.system("cls")
+        
+        if pregunta_actual_num >= len(preguntas):
+            console.print("[bold green]🎉 ¡Has completado todas las preguntas![/bold green]")
+            break
+
+    animacion_carga("Calculando resultados...", 1)
     
     puntos_ganados = puntaje * 5
-    console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]")
+    console.print(f"\n[bold magenta]Juego terminado. Preguntas acertadas: {puntaje}/{pregunta_actual_num}[/bold magenta]")
     console.print(f"[bold green]Puntos ganados: +{puntos_ganados}[/bold green]")
+    console.print(f"[cyan]Vidas restantes: {vidas}[/cyan]")
+    
+    if vidas > 0:
+        bonus_vidas = vidas * 10
+        console.print(f"[bold yellow]⭐ Bonus por vidas restantes: +{bonus_vidas} puntos[/bold yellow]")
+        puntos_ganados += bonus_vidas
     
     guardar_puntaje(usuario_actual, "trivia", dificultad, puntaje)
     logros_desbloqueados = []
@@ -141,9 +183,10 @@ def jugar_trivia(usuario_actual):
 # ----------------------------------------------------
 #   MODO PUNTO SUICIDA
 # ----------------------------------------------------
-
 def jugar_suicida(usuario_actual):
     console.print("\n[bold green]=== MODO: PUNTO SUICIDA ===[/bold green]\n")
+    
+    animacion_carga("Preparando modo suicida...", 1)
 
     puntos = obtener_puntos(usuario_actual)
     console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
@@ -159,8 +202,15 @@ def jugar_suicida(usuario_actual):
         return
 
     puntaje = 0
+    racha_actual = 0
+    mejor_racha = 0
 
-    for pregunta in preguntas:
+    for i, pregunta in enumerate(preguntas, 1):
+        console.print(f"[bold cyan]Pregunta #{i}[/bold cyan]")
+        console.print(f"[green]🔥 Racha actual: {racha_actual}[/green]")
+        console.print(f"[yellow]🏆 Mejor racha: {mejor_racha}[/yellow]")
+        console.print(f"[red]💀 Modo: Un error y pierdes[/red]\n")
+        
         if 'pregunta' not in pregunta or 'opciones' not in pregunta or 'respuesta' not in pregunta:
             console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
             continue
@@ -172,12 +222,28 @@ def jugar_suicida(usuario_actual):
         if respuesta == pregunta_actual["respuesta"]:
             console.print("[green]✔ Correcto! Continúas...[/green]")
             puntaje += 1
+            racha_actual += 1
+            mejor_racha = max(mejor_racha, racha_actual)
+            
+            if racha_actual % 5 == 0:
+                console.print(f"[bold yellow]🎯 ¡Increíble! Racha de {racha_actual} preguntas[/bold yellow]")
         else:
             console.print("[red]✘ Incorrecto! Fin del juego.[/red]")
             console.print(f"[green]La respuesta correcta era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
             break
 
-    console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
+        time.sleep(1)
+        os.system("cls")
+
+    animacion_carga("Calculando tu desempeño...", 1)
+    
+    console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]")
+    console.print(f"[bold yellow]Mejor racha: {mejor_racha}[/bold yellow]")
+    
+    if mejor_racha >= 10:
+        bonus_racha = mejor_racha * 2
+        console.print(f"[bold green]🌟 Bonus por racha larga: +{bonus_racha} puntos[/bold green]")
+    
     guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
     logros_desbloqueados = []
     logros_desbloqueados.extend(verificar_logros_suicida(usuario_actual, puntaje))
@@ -193,6 +259,8 @@ def jugar_suicida(usuario_actual):
 # ----------------------------------------------------
 def jugar_modo_historia(usuario_actual):
     console.print("\n[bold green]=== MODO: VIAJE EN EL TIEMPO ===[/bold green]\n")
+    
+    animacion_carga("Preparando máquina del tiempo...", 2)
     
     try:
         with open("categorias_historia.json", "r", encoding="utf-8") as f:
@@ -216,15 +284,18 @@ def jugar_modo_historia(usuario_actual):
     seleccion = seleccionar_opcion(opciones_epocas, "Selecciona una época histórica")
     epoca_seleccionada = epocas[seleccion]
     
-    console.print(f"\n[bold cyan]Viajando a: {epoca_seleccionada['nombre']}[/bold cyan]")
+    console.print(f"\n[bold cyan]🕰️  Viajando a: {epoca_seleccionada['nombre']}[/bold cyan]")
+    animacion_carga(f"Transportándote a {epoca_seleccionada['nombre']}...", 2)
+    
     console.print(f"[dim]Categorías: {', '.join(epoca_seleccionada['categorias'])}[/dim]")
-    time.sleep(2)
+    time.sleep(1)
     os.system("cls")
 
     todas_preguntas = cargar_preguntas()
     preguntas_epoca = []
     
-    console.print("[yellow]Buscando preguntas de la época...[/yellow]")
+    console.print("[yellow]Buscando artefactos históricos...[/yellow]")
+    animacion_carga("Recopilando conocimiento histórico...", 1)
     
     for pregunta_id in epoca_seleccionada["preguntas"]:
         pregunta = next((p for p in todas_preguntas if p.get("id") == pregunta_id), None)
@@ -232,40 +303,37 @@ def jugar_modo_historia(usuario_actual):
             if all(key in pregunta for key in ['pregunta', 'opciones', 'respuesta']):
                 if len(pregunta['opciones']) >= 2:  
                     preguntas_epoca.append(pregunta)
-                else:
-                    console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} ignorada: no tiene suficientes opciones[/yellow]")
-            else:
-                console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} ignorada: formato inválido[/yellow]")
-        else:
-            console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} no encontrada[/yellow]")
     
-    console.print(f"[green]✅ Encontradas {len(preguntas_epoca)} preguntas válidas[/green]")
+    console.print(f"[green]✅ Encontradas {len(preguntas_epoca)} artefactos históricos[/green]")
     time.sleep(1)
     
     if len(preguntas_epoca) < 5:
-        console.print(f"[bold red]Error: Solo hay {len(preguntas_epoca)} preguntas disponibles para {epoca_seleccionada['nombre']}[/bold red]")
-        console.print("[yellow]Se necesitan al menos 5 preguntas para jugar esta época[/yellow]")
+        console.print(f"[bold red]Error: Solo hay {len(preguntas_epoca)} artefactos disponibles para {epoca_seleccionada['nombre']}[/bold red]")
+        console.print("[yellow]Se necesitan al menos 5 artefactos para viajar a esta época[/yellow]")
         esperar_tecla()
         return
 
     random.shuffle(preguntas_epoca)
     preguntas_juego = preguntas_epoca[:5]
     
-    console.print(f"[green]🎮 Iniciando juego con {len(preguntas_juego)} preguntas...[/green]")
+    console.print(f"[green]🎮 Iniciando exploración histórica con {len(preguntas_juego)} artefactos...[/green]")
     time.sleep(1)
     os.system("cls")
     
     puntaje = 0
     
     for i, pregunta in enumerate(preguntas_juego, 1):
-        console.print(f"\n[bold yellow]Pregunta {i}/5 - {epoca_seleccionada['nombre']}[/bold yellow]")
+        progreso = (i / len(preguntas_juego)) * 100
+        mostrar_progreso("Progreso del viaje temporal", progreso)
+        console.print(f"[bold yellow]Artefacto {i}/5 - {epoca_seleccionada['nombre']}[/bold yellow]")
+        console.print(f"[cyan]Conocimiento acumulado: {puntaje}/5[/cyan]\n")
 
         if not all(key in pregunta for key in ['pregunta', 'opciones', 'respuesta']):
-            console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
+            console.print("[bold red]Error: Artefacto histórico corrupto, saltando...[/bold red]")
             continue
             
         if len(pregunta['opciones']) < 2:
-            console.print("[bold red]Error: Pregunta sin suficientes opciones, saltando...[/bold red]")
+            console.print("[bold red]Error: Artefacto histórico incompleto, saltando...[/bold red]")
             continue
             
         pregunta = mezclar_opciones(pregunta)
@@ -273,27 +341,28 @@ def jugar_modo_historia(usuario_actual):
         respuesta, pregunta_actual = seleccionar_opcion_con_pistas(pregunta["opciones"], pregunta, usuario_actual)
         
         if respuesta == pregunta_actual["respuesta"]:
-            console.print("[bold green]✔ Correcto! +5 puntos[/bold green]")
+            console.print("[bold green]✔ ¡Conocimiento adquirido! +5 puntos[/bold green]")
             puntaje += 1
         else:
-            console.print("[bold red]✘ Incorrecto![/bold red]")
-            console.print(f"[green]La respuesta correcta era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
+            console.print("[bold red]✘ Error histórico[/bold red]")
+            console.print(f"[green]El conocimiento correcto era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
 
         time.sleep(2)
         os.system("cls")
 
-    console.print(f"\n[bold magenta]¡Viaje completado! Preguntas mostradas: {len(preguntas_juego)}/5[/bold magenta]")
-    console.print(f"[bold magenta]Preguntas acertadas: {puntaje}/5[/bold magenta]")
+    animacion_carga("Regresando al presente...", 2)
+    
+    console.print(f"\n[bold magenta]¡Viaje temporal completado![/bold magenta]")
+    console.print(f"[bold magenta]Artefactos estudiados: {len(preguntas_juego)}/5[/bold magenta]")
+    console.print(f"[bold magenta]Conocimiento adquirido: {puntaje}/5[/bold magenta]")
     
     puntos_ganados = puntaje * 5
-    console.print(f"[bold green]Puntos ganados: +{puntos_ganados}[/bold green]")
+    console.print(f"[bold green]Puntos de sabiduría: +{puntos_ganados}[/bold green]")
     console.print(f"[cyan]Gracias por visitar {epoca_seleccionada['nombre']}![/cyan]")
     
     epoca_id = epoca_seleccionada['nombre'].lower().replace(" ", "_").replace("ó", "o")
     
     guardar_puntaje(usuario_actual, "historia", epoca_seleccionada['nombre'], puntaje)
-    
-
     
     logros_desbloqueados = []
     logros_desbloqueados.extend(verificar_logros_historia(usuario_actual, epoca_id, puntaje))

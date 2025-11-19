@@ -168,12 +168,43 @@
                 "modo": "historia",
                 "dificultad": "Revolución Industrial",
                 "puntaje": 1
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 1
+            },
+            {
+                "modo": "historia",
+                "dificultad": "Renacimiento",
+                "puntaje": 2
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 0
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Fácil",
+                "puntaje": 2
             }
         ],
-        "puntos": 4845,
+        "puntos": 4920,
         "logros": [
             "primer_juego",
-            "puntos_1000"
+            "puntos_1000",
+            "trivia_facil_maestro"
         ]
     },
     {
