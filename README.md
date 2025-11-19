@@ -9,15 +9,17 @@ Cursdazo Trivia es un juego de trivia interactivo por consola, desarrollado comp
 Cursdazo Trivia es un juego tipo quiz donde los usuarios responden preguntas en diferentes categorías y niveles de dificultad.  
 Incluye:
 
-- ✨ Sistema de login y registro  
+- ✨ Sistema de login y registro con contraseñas seguras (bcrypt)
 - 🛠️ Modo Administrador (gestionar preguntas)  
 - 🎵 Música de fondo  
 - 🎨 Interfaz visual con Rich  
 - 🏆 Puntuaciones y estadísticas  
+- 🏅 Sistema de logros y recompensas
+- 📜 Modo Viaje en el Tiempo (épocas históricas)
 - 🎲 Tres modos de juego:
   - **Trivia Normal**
   - **Punto Suicida**
-  - **Contrarreloj**
+  - **Historia**
 
 ---
 
@@ -26,7 +28,7 @@ Incluye:
 1. Instala **Python 3.10+**
 2. Instala las dependencias:
    ```bash
-   pip install rich pygame readchar
+   pip install rich pygame readchar bcrypt
 3. Ejecuta el juego
    ```bash
    python main.py
@@ -35,16 +37,15 @@ Incluye:
 
 # 📚 Librerías Externas Utilizadas
 
-
 | Librería                 | Uso                                                                 |
 | ------------------------ | ------------------------------------------------------------------- |
 | **Rich**                 | Interfaz visual en consola (colores, paneles, tablas, animaciones)  |
 | **pygame**               | Reproducción de música de fondo                                     |
 | **readchar**             | Lectura multiplataforma de teclas (Windows, Mac, Linux)             |
+| **bcrypt**               | Encriptación segura de contraseñas                                  |
 | **threading**            | Ejecutar hilos en paralelo                                          |
 | **queue**                | Manejo de colas de datos entre hilos/procesos                       |
 | **os / json / time**     | Gestión interna de archivos, sesiones, puntuaciones y datos         |
-
 
 ---
 
@@ -56,55 +57,60 @@ El sistema usa una arquitectura modular que incluye:
 
 Archivos: auth.py, data.py
 
-Registro e inicio de sesión
-
-Validación de credenciales
-
-Almacenamiento en JSON
+- Registro e inicio de sesión seguro
+- Validación de credenciales
+- Almacenamiento en JSON
+- Contraseñas encriptadas con bcrypt
+- Entrada segura con asteriscos
 
 ## 🛠️ Administración
 
 Archivos: admin.py
 
-Crear, editar y eliminar preguntas
-
-Gestión de categorías y niveles
-
-Panel exclusivo para usuarios administradores
+- Crear, editar y eliminar preguntas
+- Gestión de categorías y niveles
+- Panel exclusivo para usuarios administradores
+- Visualización organizada de preguntas
 
 ## 🎮 Lógica del Juego
 
 Archivos: game.py
 Modos implementados:
 
-Trivia Normal → Preguntas continuas, puntuación acumulativa
+- **Trivia Normal** → Preguntas continuas, puntuación acumulativa
+- **Punto Suicida** → Un error y pierdes
+- **Contrarreloj** → Tiempo limitado por pregunta
+- **Viaje en el Tiempo** → Trivia histórica por épocas (Grecia Antigua, Egipto Ptolemaico, Renacimiento, Revolución Industrial, Era Digital)
 
-Punto Suicida → Un error y pierdes
+## 🏆 Sistema de Logros
 
-Contrarreloj → Tiempo limitado por pregunta
+Archivos: achievements.py, logros.json
+
+- 5 categorías de logros: Historia, Trivia, Suicida, Generales
+- Recompensas en puntos por desbloqueo
+- Progreso y estadísticas de usuario
+- Notificaciones de logros desbloqueados
 
 ## 🧭 Menús e Interfaz
 
 Archivos: menu.py, utils.py
 
-Menú principal y menú de modos
-
-Mostrar el nickname del usuario activo
-
-Controles de entrada con msvcrt
-
-Música de fondo con pygame
+- Menú principal y menú de modos
+- Mostrar el nickname del usuario activo
+- Controles de entrada con readchar
+- Música de fondo con pygame
+- Estadísticas personales y ranking global
 
 ## 💾 Persistencia de Datos
 
-Preguntas guardadas en JSON
-
-Puntuaciones almacenadas por usuario
+- Preguntas guardadas en JSON
+- Puntuaciones almacenadas por usuario
+- Logros y progreso guardados
+- Configuraciones en archivos separados
 
 ---
 
 # 🧪 Escenarios de Prueba
-
 
 ## Escenario 1 — Inicio de Sesión Exitoso
 
@@ -121,7 +127,7 @@ Entrada:
 
 Usuario elige Trivia Normal.
 
-Pregunta: “Capital de Francia?”
+Pregunta: "Capital de Francia?"
 
 Respuesta: París
 
@@ -147,7 +153,23 @@ El juego termina de inmediato.
 
 Puntuación final mostrada.
 
-Se registra la partida en datos del usuario (si corresponde).
+Se registra la partida en datos del usuario.
+
+## Escenario 4 — Modo Viaje en el Tiempo
+
+Entrada:
+
+Usuario selecciona Modo Historia → Grecia Antigua
+
+Responde 5/5 preguntas correctamente
+
+Resultado Esperado:
+
+Logro "Filósofo Griego" desbloqueado
+
++100 puntos de recompensa
+
+Estadísticas actualizadas
 
 ---
 
@@ -160,6 +182,7 @@ Se registra la partida en datos del usuario (si corresponde).
 # 🧑‍💻 Crudzaso_Games   ------   Guía de Trabajo en Equipo con GitHub
 
 Este documento explica el flujo de trabajo que seguiremos para colaborar en github
+
 ---
 
 ## 📦 1. Primeros pasos
