@@ -1,26 +1,6 @@
 from utils import esperar_tecla
 
-def tiene_numero(cadena: str) -> bool:
-    return any(char.isdigit() for char in cadena)
-
-
 def registrar():
-    try:
-        edad = int(input("¿Cuál es tu edad?: "))
-    except ValueError:
-        print("Edad inválida. Inténtalo de nuevo.\n")
-        return None
-
-    if edad < 5:
-        print("Perdón, no puedes jugar. Cerrando sistema...")
-        return None
-
-    nombre = input("Queremos conocerte, ¿Cuál es tu nombre?: ").strip()
-
-    if tiene_numero(nombre):
-        print("\nUps, tu nombre contiene número(s). Regístrate nuevamente.\n")
-        return None
-
     nombre_usuario = input("Nombre de usuario para el juego: ").strip()
 
     while True:
@@ -32,12 +12,9 @@ def registrar():
         print("\nLas contraseñas no coinciden. Inténtalo nuevamente.\n")
 
     print("\n¡Registro exitoso!")
-    print(f"Edad: {edad}")
-    print(f"Nombre real: {nombre}")
     print(f"Usuario: {nombre_usuario}")
-    print ("==================================")
+    print("==================================")
     esperar_tecla()
-
 
     return nombre_usuario, contraseña
 
