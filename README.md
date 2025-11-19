@@ -35,7 +35,6 @@ Incluye:
 
 # 📚 Librerías Externas Utilizadas
 
-# 📚 Librerías Utilizadas
 
 | Librería                 | Uso                                                                 |
 | ------------------------ | ------------------------------------------------------------------- |
