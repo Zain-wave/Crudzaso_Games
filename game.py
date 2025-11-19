@@ -3,6 +3,7 @@ import queue
 import random
 import time
 import readchar
+import json
 from rich.align import Align
 from rich.table import Table
 from rich.live import Live
@@ -168,6 +169,90 @@ def jugar_suicida(usuario_actual):
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
+    esperar_tecla()
+    
+# ----------------------------------------------------
+#   MODO HISTORIA
+# ----------------------------------------------------
+def jugar_modo_historia(usuario_actual):
+    console.print("\n[bold green]=== MODO: VIAJE EN EL TIEMPO ===[/bold green]\n")
+    
+    try:
+        with open("categorias_historia.json", "r", encoding="utf-8") as f:
+            epocas_data = json.load(f)
+    except FileNotFoundError:
+        console.print("[bold red]Error: No se encontró el archivo de épocas históricas[/bold red]")
+        esperar_tecla()
+        return
+    except json.JSONDecodeError:
+        console.print("[bold red]Error: El archivo de épocas históricas está corrupto[/bold red]")
+        esperar_tecla()
+        return
+
+    if not epocas_data:
+        console.print("[bold red]No hay épocas históricas disponibles[/bold red]")
+        esperar_tecla()
+        return
+
+    epocas = []
+    for key, value in epocas_data.items():
+        value["key"] = key 
+        epocas.append(value)
+
+    opciones_epocas = [epoca["nombre"] for epoca in epocas]
+    seleccion = seleccionar_opcion(opciones_epocas, "Selecciona una época histórica")
+    epoca_seleccionada = epocas[seleccion]
+    
+    console.print(f"\n[bold cyan]Viajando a: {epoca_seleccionada['nombre']}[/bold cyan]")
+    console.print(f"[dim]Categorías: {', '.join(epoca_seleccionada['categorias'])}[/dim]")
+    time.sleep(2)
+    os.system("cls")
+
+    todas_preguntas = cargar_preguntas()
+    preguntas_epoca = []
+    
+    for pregunta_id in epoca_seleccionada["preguntas"]:
+        pregunta = next((p for p in todas_preguntas if p.get("id") == pregunta_id), None)
+        if pregunta:
+            preguntas_epoca.append(pregunta)
+    
+    if not preguntas_epoca:
+        console.print("[bold red]No hay preguntas disponibles para esta época[/bold red]")
+        esperar_tecla()
+        return
+
+    random.shuffle(preguntas_epoca)
+    preguntas_juego = preguntas_epoca[:5]
+    
+    puntaje = 0
+    
+    for i, pregunta in enumerate(preguntas_juego, 1):
+        console.print(f"\n[bold yellow]Pregunta {i}/5 - {epoca_seleccionada['nombre']}[/bold yellow]")
+        
+        if 'pregunta' not in pregunta or 'opciones' not in pregunta or 'respuesta' not in pregunta:
+            console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
+            continue
+            
+        pregunta = mezclar_opciones(pregunta)
+        
+        respuesta, pregunta_actual = seleccionar_opcion_con_pistas(pregunta["opciones"], pregunta, usuario_actual)
+        
+        if respuesta == pregunta_actual["respuesta"]:
+            console.print("[bold green]✔ Correcto! +5 puntos[/bold green]")
+            puntaje += 1
+        else:
+            console.print("[bold red]✘ Incorrecto![/bold red]")
+            console.print(f"[green]La respuesta correcta era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
+
+        time.sleep(2)
+        os.system("cls")
+
+    puntos_ganados = puntaje * 5
+    console.print(f"\n[bold magenta]¡Viaje completado! Preguntas acertadas: {puntaje}/5[/bold magenta]")
+    console.print(f"[bold green]Puntos ganados: +{puntos_ganados}[/bold green]")
+    console.print(f"[cyan]Gracias por visitar {epoca_seleccionada['nombre']}![/cyan]")
+    
+    guardar_puntaje(usuario_actual, "historia", epoca_seleccionada['nombre'], puntaje)
     esperar_tecla()
     
 # ----------------------------------------------------

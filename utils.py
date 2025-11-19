@@ -81,17 +81,21 @@ def mostrar_pregunta_bonita(pregunta, seleccion=None):
     console.print("\n")
     console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
     console.print("\n")
-
+    
 def seleccionar_opcion(opciones, pregunta=None):
     seleccion = 0
     while True:
-
         os.system("cls")
+        
         if pregunta == "dificultad":
             console.print("\n")
             console.print(Align.center("[bold cyan]Selecciona la dificultad[/bold cyan]"))
             console.print("\n")
-        elif pregunta:
+        elif isinstance(pregunta, str):
+            console.print("\n")
+            console.print(Align.center(f"[bold cyan]{pregunta}[/bold cyan]"))
+            console.print("\n")
+        elif pregunta and isinstance(pregunta, dict):
             console.print("\n")
             console.print(Align.center(f"[bold cyan]{pregunta['pregunta']}[/bold cyan]"))
             console.print("\n")
@@ -118,13 +122,11 @@ def seleccionar_opcion(opciones, pregunta=None):
             seleccion = (seleccion + 1) % len(opciones)
         elif key == readchar.key.ENTER:
             return seleccion
-
+        
 def seleccionar_dificultad(modo="trivia"):
-    """Selecciona la dificultad con descripción del modo de juego"""
     opciones = ["Fácil", "Media", "Difícil"]
     seleccion = 0
-    
-    # Descripciones de cada modo
+
     descripciones = {
         "trivia": "🎯 Responde 5 preguntas. Gana 5 puntos por cada acierto. Usa pistas para ayudarte.",
         "suicida": "💀 Responde hasta que falles. Un error y el juego termina. ¡Consigue la mayor racha!",

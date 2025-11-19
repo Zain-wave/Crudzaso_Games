@@ -1,0 +1,36 @@
+{
+  "grecia_antigua": {
+    "nombre": "Grecia Antigua",
+    "categorias": [
+      "filosofia",
+      "matematicas",
+      "historia",
+      "mitologia",
+      "literatura",
+      "ciencia"
+    ],
+    "preguntas": [
+      201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215
+    ]
+  },
+  "egipto_ptolemaico": {
+    "nombre": "Egipto Ptolemaico",
+    "categorias": ["historia", "matematicas", "ciencia", "inventos"],
+    "preguntas": [231, 232, 233, 234, 235]
+  },
+  "renacimiento": {
+    "nombre": "Renacimiento",
+    "categorias": ["arte", "inventos", "ciencia", "anatomia"],
+    "preguntas": [261, 262, 263, 264, 324]
+  },
+  "revolucion_industrial": {
+    "nombre": "Revolución Industrial",
+    "categorias": ["inventos", "fisica", "quimica", "historia"],
+    "preguntas": [291, 292, 325, 326, 327]
+  },
+  "era_digital": {
+    "nombre": "Era Digital",
+    "categorias": ["tecnologia", "ciencia", "inventos"],
+    "preguntas": [321, 322, 323, 328, 329]
+  }
+}

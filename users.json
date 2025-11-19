@@ -149,9 +149,19 @@
                 "modo": "trivia",
                 "dificultad": "Difícil",
                 "puntaje": 2
+            },
+            {
+                "modo": "historia",
+                "dificultad": "Era Digital",
+                "puntaje": 3
+            },
+            {
+                "modo": "historia",
+                "dificultad": "Era Digital",
+                "puntaje": 2
             }
         ],
-        "puntos": 4655
+        "puntos": 4680
     },
     {
         "usuario": "Choklitos",

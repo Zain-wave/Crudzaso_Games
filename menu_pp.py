@@ -1,7 +1,8 @@
 from game import (
     jugar_trivia,
     jugar_suicida,
-    jugar_contrarreloj
+    jugar_contrarreloj,
+    jugar_modo_historia
 )
 from auth import obtener_puntos
 import os
@@ -43,15 +44,18 @@ def calcular_estadisticas_simples(usuario_actual):
     aciertos_totales = 0
     
     for p in puntuaciones:
-        if p["modo"] == "trivia":
-            total_preguntas += 5
-            aciertos_totales += p["puntaje"]
-        elif p["modo"] == "suicida":
-            total_preguntas += p["puntaje"] + 1
-            aciertos_totales += p["puntaje"]
-        elif p["modo"] == "contrarreloj":
-            aciertos_totales += p["puntaje"]
-            total_preguntas += p["puntaje"] + 3
+            if p["modo"] == "trivia":
+                total_preguntas += 5
+                aciertos_totales += p["puntaje"]
+            elif p["modo"] == "suicida":
+                total_preguntas += p["puntaje"] + 1
+                aciertos_totales += p["puntaje"]
+            elif p["modo"] == "contrarreloj":
+                aciertos_totales += p["puntaje"]
+                total_preguntas += p["puntaje"] + 3
+            elif p["modo"] == "historia":
+                total_preguntas += 5
+                aciertos_totales += p["puntaje"]
     
     porcentaje_acierto = (aciertos_totales / total_preguntas * 100) if total_preguntas > 0 else 0
     
@@ -71,7 +75,6 @@ def calcular_estadisticas_simples(usuario_actual):
     }
 
 def mostrar_estadisticas_personales(usuario_actual):
-    """Muestra estadísticas personales en formato simple y elegante"""
     stats = calcular_estadisticas_simples(usuario_actual)
     
     if not stats:
@@ -196,7 +199,6 @@ def mostrar_top_global():
     readchar.readkey()
 
 def menu_vertical_mejorado(titulo, opciones):
-    """Versión mejorada del menu_vertical con texto amarillo en selección"""
     seleccion = 0
     width = 45
 
@@ -227,7 +229,6 @@ def menu_vertical_mejorado(titulo, opciones):
         elif key == readchar.key.ENTER:
             return seleccion + 1
 
-
 def menu(usuario_actual=None):
     nick = usuario_actual.get("usuario") if usuario_actual else "Invitado"
     
@@ -238,6 +239,7 @@ def menu(usuario_actual=None):
         opciones = [
             "🎮 Iniciar Juego (Trivia)",
             "💀 Jugar Modo Suicida",
+            "📜 Jugar Modo Historia", 
             "📈 Mis Estadísticas",
             "🏆 Top Global",
             "🚪 Cerrar Sesión"
@@ -252,10 +254,12 @@ def menu(usuario_actual=None):
         elif seleccion == 2:
             jugar_suicida(usuario_actual)
         elif seleccion == 3:
-            mostrar_estadisticas_personales(usuario_actual)
+            jugar_modo_historia(usuario_actual)
         elif seleccion == 4:
-            mostrar_top_global()
+            mostrar_estadisticas_personales(usuario_actual)
         elif seleccion == 5:
+            mostrar_top_global()
+        elif seleccion == 6:
             console.print("\n[bold cyan]Cerrando sesión...[/bold cyan]\n")
             readchar.readkey()
             return False
