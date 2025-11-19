@@ -24,6 +24,15 @@ from utils import (
 )
 from auth import guardar_puntaje
 
+from achievements import (
+    verificar_logros_historia, 
+    verificar_logros_trivia,
+    verificar_logros_suicida,
+    verificar_logros_contrarreloj,
+    verificar_logros_generales,
+    mostrar_logros_desbloqueados
+)
+
 # ----------------------------------------------------
 #   SELECCIONAR PREGUNTAS
 # ----------------------------------------------------
@@ -126,6 +135,13 @@ def jugar_trivia(usuario_actual):
     console.print(f"[bold green]Puntos ganados: +{puntos_ganados}[/bold green]")
     
     guardar_puntaje(usuario_actual, "trivia", dificultad, puntaje)
+    logros_desbloqueados = []
+    logros_desbloqueados.extend(verificar_logros_trivia(usuario_actual, dificultad, puntaje))
+    logros_desbloqueados.extend(verificar_logros_generales(usuario_actual))
+    
+    if logros_desbloqueados:
+        mostrar_logros_desbloqueados(usuario_actual, logros_desbloqueados)
+        time.sleep(3)
     esperar_tecla()
     
 # ----------------------------------------------------
@@ -169,6 +185,13 @@ def jugar_suicida(usuario_actual):
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
+    logros_desbloqueados = []
+    logros_desbloqueados.extend(verificar_logros_suicida(usuario_actual, puntaje))
+    logros_desbloqueados.extend(verificar_logros_generales(usuario_actual))
+    
+    if logros_desbloqueados:
+        mostrar_logros_desbloqueados(usuario_actual, logros_desbloqueados)
+        time.sleep(3)
     esperar_tecla()
     
 # ----------------------------------------------------
@@ -184,10 +207,6 @@ def jugar_modo_historia(usuario_actual):
         console.print("[bold red]Error: No se encontró el archivo de épocas históricas[/bold red]")
         esperar_tecla()
         return
-    except json.JSONDecodeError:
-        console.print("[bold red]Error: El archivo de épocas históricas está corrupto[/bold red]")
-        esperar_tecla()
-        return
 
     if not epocas_data:
         console.print("[bold red]No hay épocas históricas disponibles[/bold red]")
@@ -196,7 +215,7 @@ def jugar_modo_historia(usuario_actual):
 
     epocas = []
     for key, value in epocas_data.items():
-        value["key"] = key 
+        value["key"] = key
         epocas.append(value)
 
     opciones_epocas = [epoca["nombre"] for epoca in epocas]
@@ -211,26 +230,48 @@ def jugar_modo_historia(usuario_actual):
     todas_preguntas = cargar_preguntas()
     preguntas_epoca = []
     
+    console.print("[yellow]Buscando preguntas de la época...[/yellow]")
+    
     for pregunta_id in epoca_seleccionada["preguntas"]:
         pregunta = next((p for p in todas_preguntas if p.get("id") == pregunta_id), None)
         if pregunta:
-            preguntas_epoca.append(pregunta)
+            if all(key in pregunta for key in ['pregunta', 'opciones', 'respuesta']):
+                if len(pregunta['opciones']) >= 2:  
+                    preguntas_epoca.append(pregunta)
+                else:
+                    console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} ignorada: no tiene suficientes opciones[/yellow]")
+            else:
+                console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} ignorada: formato inválido[/yellow]")
+        else:
+            console.print(f"[yellow]⚠️ Pregunta ID {pregunta_id} no encontrada[/yellow]")
     
-    if not preguntas_epoca:
-        console.print("[bold red]No hay preguntas disponibles para esta época[/bold red]")
+    console.print(f"[green]✅ Encontradas {len(preguntas_epoca)} preguntas válidas[/green]")
+    time.sleep(1)
+    
+    if len(preguntas_epoca) < 5:
+        console.print(f"[bold red]Error: Solo hay {len(preguntas_epoca)} preguntas disponibles para {epoca_seleccionada['nombre']}[/bold red]")
+        console.print("[yellow]Se necesitan al menos 5 preguntas para jugar esta época[/yellow]")
         esperar_tecla()
         return
 
     random.shuffle(preguntas_epoca)
     preguntas_juego = preguntas_epoca[:5]
     
+    console.print(f"[green]🎮 Iniciando juego con {len(preguntas_juego)} preguntas...[/green]")
+    time.sleep(1)
+    os.system("cls")
+    
     puntaje = 0
     
     for i, pregunta in enumerate(preguntas_juego, 1):
         console.print(f"\n[bold yellow]Pregunta {i}/5 - {epoca_seleccionada['nombre']}[/bold yellow]")
-        
-        if 'pregunta' not in pregunta or 'opciones' not in pregunta or 'respuesta' not in pregunta:
+
+        if not all(key in pregunta for key in ['pregunta', 'opciones', 'respuesta']):
             console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
+            continue
+            
+        if len(pregunta['opciones']) < 2:
+            console.print("[bold red]Error: Pregunta sin suficientes opciones, saltando...[/bold red]")
             continue
             
         pregunta = mezclar_opciones(pregunta)
@@ -247,12 +288,27 @@ def jugar_modo_historia(usuario_actual):
         time.sleep(2)
         os.system("cls")
 
+    console.print(f"\n[bold magenta]¡Viaje completado! Preguntas mostradas: {len(preguntas_juego)}/5[/bold magenta]")
+    console.print(f"[bold magenta]Preguntas acertadas: {puntaje}/5[/bold magenta]")
+    
     puntos_ganados = puntaje * 5
-    console.print(f"\n[bold magenta]¡Viaje completado! Preguntas acertadas: {puntaje}/5[/bold magenta]")
     console.print(f"[bold green]Puntos ganados: +{puntos_ganados}[/bold green]")
     console.print(f"[cyan]Gracias por visitar {epoca_seleccionada['nombre']}![/cyan]")
     
+    epoca_id = epoca_seleccionada['nombre'].lower().replace(" ", "_").replace("ó", "o")
+    
     guardar_puntaje(usuario_actual, "historia", epoca_seleccionada['nombre'], puntaje)
+    
+
+    
+    logros_desbloqueados = []
+    logros_desbloqueados.extend(verificar_logros_historia(usuario_actual, epoca_id, puntaje))
+    logros_desbloqueados.extend(verificar_logros_generales(usuario_actual))
+    
+    if logros_desbloqueados:
+        mostrar_logros_desbloqueados(usuario_actual, logros_desbloqueados)
+        time.sleep(3)
+    
     esperar_tecla()
     
 # ----------------------------------------------------
@@ -340,4 +396,11 @@ def jugar_contrarreloj(usuario_actual):
 
     console.print(f"\n[bold magenta]Juego terminado. Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "contrarreloj", dificultad, puntaje)
+    logros_desbloqueados = []
+    logros_desbloqueados.extend(verificar_logros_contrarreloj(usuario_actual, puntaje))
+    logros_desbloqueados.extend(verificar_logros_generales(usuario_actual))
+    
+    if logros_desbloqueados:
+        mostrar_logros_desbloqueados(usuario_actual, logros_desbloqueados)
+        time.sleep(3)
     esperar_tecla()

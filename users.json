@@ -1,11 +1,5 @@
 [
     {
-        "usuario": "admin",
-        "contraseña": "$2b$12$At0i5u6yfhbfjwfjqbAH../GqwUXcMx8Q935uyZ5R.CvsOdgte4zW",
-        "rol": "admin",
-        "puntuaciones": []
-    },
-    {
         "usuario": "alyx",
         "contraseña": "$2b$12$gXTDplj2E3un9c/yWUXFmegQxUTiDrn2xFSK1h/LvFhVBDOE6bKw6",
         "rol": "user",
@@ -159,107 +153,30 @@
                 "modo": "historia",
                 "dificultad": "Era Digital",
                 "puntaje": 2
-            }
-        ],
-        "puntos": 4680
-    },
-    {
-        "usuario": "Choklitos",
-        "contraseña": "$2b$12$IvOtLOr/YWg1EbEkTisCfeV/JgluL0Vyks4hOMaNFLf2/nM61YG9u",
-        "rol": "user",
-        "puntuaciones": []
-    },
-    {
-        "usuario": "Josefin",
-        "contraseña": "$2b$12$wTXaAd5DFevBXdNLLKCn9O474RDNe8vYCtdYLH.xrcJ7vORrTEzsK",
-        "rol": "user",
-        "puntuaciones": []
-    },
-    {
-        "usuario": "GUEVINN",
-        "contraseña": "$2b$12$6E6dJEgPZlDOQl1q77AlXO27A3xPIjnyl32QqTrp0aeEHxc6zIYCK",
-        "rol": "user",
-        "puntuaciones": [
-            {
-                "modo": "trivia",
-                "dificultad": "Media",
-                "puntaje": 5
             },
             {
-                "modo": "suicida",
-                "dificultad": "Media",
-                "puntaje": 0
-            },
-            {
-                "modo": "contrarreloj",
-                "dificultad": "Fácil",
-                "puntaje": 4
-            }
-        ]
-    },
-    {
-        "usuario": "smv",
-        "contraseña": "$2b$12$R84YdJu3NSAkXdqqJdTZguN8OULI.AW1RaLrLQxR24PkZg/hlCmNm",
-        "rol": "user",
-        "puntuaciones": [
-            {
-                "modo": "trivia",
-                "dificultad": "Difícil",
+                "modo": "historia",
+                "dificultad": "Era Digital",
                 "puntaje": 3
             },
             {
-                "modo": "suicida",
-                "dificultad": "Difícil",
-                "puntaje": 0
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Fácil",
-                "puntaje": 0
-            }
-        ]
-    },
-    {
-        "usuario": "vmc26",
-        "contraseña": "$2b$12$BaHnxqhrplXv/O.hfR8tf.J81Pk.SVkhbXAMBWWmL1652xoh/lJiK",
-        "rol": "user",
-        "puntuaciones": [
-            {
-                "modo": "trivia",
-                "dificultad": "Difícil",
-                "puntaje": 3
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Media",
-                "puntaje": 2
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
+                "modo": "historia",
+                "dificultad": "Era Digital",
                 "puntaje": 4
             }
         ],
-        "puntos": 15
+        "puntos": 4840,
+        "logros": [
+            "primer_juego",
+            "puntos_1000"
+        ]
     },
     {
-        "usuario": "xax",
-        "contraseña": "$2b$12$YAc2WMqqP0koHltpCGmUq.t.XuEfFrsjir3tqfIYVjbqvtNXhI55O",
+        "usuario": "admin",
+        "contraseña": "$2b$12$CXz3PA7/bwNgRVyKEOlU/.tyUvMjtX0bUdy.qvFBJidzRm5f08wWy",
         "rol": "user",
         "puntuaciones": [],
-        "puntos": 0
-    },
-    {
-        "usuario": "meoow",
-        "contraseña": "$2b$12$o/YJrBHf7kNwxBa1.Muweu/cSID7YqW4eAFbhMiuD9lanFvpDqNAS",
-        "rol": "user",
-        "puntuaciones": [
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
-                "puntaje": 2
-            }
-        ],
-        "puntos": 10
+        "puntos": 0,
+        "logros": []
     }
 ]

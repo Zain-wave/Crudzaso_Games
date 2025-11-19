@@ -32,7 +32,8 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
         "contraseña": hash_contraseña.decode('utf-8'),
         "rol": "user",
         "puntuaciones": [],
-        "puntos": 0
+        "puntos": 0,
+        "logros": []
     }
 
     usuarios.append(nuevo_usuario)

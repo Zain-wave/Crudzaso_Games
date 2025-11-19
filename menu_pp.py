@@ -13,6 +13,8 @@ from rich.panel import Panel
 from rich.align import Align
 from utils import console
 
+from achievements import obtener_logros_usuario, cargar_logros
+
 def calcular_estadisticas_simples(usuario_actual):
     ruta = "users.json"
     
@@ -73,14 +75,25 @@ def calcular_estadisticas_simples(usuario_actual):
         "mejor_puntuacion_suicida": mejor_puntuacion_suicida,
         "puntos_totales": puntos_totales
     }
-
 def mostrar_estadisticas_personales(usuario_actual):
+
     stats = calcular_estadisticas_simples(usuario_actual)
+    logros_usuario = obtener_logros_usuario(usuario_actual)
+    todos_logros = cargar_logros()
     
     if not stats:
         console.print("\n[bold red]❌ Error al cargar las estadísticas[/bold red]\n")
         readchar.readkey()
         return
+    
+    # Contar logros por categoría
+    logros_totales = 0
+    logros_desbloqueados = len(logros_usuario)
+    
+    for categoria in todos_logros.values():
+        logros_totales += len(categoria)
+    
+    porcentaje_logros = (logros_desbloqueados / logros_totales * 100) if logros_totales > 0 else 0
     
     contenido = f"""
 [bold white]Total de preguntas:[/bold white] [bold yellow]{stats['total_preguntas']}[/bold yellow]
@@ -89,6 +102,10 @@ def mostrar_estadisticas_personales(usuario_actual):
 [bold white]Categoría favorita:[/bold white] [bold yellow]{stats['categoria_favorita']}[/bold yellow]
 [bold white]Mejor puntuación (Suicida):[/bold white] [bold yellow]{stats['mejor_puntuacion_suicida']}[/bold yellow]
 [bold white]Puntos totales ganados:[/bold white] [bold yellow]{stats['puntos_totales']}[/bold yellow]
+
+[bold cyan]--- LOGROS ---[/bold cyan]
+[bold white]Logros desbloqueados:[/bold white] [bold yellow]{logros_desbloqueados}/{logros_totales}[/bold yellow]
+[bold white]Progreso:[/bold white] [bold yellow]{porcentaje_logros:.1f}%[/bold yellow]
 """
     
     panel = Panel(
@@ -102,10 +119,53 @@ def mostrar_estadisticas_personales(usuario_actual):
     os.system("cls")
     console.print("\n" * 3)
     console.print(Align.center(panel))
+    
     console.print("\n" * 2)
-    console.print(Align.center("[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]"))
-    readchar.readkey()
+    console.print(Align.center("[bold cyan]Presiona 'L' para ver logros o cualquier tecla para volver...[/bold cyan]"))
+    
+    key = readchar.readkey()
+    if key.lower() == 'l':
+        mostrar_logros_detallados(usuario_actual)
 
+def mostrar_logros_detallados(usuario_actual):
+
+    
+    logros_usuario = obtener_logros_usuario(usuario_actual)
+    todos_logros = cargar_logros()
+    
+    os.system("cls")
+    console.print("\n" * 2)
+    console.print(Align.center("[bold cyan]🏆 MIS LOGROS[/bold cyan]"))
+    console.print("\n")
+    
+    for categoria_nombre, logros_categoria in todos_logros.items():
+        nombre_bonito = categoria_nombre.replace("logros_", "").replace("_", " ").title()
+        console.print(f"[bold magenta]=== {nombre_bonito} ===[/bold magenta]")
+        
+        for logro_id, logro_info in logros_categoria.items():
+            desbloqueado = logro_id in logros_usuario
+            
+            color_estado = "green" if desbloqueado else "dim"
+            icono = "✅" if desbloqueado else "🔒"
+            color_dificultad = {
+                "bronce": "yellow",
+                "plata": "white",
+                "oro": "yellow", 
+                "platino": "bright_cyan"
+            }.get(logro_info["dificultad"], "white")
+            
+            console.print(f"  {icono} [{color_dificultad}]{logro_info['nombre']}[/{color_dificultad}] - {logro_info['descripcion']}")
+            if desbloqueado:
+                console.print(f"     [green]✓ Desbloqueado • +{logro_info['recompensa']} puntos[/green]")
+            else:
+                console.print(f"     [dim](No desbloqueado)[/dim]")
+        
+        console.print()
+    
+    console.print("\n" * 2)
+    console.print(Align.center("[bold cyan]Presiona cualquier tecla para volver...[/bold cyan]"))
+    readchar.readkey()
+    
 def mostrar_top_global():
     ruta = "users.json"
 

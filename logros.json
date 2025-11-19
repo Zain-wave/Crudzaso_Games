@@ -1,0 +1,180 @@
+{
+  "logros_historia": {
+    "grecia_antigua_perfecto": {
+      "id": "grecia_antigua_perfecto",
+      "nombre": "Filósofo Griego",
+      "descripcion": "Completa Grecia Antigua con puntuación perfecta (5/5)",
+      "recompensa": 100,
+      "tipo": "historia",
+      "dificultad": "oro"
+    },
+    "egipto_ptolemaico_perfecto": {
+      "id": "egipto_ptolemaico_perfecto", 
+      "nombre": "Sabio de Alejandría",
+      "descripcion": "Completa Egipto Ptolemaico con puntuación perfecta (5/5)",
+      "recompensa": 100,
+      "tipo": "historia",
+      "dificultad": "oro"
+    },
+    "renacimiento_perfecto": {
+      "id": "renacimiento_perfecto",
+      "nombre": "Hombre del Renacimiento",
+      "descripcion": "Completa Renacimiento con puntuación perfecta (5/5)", 
+      "recompensa": 100,
+      "tipo": "historia",
+      "dificultad": "oro"
+    },
+    "revolucion_industrial_perfecto": {
+      "id": "revolucion_industrial_perfecto",
+      "nombre": "Inventor Industrial",
+      "descripcion": "Completa Revolución Industrial con puntuación perfecta (5/5)",
+      "recompensa": 100,
+      "tipo": "historia", 
+      "dificultad": "oro"
+    },
+    "era_digital_perfecto": {
+      "id": "era_digital_perfecto",
+      "nombre": "Pionero Digital",
+      "descripcion": "Completa Era Digital con puntuación perfecta (5/5)",
+      "recompensa": 100,
+      "tipo": "historia",
+      "dificultad": "oro"
+    },
+    "historiador_maestro": {
+      "id": "historiador_maestro",
+      "nombre": "Historiador Maestro", 
+      "descripcion": "Completa TODAS las épocas históricas con puntuación perfecta",
+      "recompensa": 500,
+      "tipo": "historia",
+      "dificultad": "platino"
+    },
+    "viajero_temporal": {
+      "id": "viajero_temporal",
+      "nombre": "Viajero Temporal",
+      "descripcion": "Juega en todas las épocas históricas (al menos 1 vez)",
+      "recompensa": 200,
+      "tipo": "historia", 
+      "dificultad": "plata"
+    }
+  },
+  "logros_trivia": {
+    "trivia_perfecta": {
+      "id": "trivia_perfecta",
+      "nombre": "Perfeccionista",
+      "descripcion": "Responde 5/5 en modo trivia en cualquier dificultad",
+      "recompensa": 50,
+      "tipo": "trivia",
+      "dificultad": "oro"
+    },
+    "trivia_facil_maestro": {
+      "id": "trivia_facil_maestro", 
+      "nombre": "Maestro de Trivia Fácil",
+      "descripcion": "Completa 10 partidas de trivia en dificultad Fácil",
+      "recompensa": 100,
+      "tipo": "trivia",
+      "dificultad": "bronce"
+    },
+    "trivia_dificil_maestro": {
+      "id": "trivia_dificil_maestro",
+      "nombre": "Maestro de Trivia Difícil", 
+      "descripcion": "Completa 5 partidas de trivia en dificultad Difícil",
+      "recompensa": 200,
+      "tipo": "trivia",
+      "dificultad": "plata"
+    }
+  },
+  "logros_suicida": {
+    "suicida_10": {
+      "id": "suicida_10",
+      "nombre": "Superviviente Novato",
+      "descripcion": "Alcanza racha de 10 en modo suicida",
+      "recompuesta": 100,
+      "tipo": "suicida", 
+      "dificultad": "bronce"
+    },
+    "suicida_25": {
+      "id": "suicida_25",
+      "nombre": "Superviviente Experto",
+      "descripcion": "Alcanza racha de 25 en modo suicida", 
+      "recompensa": 250,
+      "tipo": "suicida",
+      "dificultad": "plata"
+    },
+    "suicida_50": {
+      "id": "suicida_50",
+      "nombre": "Leyenda del Modo Suicida",
+      "descripcion": "Alcanza racha de 50 en modo suicida",
+      "recompensa": 500,
+      "tipo": "suicida",
+      "dificultad": "oro"
+    }
+  },
+  "logros_contrarreloj": {
+    "contrarreloj_5": {
+      "id": "contrarreloj_5", 
+      "nombre": "Veloz",
+      "descripcion": "Responde 5 preguntas en modo contrarreloj",
+      "recompensa": 100,
+      "tipo": "contrarreloj",
+      "dificultad": "bronce"
+    },
+    "contrarreloj_10": {
+      "id": "contrarreloj_10",
+      "nombre": "Relámpago", 
+      "descripcion": "Responde 10 preguntas en modo contrarreloj",
+      "recompensa": 200,
+      "tipo": "contrarreloj",
+      "dificultad": "plata"
+    },
+    "contrarreloj_20": {
+      "id": "contrarreloj_20",
+      "nombre": "Máquina del Tiempo",
+      "descripcion": "Responde 20 preguntas en modo contrarreloj", 
+      "recompensa": 400,
+      "tipo": "contrarreloj",
+      "dificultad": "oro"
+    }
+  },
+  "logros_generales": {
+    "primer_juego": {
+      "id": "primer_juego",
+      "nombre": "Primeros Pasos",
+      "descripcion": "Completa tu primera partida en cualquier modo",
+      "recompensa": 25,
+      "tipo": "general", 
+      "dificultad": "bronce"
+    },
+    "puntos_1000": {
+      "id": "puntos_1000",
+      "nombre": "Acumulador",
+      "descripcion": "Acumula 1000 puntos totales",
+      "recompensa": 100,
+      "tipo": "general",
+      "dificultad": "bronce"
+    },
+    "puntos_5000": {
+      "id": "puntos_5000", 
+      "nombre": "Rico en Conocimiento",
+      "descripcion": "Acumula 5000 puntos totales",
+      "recompensa": 300,
+      "tipo": "general",
+      "dificultad": "plata"
+    },
+    "puntos_10000": {
+      "id": "puntos_10000",
+      "nombre": "Sabio Legendario",
+      "descripcion": "Acumula 10000 puntos totales", 
+      "recompensa": 700,
+      "tipo": "general",
+      "dificultad": "oro"
+    },
+    "completista": {
+      "id": "completista",
+      "nombre": "Completista",
+      "descripcion": "Desbloquea todos los logros del juego",
+      "recompensa": 1000,
+      "tipo": "general",
+      "dificultad": "platino"
+    }
+  }
+}

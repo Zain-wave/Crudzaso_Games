@@ -2002,7 +2002,7 @@
     "epoca": "revolucion_industrial"
   },
   {
-    "id": 324,
+    "id": 328,
     "pregunta": "¿Qué compañía desarrolló el primer ordenador personal masivo?",
     "opciones": ["Apple", "IBM", "Microsoft", "Commodore"],
     "respuesta": 1,
@@ -2011,7 +2011,7 @@
     "epoca": "era_digital"
   },
   {
-    "id": 325,
+    "id": 329,
     "pregunta": "¿Qué significa HTML?",
     "opciones": [
       "HyperText Markup Language",
