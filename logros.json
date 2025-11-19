@@ -109,32 +109,6 @@
       "dificultad": "oro"
     }
   },
-  "logros_contrarreloj": {
-    "contrarreloj_5": {
-      "id": "contrarreloj_5", 
-      "nombre": "Veloz",
-      "descripcion": "Responde 5 preguntas en modo contrarreloj",
-      "recompensa": 100,
-      "tipo": "contrarreloj",
-      "dificultad": "bronce"
-    },
-    "contrarreloj_10": {
-      "id": "contrarreloj_10",
-      "nombre": "Relámpago", 
-      "descripcion": "Responde 10 preguntas en modo contrarreloj",
-      "recompensa": 200,
-      "tipo": "contrarreloj",
-      "dificultad": "plata"
-    },
-    "contrarreloj_20": {
-      "id": "contrarreloj_20",
-      "nombre": "Máquina del Tiempo",
-      "descripcion": "Responde 20 preguntas en modo contrarreloj", 
-      "recompensa": 400,
-      "tipo": "contrarreloj",
-      "dificultad": "oro"
-    }
-  },
   "logros_generales": {
     "primer_juego": {
       "id": "primer_juego",

@@ -163,9 +163,14 @@
                 "modo": "historia",
                 "dificultad": "Era Digital",
                 "puntaje": 4
+            },
+            {
+                "modo": "historia",
+                "dificultad": "Revolución Industrial",
+                "puntaje": 1
             }
         ],
-        "puntos": 4840,
+        "puntos": 4845,
         "logros": [
             "primer_juego",
             "puntos_1000"

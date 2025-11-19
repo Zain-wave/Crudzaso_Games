@@ -10,6 +10,7 @@ from auth import obtener_puntos, usar_pista
 import pyttsx3
 
 import copy
+import time
     
     
 console = Console()
@@ -123,6 +124,7 @@ def seleccionar_opcion(opciones, pregunta=None):
         elif key == readchar.key.ENTER:
             return seleccion
         
+
 def seleccionar_dificultad(modo="trivia"):
     opciones = ["Fácil", "Media", "Difícil"]
     seleccion = 0
@@ -130,7 +132,7 @@ def seleccionar_dificultad(modo="trivia"):
     descripciones = {
         "trivia": "🎯 Responde 5 preguntas. Gana 5 puntos por cada acierto. Usa pistas para ayudarte.",
         "suicida": "💀 Responde hasta que falles. Un error y el juego termina. ¡Consigue la mayor racha!",
-        "contrarreloj": "⏰ Responde tantas preguntas como puedas en 30 segundos. ¡Cada segundo cuenta!"
+        "historia": "📜 Viaja a través de épocas históricas y responde preguntas temáticas."
     }
     
     descripcion = descripciones.get(modo, "🎮 Modo de juego estándar")

@@ -132,22 +132,22 @@ def verificar_logros_suicida(usuario_actual, puntaje):
     
     return logros_desbloqueados
 
-def verificar_logros_contrarreloj(usuario_actual, puntaje):
-    logros_desbloqueados = []
+# def verificar_logros_contrarreloj(usuario_actual, puntaje):
+#     logros_desbloqueados = []
     
-    if puntaje >= 5:
-        if guardar_logro_usuario(usuario_actual, "contrarreloj_5"):
-            logros_desbloqueados.append("contrarreloj_5")
+#     if puntaje >= 5:
+#         if guardar_logro_usuario(usuario_actual, "contrarreloj_5"):
+#             logros_desbloqueados.append("contrarreloj_5")
     
-    if puntaje >= 10:
-        if guardar_logro_usuario(usuario_actual, "contrarreloj_10"):
-            logros_desbloqueados.append("contrarreloj_10")
+#     if puntaje >= 10:
+#         if guardar_logro_usuario(usuario_actual, "contrarreloj_10"):
+#             logros_desbloqueados.append("contrarreloj_10")
     
-    if puntaje >= 20:
-        if guardar_logro_usuario(usuario_actual, "contrarreloj_20"):
-            logros_desbloqueados.append("contrarreloj_20")
+#     if puntaje >= 20:
+#         if guardar_logro_usuario(usuario_actual, "contrarreloj_20"):
+#             logros_desbloqueados.append("contrarreloj_20")
     
-    return logros_desbloqueados
+#     return logros_desbloqueados
 
 def verificar_logros_generales(usuario_actual):
     logros_desbloqueados = []

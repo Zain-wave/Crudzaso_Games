@@ -1,7 +1,6 @@
 from game import (
     jugar_trivia,
     jugar_suicida,
-    jugar_contrarreloj,
     jugar_modo_historia
 )
 from auth import obtener_puntos
@@ -14,6 +13,8 @@ from rich.align import Align
 from utils import console
 
 from achievements import obtener_logros_usuario, cargar_logros
+
+
 
 def calcular_estadisticas_simples(usuario_actual):
     ruta = "users.json"
@@ -52,9 +53,6 @@ def calcular_estadisticas_simples(usuario_actual):
             elif p["modo"] == "suicida":
                 total_preguntas += p["puntaje"] + 1
                 aciertos_totales += p["puntaje"]
-            elif p["modo"] == "contrarreloj":
-                aciertos_totales += p["puntaje"]
-                total_preguntas += p["puntaje"] + 3
             elif p["modo"] == "historia":
                 total_preguntas += 5
                 aciertos_totales += p["puntaje"]
@@ -75,6 +73,8 @@ def calcular_estadisticas_simples(usuario_actual):
         "mejor_puntuacion_suicida": mejor_puntuacion_suicida,
         "puntos_totales": puntos_totales
     }
+    
+    
 def mostrar_estadisticas_personales(usuario_actual):
 
     stats = calcular_estadisticas_simples(usuario_actual)
@@ -288,10 +288,9 @@ def menu_vertical_mejorado(titulo, opciones):
             seleccion = (seleccion + 1) % len(opciones)
         elif key == readchar.key.ENTER:
             return seleccion + 1
-
+        
 def menu(usuario_actual=None):
     nick = usuario_actual.get("usuario") if usuario_actual else "Invitado"
-    
     puntos = obtener_puntos(usuario_actual) if usuario_actual else 0
     
     while True:
@@ -299,7 +298,7 @@ def menu(usuario_actual=None):
         opciones = [
             "🎮 Iniciar Juego (Trivia)",
             "💀 Jugar Modo Suicida",
-            "📜 Jugar Modo Historia", 
+            "📜 Jugar Modo Historia",
             "📈 Mis Estadísticas",
             "🏆 Top Global",
             "🚪 Cerrar Sesión"
