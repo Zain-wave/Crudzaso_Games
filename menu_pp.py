@@ -12,48 +12,96 @@ from rich.panel import Panel
 from rich.align import Align
 from utils import console
 
-def mostrar_puntuaciones(usuario_actual):
+def calcular_estadisticas_simples(usuario_actual):
     ruta = "users.json"
-
+    
     if not os.path.exists(ruta):
-        console.print("\n[bold yellow] No existe el archivo users.json[/bold yellow]\n")
-        readchar.readkey()
-        return
-
+        return None
+        
     with open(ruta, "r", encoding="utf-8") as f:
         usuarios = json.load(f)
 
     usuario = next((u for u in usuarios if u["usuario"] == usuario_actual["usuario"]), None)
-
+    
     if not usuario:
-        console.print("\n[bold red] Usuario no encontrado.[/bold red]\n")
-        readchar.readkey()
-        return
-
+        return None
+        
     puntuaciones = usuario.get("puntuaciones", [])
-
+    puntos_totales = usuario.get("puntos", 0)
+    
     if not puntuaciones:
-        console.print(f"\n[bold yellow] {usuario_actual['usuario']} no tiene puntuaciones registradas.[/bold yellow]\n")
+        return {
+            "total_preguntas": 0,
+            "porcentaje_acierto": 0,
+            "mejor_racha": 0,
+            "categoria_favorita": "Ninguna",
+            "mejor_puntuacion_suicida": 0,
+            "puntos_totales": puntos_totales
+        }
+    
+    total_preguntas = 0
+    aciertos_totales = 0
+    
+    for p in puntuaciones:
+        if p["modo"] == "trivia":
+            total_preguntas += 5
+            aciertos_totales += p["puntaje"]
+        elif p["modo"] == "suicida":
+            total_preguntas += p["puntaje"] + 1
+            aciertos_totales += p["puntaje"]
+        elif p["modo"] == "contrarreloj":
+            aciertos_totales += p["puntaje"]
+            total_preguntas += p["puntaje"] + 3
+    
+    porcentaje_acierto = (aciertos_totales / total_preguntas * 100) if total_preguntas > 0 else 0
+    
+    mejor_racha = max([p["puntaje"] for p in puntuaciones if p["modo"] == "suicida"], default=0)
+    
+    mejor_puntuacion_suicida = max([p["puntaje"] for p in puntuaciones if p["modo"] == "suicida"], default=0)
+    
+    categoria_favorita = "Historia"
+    
+    return {
+        "total_preguntas": total_preguntas,
+        "porcentaje_acierto": round(porcentaje_acierto, 1),
+        "mejor_racha": mejor_racha,
+        "categoria_favorita": categoria_favorita,
+        "mejor_puntuacion_suicida": mejor_puntuacion_suicida,
+        "puntos_totales": puntos_totales
+    }
+
+def mostrar_estadisticas_personales(usuario_actual):
+    """Muestra estadísticas personales en formato simple y elegante"""
+    stats = calcular_estadisticas_simples(usuario_actual)
+    
+    if not stats:
+        console.print("\n[bold red]❌ Error al cargar las estadísticas[/bold red]\n")
         readchar.readkey()
         return
-
-    tabla = Table(title=f"Puntuaciones de {usuario_actual['usuario']}", header_style="bold magenta")
-    tabla.add_column("Modo", justify="center")
-    tabla.add_column("Dificultad", justify="center")
-    tabla.add_column("Puntaje", justify="center")
-
-    for p in puntuaciones:
-        tabla.add_row(
-            p["modo"].capitalize(),
-            p["dificultad"].capitalize(),
-            str(p["puntaje"])
-        )
-
-    console.print("\n")
-    console.print(tabla)
-    console.print("\n[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]")
+    
+    contenido = f"""
+[bold white]Total de preguntas:[/bold white] [bold yellow]{stats['total_preguntas']}[/bold yellow]
+[bold white]Porcentaje de acierto:[/bold white] [bold yellow]{stats['porcentaje_acierto']}%[/bold yellow]
+[bold white]Mejor racha:[/bold white] [bold yellow]{stats['mejor_racha']} preguntas[/bold yellow]
+[bold white]Categoría favorita:[/bold white] [bold yellow]{stats['categoria_favorita']}[/bold yellow]
+[bold white]Mejor puntuación (Suicida):[/bold white] [bold yellow]{stats['mejor_puntuacion_suicida']}[/bold yellow]
+[bold white]Puntos totales ganados:[/bold white] [bold yellow]{stats['puntos_totales']}[/bold yellow]
+"""
+    
+    panel = Panel(
+        Align.left(contenido),
+        title="[bold cyan]📈 MIS ESTADÍSTICAS[/bold cyan]",
+        border_style="bright_magenta",
+        padding=(1, 4),
+        width=50
+    )
+    
+    os.system("cls")
+    console.print("\n" * 3)
+    console.print(Align.center(panel))
+    console.print("\n" * 2)
+    console.print(Align.center("[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]"))
     readchar.readkey()
-
 
 def mostrar_top_global():
     ruta = "users.json"
@@ -66,13 +114,6 @@ def mostrar_top_global():
     with open(ruta, "r", encoding="utf-8") as f:
         usuarios = json.load(f)
 
-    tabla = Table(title="🏆 Top Global de Usuarios", header_style="bold cyan")
-    tabla.add_column("Posición", justify="center")
-    tabla.add_column("Usuario", justify="center")
-    tabla.add_column("Mejor Puntaje", justify="center")
-    tabla.add_column("Modo", justify="center")
-    tabla.add_column("Dificultad", justify="center")
-
     ranking = []
 
     for u in usuarios:
@@ -84,32 +125,78 @@ def mostrar_top_global():
             "usuario": u["usuario"],
             "puntaje": mejor["puntaje"],
             "modo": mejor["modo"],
-            "dificultad": mejor["dificultad"]
+            "dificultad": mejor["dificultad"],
+            "puntos_totales": u.get("puntos", 0)
         })
 
     if not ranking:
-        console.print("\n[bold yellow] No hay puntuaciones registradas aún.[/bold yellow]\n")
+        panel = Panel(
+            Align.center("[bold yellow]No hay puntuaciones registradas aún.[/bold yellow]\n\n[cyan]¡Sé el primero en jugar![/cyan]"),
+            title="[bold cyan]🏆 TOP GLOBAL[/bold cyan]",
+            border_style="bright_magenta",
+            width=60
+        )
+        os.system("cls")
+        console.print("\n" * 3)
+        console.print(Align.center(panel))
+        console.print("\n" * 2)
+        console.print(Align.center("[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]"))
         readchar.readkey()
         return
 
     ranking.sort(key=lambda x: x["puntaje"], reverse=True)
 
+    tabla = Table(
+        title="[bold cyan]🏆 TOP GLOBAL DE JUGADORES[/bold cyan]",
+        title_justify="center",
+        header_style="bold magenta",
+        box=None,
+        show_header=True,
+        width=70
+    )
+    
+    tabla.add_column("Posición", justify="center", style="cyan", width=10)
+    tabla.add_column("Jugador", justify="center", style="white", width=20)
+    tabla.add_column("Mejor Puntaje", justify="center", style="yellow", width=15)
+    tabla.add_column("Modo", justify="center", style="green", width=15)
+    tabla.add_column("Puntos Totales", justify="center", style="blue", width=15)
+
     for i, r in enumerate(ranking, start=1):
+        if i == 1:
+            posicion = "🥇 1°"
+        elif i == 2:
+            posicion = "🥈 2°"
+        elif i == 3:
+            posicion = "🥉 3°"
+        else:
+            posicion = f"{i}°"
+        
+        modo_formateado = {
+            "trivia": "Trivia",
+            "suicida": "Suicida",
+            "contrarreloj": "Contrarreloj"
+        }.get(r["modo"], r["modo"].capitalize())
+        
         tabla.add_row(
-            f"{i}",
+            posicion,
             r["usuario"],
             str(r["puntaje"]),
-            r["modo"].capitalize(),
-            r["dificultad"].capitalize()
+            modo_formateado,
+            str(r["puntos_totales"])
         )
 
-    console.print("\n")
-    console.print(tabla)
-    console.print("\n[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]")
+
+    os.system("cls")
+    console.print("\n" * 2)
+    console.print(Align.center(tabla))
+    
+    console.print(Align.center("[dim]Basado en la mejor puntuación individual de cada jugador[/dim]"))
+    console.print("\n" * 2)
+    console.print(Align.center("[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]"))
     readchar.readkey()
 
-
 def menu_vertical_mejorado(titulo, opciones):
+    """Versión mejorada del menu_vertical con texto amarillo en selección"""
     seleccion = 0
     width = 45
 
@@ -149,11 +236,11 @@ def menu(usuario_actual=None):
     while True:
         titulo = f"👤 {nick} | ⭐ {puntos} puntos"
         opciones = [
-            "🎮 Iniciar juego (Trivia Normal)",
-            "📊 Ver mis puntuaciones", 
-            "💀 Jugar Punto Suicida",
+            "🎮 Iniciar Juego (Trivia)",
+            "💀 Jugar Modo Suicida",
+            "📈 Mis Estadísticas",
             "🏆 Top Global",
-            "🚪 Cerrar sesión"
+            "🚪 Cerrar Sesión"
         ]
         
         seleccion = menu_vertical_mejorado(titulo, opciones)
@@ -163,9 +250,9 @@ def menu(usuario_actual=None):
         if seleccion == 1:
             jugar_trivia(usuario_actual)
         elif seleccion == 2:
-            mostrar_puntuaciones(usuario_actual)
-        elif seleccion == 3:
             jugar_suicida(usuario_actual)
+        elif seleccion == 3:
+            mostrar_estadisticas_personales(usuario_actual)
         elif seleccion == 4:
             mostrar_top_global()
         elif seleccion == 5:
