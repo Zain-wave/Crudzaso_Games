@@ -119,10 +119,54 @@ def seleccionar_opcion(opciones, pregunta=None):
         elif key == readchar.key.ENTER:
             return seleccion
 
-def seleccionar_dificultad():
+def seleccionar_dificultad(modo="trivia"):
+    """Selecciona la dificultad con descripción del modo de juego"""
     opciones = ["Fácil", "Media", "Difícil"]
-    seleccion = seleccionar_opcion(opciones, "dificultad")
-    return opciones[seleccion]
+    seleccion = 0
+    
+    # Descripciones de cada modo
+    descripciones = {
+        "trivia": "🎯 Responde 5 preguntas. Gana 5 puntos por cada acierto. Usa pistas para ayudarte.",
+        "suicida": "💀 Responde hasta que falles. Un error y el juego termina. ¡Consigue la mayor racha!",
+        "contrarreloj": "⏰ Responde tantas preguntas como puedas en 30 segundos. ¡Cada segundo cuenta!"
+    }
+    
+    descripcion = descripciones.get(modo, "🎮 Modo de juego estándar")
+    
+    while True:
+        os.system("cls")
+        
+        console.print("\n")
+        console.print(Align.center(f"[bold cyan]{descripcion}[/bold cyan]"))
+        console.print("\n")
+        
+        console.print(Align.center("[bold white]Selecciona la dificultad[/bold white]"))
+        console.print("\n")
+
+        tabla = Table(show_header=False, box=None, padding=(0, 2))
+        for _ in opciones:
+            tabla.add_column(justify="center")
+
+        botones = []
+        for i, opt in enumerate(opciones):
+            color = "bold yellow" if i == seleccion else "white"
+            border = "bright_magenta" if i == seleccion else "white"
+            panel = Panel(f"[{color}]{i+1}. {opt}[/{color}]", border_style=border, padding=(0, 2), expand=False)
+            botones.append(panel)
+
+        tabla.add_row(*botones)
+        console.print("\n")
+        console.print(Align.center(tabla))
+        
+        console.print("\n[dim]← → para navegar • ENTER para seleccionar dificultad[/dim]")
+
+        key = readchar.readkey()
+        if key == readchar.key.LEFT:
+            seleccion = (seleccion - 1) % len(opciones)
+        elif key == readchar.key.RIGHT:
+            seleccion = (seleccion + 1) % len(opciones)
+        elif key == readchar.key.ENTER:
+            return opciones[seleccion]
 
 def menu_vertical(titulo, opciones):
     seleccion = 0

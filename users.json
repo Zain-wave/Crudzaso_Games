@@ -144,9 +144,14 @@
                 "modo": "suicida",
                 "dificultad": "Fácil",
                 "puntaje": 0
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 2
             }
         ],
-        "puntos": 4645
+        "puntos": 4655
     },
     {
         "usuario": "Choklitos",

@@ -90,8 +90,8 @@ def jugar_trivia(usuario_actual):
     puntos = obtener_puntos(usuario_actual)
     console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
     console.print("[yellow]Durante el juego presiona 'P' para usar pistas[/yellow]\n")
-    
-    dificultad = seleccionar_dificultad()
+
+    dificultad = seleccionar_dificultad("trivia")
     os.system("cls")
     preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=5)
     
@@ -138,7 +138,7 @@ def jugar_suicida(usuario_actual):
     console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
     console.print("[yellow]Durante el juego presiona 'P' para usar pistas[/yellow]\n")
     
-    dificultad = seleccionar_dificultad()
+    dificultad = seleccionar_dificultad("suicida")
     os.system("cls")
     preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=50)
 
@@ -175,8 +175,8 @@ def jugar_suicida(usuario_actual):
 # ----------------------------------------------------
 def jugar_contrarreloj(usuario_actual):
     console.print("\n[bold green]=== MODO: CONTRARRELOJ ===[/bold green]\n", justify="center")
-
-    dificultad = seleccionar_dificultad()
+    
+    dificultad = seleccionar_dificultad("contrarreloj")
     os.system("cls")
     preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=50)
     puntaje = 0
