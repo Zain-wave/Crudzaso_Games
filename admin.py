@@ -4,9 +4,8 @@ import os
 from rich.console import Console 
 from rich.columns import Columns
 from rich.panel import Panel
-
+from config import ARCHIVO_PREGUNTAS
 from utils import dar_formato_pregunta
-ARCHIVO_PREGUNTAS = "preguntas.json"
 
 def cargar_preguntas():
     if not os.path.exists(ARCHIVO_PREGUNTAS):

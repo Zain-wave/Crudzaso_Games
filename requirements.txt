@@ -1,4 +1,5 @@
-bcrypt
 rich
-simpleaudio
+pygame
 readchar
+openai
+pyttsx3

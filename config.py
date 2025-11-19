@@ -1,0 +1,3 @@
+PUNTOS_POR_ACIERTO = 5
+ARCHIVO_USUARIOS = "users.json"
+ARCHIVO_PREGUNTAS = "preguntas.json"

@@ -6,7 +6,9 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
 from rich.table import Table
+# Importamos solo las funciones necesarias de auth
 from auth import obtener_puntos, usar_pista
+import pyttsx3
 
 import copy
     
@@ -14,13 +16,15 @@ import copy
 console = Console()
 
 musica_iniciada = False
+volumen_original = 0.5  # Guardaremos el volumen original aquí
 
+# Definimos las constantes aquí para evitar importación circular
 PUNTOS_POR_ACIERTO = 5
 COSTO_PISTA_ELIMINAR = 15
-COSTO_PISTA_50_50 = 25
+COSTO_PISTA_IA = 35  # Nuevo costo para la pista de IA
 
 def iniciar_musica():
-    global musica_iniciada
+    global musica_iniciada, volumen_original
 
     if musica_iniciada:
         return
@@ -35,14 +39,28 @@ def iniciar_musica():
         pygame.mixer.init()
         pygame.mixer.music.load(ruta)
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.5)
+        volumen_original = 0.5  # Establecemos el volumen original
+        pygame.mixer.music.set_volume(volumen_original)
         musica_iniciada = True
     except Exception as e:
         print(f"Error al reproducir música: {e}")
 
 def ajustar_volumen(volumen):
+    global volumen_original
     if musica_iniciada:
         pygame.mixer.music.set_volume(volumen)
+
+def bajar_volumen_musica():
+    """Baja el volumen de la música de fondo"""
+    global musica_iniciada
+    if musica_iniciada:
+        pygame.mixer.music.set_volume(0.1)  # Volumen muy bajo
+
+def restaurar_volumen_musica():
+    """Restaura el volumen original de la música"""
+    global musica_iniciada, volumen_original
+    if musica_iniciada:
+        pygame.mixer.music.set_volume(volumen_original)
 
 def dar_formato_pregunta(pregunta): 
     dificultad_color = { 
@@ -176,8 +194,8 @@ def mostrar_menu_pistas(puntos_disponibles):
     )
     tabla.add_row(
         "[bold yellow]2[/bold yellow]", 
-        "🎯 Mostrar respuesta correcta (50/50)",
-        f"[red]{COSTO_PISTA_50_50} puntos[/red]"
+        "🤖 Consultar a IA (respuesta por audio)",
+        f"[red]{COSTO_PISTA_IA} puntos[/red]"
     )
     tabla.add_row(
         "[bold yellow]3[/bold yellow]",
@@ -215,41 +233,76 @@ def aplicar_pista_eliminar(pregunta):
     
     return pregunta_modificada
 
-def aplicar_pista_50_50(pregunta):
+def obtener_respuesta_ia(pregunta):
+    """
+    Consulta a una IA cuál cree que es la respuesta correcta
+    """
+    try:
+        # Simulación de consulta a IA (en un caso real, usarías OpenAI, etc.)
+        # Por ahora, vamos a simular la respuesta basándonos en la respuesta correcta real
+        respuesta_correcta = pregunta["opciones"][pregunta["respuesta"]]
+        
+        # En una implementación real, aquí harías:
+        # openai.api_key = "tu_api_key"
+        # respuesta = openai.ChatCompletion.create(...)
+        
+        # Por ahora, simulamos que la IA responde correctamente
+        return f"Basándome en mis conocimientos, creo que la respuesta correcta es: {respuesta_correcta}"
+    except Exception as e:
+        return f"No pude obtener una respuesta de la IA. Error: {str(e)}"
 
-    pregunta_modificada = copy.deepcopy(pregunta)
-    
-    opciones = pregunta_modificada["opciones"]
-    respuesta_correcta_original = pregunta_modificada["respuesta"]
-    respuesta_correcta_texto = opciones[respuesta_correcta_original]
-    
-    opciones_incorrectas = [i for i in range(len(opciones)) if i != respuesta_correcta_original]
-    
-    if opciones_incorrectas:
-        opcion_incorrecta_idx = random.choice(opciones_incorrectas)
-        opcion_incorrecta_texto = opciones[opcion_incorrecta_idx]
+def hablar_texto(texto):
+    """
+    Convierte texto a audio usando pyttsx3
+    """
+    try:
+        engine = pyttsx3.init()
+        engine.setProperty('rate', 150)  # Velocidad del habla
+        engine.setProperty('volume', 0.8)  # Volumen (0.0 a 1.0)
+        engine.say(texto)
+        engine.runAndWait()
+    except Exception as e:
+        console.print(f"[bold red]Error al reproducir audio: {e}[/bold red]")
+
+def aplicar_pista_ia_audio(usuario_actual, pregunta_actual):
+    """
+    Nueva pista: Consulta a IA y da la respuesta por audio
+    """
+    if usar_pista(usuario_actual, COSTO_PISTA_IA):
+        console.print("\n[bold green]🤖 Consultando a la IA...[/bold green]")
         
-        nuevas_opciones = [respuesta_correcta_texto, opcion_incorrecta_texto]
+        # Obtener respuesta de la IA
+        respuesta_ia = obtener_respuesta_ia(pregunta_actual)
         
-        random.shuffle(nuevas_opciones)
+        # Mostrar mensaje en pantalla
+        console.print(f"[cyan]{respuesta_ia}[/cyan]")
+        console.print("[yellow]🔊 Reproduciendo respuesta por audio...[/yellow]")
         
-        nuevo_indice_correcto = nuevas_opciones.index(respuesta_correcta_texto)
+        # Bajar el volumen de la música de fondo
+        bajar_volumen_musica()
         
-        pregunta_modificada["opciones"] = nuevas_opciones
-        pregunta_modificada["respuesta"] = nuevo_indice_correcto
-        pregunta_modificada["pista_usada"] = True
+        try:
+            # Reproducir por audio
+            hablar_texto(respuesta_ia)
+        finally:
+            # Restaurar el volumen original de la música
+            restaurar_volumen_musica()
         
-        return pregunta_modificada
-    
-    return pregunta_modificada
+        console.print("[green]✅ Pista de IA completada[/green]")
+        esperar_tecla()
+        return pregunta_actual
+    else:
+        console.print("\n[bold red]❌ No tienes puntos suficientes para esta pista[/bold red]")
+        esperar_tecla()
+        return pregunta_actual
 
 def ofrecer_pista(usuario_actual, pregunta_actual):
     
     puntos = obtener_puntos(usuario_actual)
     
-    if puntos < min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_50_50):
+    if puntos < min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_IA):
         console.print("\n[bold red]❌ No tienes puntos suficientes para usar pistas[/bold red]")
-        console.print(f"[yellow]Puntos necesarios: {min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_50_50)}[/yellow]")
+        console.print(f"[yellow]Puntos necesarios: {min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_IA)}[/yellow]")
         esperar_tecla()
         return pregunta_actual
     
@@ -271,14 +324,7 @@ def ofrecer_pista(usuario_actual, pregunta_actual):
                 esperar_tecla()
                 
         elif key == '2': 
-            if usar_pista(usuario_actual, COSTO_PISTA_50_50):
-                console.print("\n[bold green]✅ Pista aplicada: Opciones reducidas a 50/50[/bold green]")
-                nueva_pregunta = aplicar_pista_50_50(pregunta_actual)
-                esperar_tecla()
-                return nueva_pregunta
-            else:
-                console.print("\n[bold red]❌ No tienes puntos suficientes para esta pista[/bold red]")
-                esperar_tecla()
+            return aplicar_pista_ia_audio(usuario_actual, pregunta_actual)
                 
         elif key == '3':
             return pregunta_actual
