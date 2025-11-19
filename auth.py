@@ -1,8 +1,10 @@
 import json
 import os
 import bcrypt
-from config import PUNTOS_POR_ACIERTO, ARCHIVO_USUARIOS
 
+# Definimos las constantes aquí
+PUNTOS_POR_ACIERTO = 5
+ARCHIVO_USUARIOS = "users.json"
 
 def cargar_usuarios():
     if not os.path.exists(ARCHIVO_USUARIOS):
@@ -29,7 +31,8 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
         "usuario": nombre_usuario,
         "contraseña": hash_contraseña.decode('utf-8'),
         "rol": "user",
-        "puntuaciones": []
+        "puntuaciones": [],
+        "puntos": 0
     }
 
     usuarios.append(nuevo_usuario)

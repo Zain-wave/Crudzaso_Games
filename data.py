@@ -1,5 +1,3 @@
-from utils import esperar_tecla
-
 def registrar():
     nombre_usuario = input("Nombre de usuario para el juego: ").strip()
 
@@ -14,8 +12,7 @@ def registrar():
     print("\n¡Registro exitoso!")
     print(f"Usuario: {nombre_usuario}")
     print("==================================")
-    esperar_tecla()
-
+    
     return nombre_usuario, contraseña
 
 

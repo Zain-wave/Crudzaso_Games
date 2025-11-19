@@ -6,7 +6,6 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
 from rich.table import Table
-# Importamos solo las funciones necesarias de auth
 from auth import obtener_puntos, usar_pista
 import pyttsx3
 

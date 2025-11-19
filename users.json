@@ -216,5 +216,25 @@
             }
         ],
         "puntos": 15
+    },
+    {
+        "usuario": "xax",
+        "contraseña": "$2b$12$YAc2WMqqP0koHltpCGmUq.t.XuEfFrsjir3tqfIYVjbqvtNXhI55O",
+        "rol": "user",
+        "puntuaciones": [],
+        "puntos": 0
+    },
+    {
+        "usuario": "meoow",
+        "contraseña": "$2b$12$o/YJrBHf7kNwxBa1.Muweu/cSID7YqW4eAFbhMiuD9lanFvpDqNAS",
+        "rol": "user",
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 2
+            }
+        ],
+        "puntos": 10
     }
 ]
