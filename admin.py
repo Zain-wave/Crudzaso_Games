@@ -6,6 +6,7 @@ from rich.columns import Columns
 from rich.panel import Panel
 from config import ARCHIVO_PREGUNTAS
 from utils import dar_formato_pregunta
+import readchar
 
 def cargar_preguntas():
     if not os.path.exists(ARCHIVO_PREGUNTAS):
@@ -176,32 +177,46 @@ def eliminar_pregunta():
     print(f"Pregunta ID {id_del} eliminada")
 
 def menu_admin():
-    opcion = 0
-    corriendo = True
-    while corriendo:
-        print("\n=== ADMINISTRACIÓN DE PREGUNTAS ===")
-        print("1. Crear pregunta")
-        print("2. Ver preguntas")
-        print("3. Editar pregunta")
-        print("4. Eliminar pregunta")
-        print("5. Volver al menú principal")
-        try:
-            if not (opcion := int(input("Selecciona una opcion "))):
-                continue
-
-            if opcion == 1:
+    console = Console()
+    opciones = [
+        "📝 Crear pregunta",
+        "👀 Ver preguntas", 
+        "✏️ Editar pregunta",
+        "🗑️ Eliminar pregunta", 
+        "🔙 Volver al menú principal"
+    ]
+    
+    seleccion = 0
+    
+    while True:
+        os.system("cls")
+        console.print("\n" + "="*60)
+        console.print("🛠️  [bold cyan]PANEL DE ADMINISTRACIÓN[/bold cyan]")
+        console.print("="*60 + "\n")
+        
+        for i, opt in enumerate(opciones):
+            color_texto = "bold yellow" if i == seleccion else "white"
+            prefix = "➤ " if i == seleccion else "  "
+            console.print(" " * 15 + f"[{color_texto}]{prefix}{opt}[/{color_texto}]")
+        
+        console.print("\n" + "="*60)
+        console.print("[dim]Usa las flechas ↑↓ para navegar • ENTER para seleccionar[/dim]")
+        
+        key = readchar.readkey()
+        if key == readchar.key.UP:
+            seleccion = (seleccion - 1) % len(opciones)
+        elif key == readchar.key.DOWN:
+            seleccion = (seleccion + 1) % len(opciones)
+        elif key == readchar.key.ENTER:
+            if seleccion == 0:
                 crear_pregunta()
-            elif opcion == 2:
+            elif seleccion == 1:
                 ver_preguntas()
-            elif opcion == 3:
+            elif seleccion == 2:
                 editar_pregunta()
-            elif opcion == 4:
+            elif seleccion == 3:
                 eliminar_pregunta()
-            elif opcion == 5:
-                print("Regresando...")
-                corriendo = False
-            else:
-                print("Opción inválida. Solo del 1 al 5.")
-        except ValueError:
-            print("¡Eso no es una opción numérica!")
-            continue
+            elif seleccion == 4:
+                console.print("\n[bold cyan]Regresando al menú principal...[/bold cyan]")
+                readchar.readkey()
+                break

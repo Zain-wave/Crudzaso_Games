@@ -8,7 +8,9 @@ import os
 import json
 import readchar
 from rich.table import Table
-from utils import menu_vertical, console
+from rich.panel import Panel
+from rich.align import Align
+from utils import console
 
 def mostrar_puntuaciones(usuario_actual):
     ruta = "users.json"
@@ -107,22 +109,54 @@ def mostrar_top_global():
     readchar.readkey()
 
 
+def menu_vertical_mejorado(titulo, opciones):
+    seleccion = 0
+    width = 45
+
+    while True:
+        os.system("cls")
+
+        console.print("\n")
+        console.print(Align.center(f"[bold cyan]{titulo}[/bold cyan]"))
+        console.print("\n")
+
+        for i, opt in enumerate(opciones):
+            color_texto = "bold yellow" if i == seleccion else "white"
+            panel = Panel(
+                Align.center(f"[{color_texto}]{opt}[/{color_texto}]"),
+                border_style="bright_magenta" if i == seleccion else "white",
+                padding=(1, 2),
+                width=width
+            )
+            console.print("     ", panel, justify="center")
+
+        console.print("\n[dim]Usa las flechas ↑↓ para navegar • ENTER para seleccionar[/dim]")
+
+        key = readchar.readkey()
+        if key == readchar.key.UP:
+            seleccion = (seleccion - 1) % len(opciones)
+        elif key == readchar.key.DOWN:
+            seleccion = (seleccion + 1) % len(opciones)
+        elif key == readchar.key.ENTER:
+            return seleccion + 1
+
+
 def menu(usuario_actual=None):
     nick = usuario_actual.get("usuario") if usuario_actual else "Invitado"
     
     puntos = obtener_puntos(usuario_actual) if usuario_actual else 0
     
     while True:
-        titulo = f"Menú de Juego - {nick} | Puntos: {puntos}"
+        titulo = f"👤 {nick} | ⭐ {puntos} puntos"
         opciones = [
-            "Iniciar juego (Trivia Normal)",
-            "Ver puntuaciones", 
-            "Jugar Punto Suicida",
-            "Top Global",
-            "Cerrar sesión / Volver al menú principal"
+            "🎮 Iniciar juego (Trivia Normal)",
+            "📊 Ver mis puntuaciones", 
+            "💀 Jugar Punto Suicida",
+            "🏆 Top Global",
+            "🚪 Cerrar sesión"
         ]
         
-        seleccion = menu_vertical(titulo, opciones)
+        seleccion = menu_vertical_mejorado(titulo, opciones)
         
         puntos = obtener_puntos(usuario_actual) if usuario_actual else 0
         

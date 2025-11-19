@@ -75,8 +75,11 @@ def main():
 
             match opcion:
                 case 1:
-                    accion = menu_inicio_sesion()
-                    if accion == 0:
+                    opcion_login = menu_vertical(
+                        "Iniciar Sesión", 
+                        ["Ingresar usuario y contraseña", "Volver"]
+                    )
+                    if opcion_login == 1:
                         usuario, contraseña = log_in()
                         datos_usuario = iniciar_sesion(usuario, contraseña)
 
@@ -95,8 +98,11 @@ def main():
                             readchar.readkey()
 
                 case 2:
-                    accion = menu_registro()
-                    if accion == 0:
+                    opcion_registro = menu_vertical(
+                        "Registro",
+                        ["Completar registro", "Volver"]
+                    )
+                    if opcion_registro == 1:
                         datos = registrar()
                         if not datos:
                             continue
@@ -120,7 +126,5 @@ def main():
                 usuario_actual = None
 
     print("Saliendo del sistema... Gracias por jugar :)")
-
-
 if __name__ == "__main__":
     main()

@@ -136,13 +136,16 @@ def menu_vertical(titulo, opciones):
         console.print("\n")
 
         for i, opt in enumerate(opciones):
+            color_texto = "bold yellow" if i == seleccion else "white"
             panel = Panel(
-                Align.center(f"[white]{opt}[/white]"),
+                Align.center(f"[{color_texto}]{opt}[/{color_texto}]"),
                 border_style="bright_magenta" if i == seleccion else "white",
                 padding=(1, 2),
                 width=width
             )
             console.print("     ", panel, justify="center")
+
+        console.print("\n[dim]Usa las flechas ↑↓ para navegar • ENTER para seleccionar[/dim]")
 
         key = readchar.readkey()
         if key == readchar.key.UP:
@@ -151,7 +154,6 @@ def menu_vertical(titulo, opciones):
             seleccion = (seleccion + 1) % len(opciones)
         elif key == readchar.key.ENTER:
             return seleccion + 1
-
 def mezclar_opciones(pregunta):
     opciones = pregunta["opciones"]
     correcta = pregunta["respuesta"]

@@ -130,31 +130,46 @@ def jugar_trivia(usuario_actual):
 # ----------------------------------------------------
 #   MODO PUNTO SUICIDA
 # ----------------------------------------------------
+
 def jugar_suicida(usuario_actual):
     console.print("\n[bold green]=== MODO: PUNTO SUICIDA ===[/bold green]\n")
 
+    puntos = obtener_puntos(usuario_actual)
+    console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
+    console.print("[yellow]Durante el juego presiona 'P' para usar pistas[/yellow]\n")
+    
     dificultad = seleccionar_dificultad()
     os.system("cls")
     preguntas = seleccionar_preguntas(dificultad=dificultad, cantidad=50)
 
+    if not preguntas:
+        console.print("[bold red] No hay preguntas para esa dificultad[/bold red]")
+        esperar_tecla()
+        return
+
     puntaje = 0
 
     for pregunta in preguntas:
+        if 'pregunta' not in pregunta or 'opciones' not in pregunta or 'respuesta' not in pregunta:
+            console.print("[bold red]Error: Pregunta con formato inválido, saltando...[/bold red]")
+            continue
+            
         pregunta = mezclar_opciones(pregunta)
-        mostrar_pregunta_bonita(pregunta)
-        resp = seleccionar_opcion(pregunta["opciones"], pregunta)
-
-        if resp == pregunta["respuesta"]:
+        
+        respuesta, pregunta_actual = seleccionar_opcion_con_pistas(pregunta["opciones"], pregunta, usuario_actual)
+        
+        if respuesta == pregunta_actual["respuesta"]:
             console.print("[green]✔ Correcto! Continúas...[/green]")
             puntaje += 1
         else:
             console.print("[red]✘ Incorrecto! Fin del juego.[/red]")
+            console.print(f"[green]La respuesta correcta era: {pregunta_actual['opciones'][pregunta_actual['respuesta']]}[/green]")
             break
 
     console.print(f"\n[bold magenta]Puntaje final: {puntaje}[/bold magenta]\n")
     guardar_puntaje(usuario_actual, "suicida", dificultad, puntaje)
     esperar_tecla()
-
+    
 # ----------------------------------------------------
 #   MODO CONTRARRELOJ
 # ----------------------------------------------------
