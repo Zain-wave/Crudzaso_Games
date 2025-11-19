@@ -1,12 +1,12 @@
 import json
 import os
-
+import readchar
 from rich.console import Console 
 from rich.columns import Columns
 from rich.panel import Panel
-from config import ARCHIVO_PREGUNTAS
+
 from utils import dar_formato_pregunta
-import readchar
+ARCHIVO_PREGUNTAS = "preguntas.json"
 
 def cargar_preguntas():
     if not os.path.exists(ARCHIVO_PREGUNTAS):
@@ -32,7 +32,7 @@ def crear_pregunta():
     categoria_valida = False
     categoria = ""
     while not categoria_valida:
-        categoria = input("Ingresa la categoría (geografía, historia, deportes, arte, entretenimiento").strip()
+        categoria = input("Ingresa la categoría (geografía, historia, deportes, arte, entretenimiento): ").strip()
         if categoria in ["historia", "geografía", "deportes", "arte", "entretenimiento"]:
             categoria_valida = True
         else:
@@ -97,6 +97,10 @@ def ver_preguntas():
     console.print(Columns(render_preguntas, equal=True, padding=(1, 2)))
     print("-" * console.width)
 
+    console.print("\n[bold cyan]Presiona cualquier tecla para volver al menú...[/bold cyan]")
+    readchar.readkey()
+
+
 def editar_pregunta():
     preguntas = cargar_preguntas()
     if not preguntas:
@@ -120,7 +124,7 @@ def editar_pregunta():
         
     entrada_valida = False
     while not entrada_valida:
-        nueva_dificultad = input(f"Editar dificultad (Actual: {pregunta['dificultad']})").strip().lower()
+        nueva_dificultad = input(f"Editar dificultad (Actual: {pregunta['dificultad']}): ").strip().lower()
         if nueva_dificultad == "":
             entrada_valida = True
         elif nueva_dificultad in ["facil", "media", "dificil"]:
@@ -211,7 +215,7 @@ def menu_admin():
             if seleccion == 0:
                 crear_pregunta()
             elif seleccion == 1:
-                ver_preguntas()
+                ver_preguntas() 
             elif seleccion == 2:
                 editar_pregunta()
             elif seleccion == 3:
