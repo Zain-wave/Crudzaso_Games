@@ -114,7 +114,7 @@ def menu(usuario_actual=None):
             "Iniciar juego (Trivia Normal)",
             "Ver puntuaciones",
             "Jugar Punto Suicida",
-            "Jugar Contrarreloj",
+            #"Jugar Contrarreloj",
             "Top Global",
             "Cerrar sesión / Volver al menú principal"
         ]
@@ -127,11 +127,11 @@ def menu(usuario_actual=None):
             mostrar_puntuaciones(usuario_actual)
         elif seleccion == 3:
             jugar_suicida(usuario_actual)
+        # elif seleccion == 4:
+        #     jugar_contrarreloj(usuario_actual)
         elif seleccion == 4:
-            jugar_contrarreloj(usuario_actual)
-        elif seleccion == 5:
             mostrar_top_global()
-        elif seleccion == 6:
+        elif seleccion == 5:
             console.print("\n[bold cyan]Cerrando sesión...[/bold cyan]\n")
             readchar.readkey()
             return False

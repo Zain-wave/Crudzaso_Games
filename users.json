@@ -206,6 +206,11 @@
                 "modo": "suicida",
                 "dificultad": "Difícil",
                 "puntaje": 2
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Media",
+                "puntaje": 5
             }
         ]
     },
