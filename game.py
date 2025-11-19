@@ -87,8 +87,6 @@ def seleccionar_opcion_con_pistas(opciones, pregunta, usuario_actual):
 def jugar_trivia(usuario_actual):
     console.print("\n[bold green]=== MODO DE JUEGO: TRIVIA NORMAL ===[/bold green]\n")
     
-    # Mostrar puntos al inicio
-    from auth import obtener_puntos
     puntos = obtener_puntos(usuario_actual)
     console.print(f"[cyan]Puntos disponibles: {puntos}[/cyan]")
     console.print("[yellow]Durante el juego presiona 'P' para usar pistas[/yellow]\n")

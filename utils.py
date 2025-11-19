@@ -16,12 +16,11 @@ import copy
 console = Console()
 
 musica_iniciada = False
-volumen_original = 0.5  # Guardaremos el volumen original aquí
+volumen_original = 0.5
 
-# Definimos las constantes aquí para evitar importación circular
 PUNTOS_POR_ACIERTO = 5
 COSTO_PISTA_ELIMINAR = 15
-COSTO_PISTA_IA = 35  # Nuevo costo para la pista de IA
+COSTO_PISTA_IA = 35
 
 def iniciar_musica():
     global musica_iniciada, volumen_original
@@ -39,7 +38,7 @@ def iniciar_musica():
         pygame.mixer.init()
         pygame.mixer.music.load(ruta)
         pygame.mixer.music.play(-1)
-        volumen_original = 0.5  # Establecemos el volumen original
+        volumen_original = 0.5
         pygame.mixer.music.set_volume(volumen_original)
         musica_iniciada = True
     except Exception as e:
@@ -51,13 +50,11 @@ def ajustar_volumen(volumen):
         pygame.mixer.music.set_volume(volumen)
 
 def bajar_volumen_musica():
-    """Baja el volumen de la música de fondo"""
     global musica_iniciada
     if musica_iniciada:
-        pygame.mixer.music.set_volume(0.1)  # Volumen muy bajo
+        pygame.mixer.music.set_volume(0.1)
 
 def restaurar_volumen_musica():
-    """Restaura el volumen original de la música"""
     global musica_iniciada, volumen_original
     if musica_iniciada:
         pygame.mixer.music.set_volume(volumen_original)
@@ -234,58 +231,37 @@ def aplicar_pista_eliminar(pregunta):
     return pregunta_modificada
 
 def obtener_respuesta_ia(pregunta):
-    """
-    Consulta a una IA cuál cree que es la respuesta correcta
-    """
     try:
-        # Simulación de consulta a IA (en un caso real, usarías OpenAI, etc.)
-        # Por ahora, vamos a simular la respuesta basándonos en la respuesta correcta real
         respuesta_correcta = pregunta["opciones"][pregunta["respuesta"]]
         
-        # En una implementación real, aquí harías:
-        # openai.api_key = "tu_api_key"
-        # respuesta = openai.ChatCompletion.create(...)
-        
-        # Por ahora, simulamos que la IA responde correctamente
         return f"Basándome en mis conocimientos, creo que la respuesta correcta es: {respuesta_correcta}"
     except Exception as e:
         return f"No pude obtener una respuesta de la IA. Error: {str(e)}"
 
 def hablar_texto(texto):
-    """
-    Convierte texto a audio usando pyttsx3
-    """
     try:
         engine = pyttsx3.init()
-        engine.setProperty('rate', 150)  # Velocidad del habla
-        engine.setProperty('volume', 0.8)  # Volumen (0.0 a 1.0)
+        engine.setProperty('rate', 150)
+        engine.setProperty('volume', 0.8)
         engine.say(texto)
         engine.runAndWait()
     except Exception as e:
         console.print(f"[bold red]Error al reproducir audio: {e}[/bold red]")
 
 def aplicar_pista_ia_audio(usuario_actual, pregunta_actual):
-    """
-    Nueva pista: Consulta a IA y da la respuesta por audio
-    """
     if usar_pista(usuario_actual, COSTO_PISTA_IA):
         console.print("\n[bold green]🤖 Consultando a la IA...[/bold green]")
         
-        # Obtener respuesta de la IA
         respuesta_ia = obtener_respuesta_ia(pregunta_actual)
         
-        # Mostrar mensaje en pantalla
         console.print(f"[cyan]{respuesta_ia}[/cyan]")
         console.print("[yellow]🔊 Reproduciendo respuesta por audio...[/yellow]")
         
-        # Bajar el volumen de la música de fondo
         bajar_volumen_musica()
         
         try:
-            # Reproducir por audio
             hablar_texto(respuesta_ia)
         finally:
-            # Restaurar el volumen original de la música
             restaurar_volumen_musica()
         
         console.print("[green]✅ Pista de IA completada[/green]")

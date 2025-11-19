@@ -35,7 +35,6 @@ def registrar_usuario(nombre_usuario: str, contraseña: str):
     usuarios.append(nuevo_usuario)
     guardar_usuarios(usuarios)
     print(f"Usuario '{nombre_usuario}' creado correctamente.")
-    # Reemplazamos esperar_tecla con input simple
     input("Presiona Enter para continuar...")
     return True
 
