@@ -11,21 +11,6 @@
         "rol": "user",
         "puntuaciones": [
             {
-                "modo": "trivia",
-                "dificultad": "media",
-                "puntaje": 5
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "dificil",
-                "puntaje": 0
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Difícil",
-                "puntaje": 3
-            },
-            {
                 "modo": "suicida",
                 "dificultad": "Fácil",
                 "puntaje": 19
@@ -93,32 +78,12 @@
             {
                 "modo": "suicida",
                 "dificultad": "Fácil",
-                "puntaje": 4
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
                 "puntaje": 0
             },
             {
                 "modo": "trivia",
-                "dificultad": "Fácil",
-                "puntaje": 0
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
-                "puntaje": 0
-            },
-            {
-                "modo": "contrarreloj",
-                "dificultad": "Fácil",
-                "puntaje": 5
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
-                "puntaje": 2
+                "dificultad": "Difícil",
+                "puntaje": 1
             },
             {
                 "modo": "trivia",
@@ -128,15 +93,10 @@
             {
                 "modo": "trivia",
                 "dificultad": "Fácil",
-                "puntaje": 3
-            },
-            {
-                "modo": "trivia",
-                "dificultad": "Fácil",
                 "puntaje": 2
             },
             {
-                "modo": "suicida",
+                "modo": "trivia",
                 "dificultad": "Fácil",
                 "puntaje": 0
             },
@@ -146,61 +106,37 @@
                 "puntaje": 1
             },
             {
-                "modo": "suicida",
+                "modo": "trivia",
                 "dificultad": "Fácil",
-                "puntaje": 0
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Fácil",
-                "puntaje": 0
-            },
-            {
-                "modo": "contrarreloj",
-                "dificultad": "Fácil",
-                "puntaje": 6
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Difícil",
-                "puntaje": 0
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Difícil",
-                "puntaje": 3
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Fácil",
-                "puntaje": 0
-            },
-            {
-                "modo": "contrarreloj",
-                "dificultad": "Fácil",
-                "puntaje": 5
+                "puntaje": 1
             },
             {
                 "modo": "trivia",
                 "dificultad": "Difícil",
-                "puntaje": 3
+                "puntaje": 5
             },
             {
-                "modo": "contrarreloj",
-                "dificultad": "Media",
-                "puntaje": 3
-            },
-            {
-                "modo": "suicida",
-                "dificultad": "Difícil",
+                "modo": "trivia",
+                "dificultad": "Fácil",
                 "puntaje": 2
             },
             {
                 "modo": "trivia",
-                "dificultad": "Media",
+                "dificultad": "Fácil",
                 "puntaje": 5
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 3
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 0
             }
-        ]
+        ],
+        "puntos": 4925
     },
     {
         "usuario": "Choklitos",
@@ -257,5 +193,28 @@
                 "puntaje": 0
             }
         ]
+    },
+    {
+        "usuario": "vmc26",
+        "contraseña": "$2b$12$BaHnxqhrplXv/O.hfR8tf.J81Pk.SVkhbXAMBWWmL1652xoh/lJiK",
+        "rol": "user",
+        "puntuaciones": [
+            {
+                "modo": "trivia",
+                "dificultad": "Difícil",
+                "puntaje": 3
+            },
+            {
+                "modo": "suicida",
+                "dificultad": "Media",
+                "puntaje": 2
+            },
+            {
+                "modo": "trivia",
+                "dificultad": "Fácil",
+                "puntaje": 4
+            }
+        ],
+        "puntos": 15
     }
 ]

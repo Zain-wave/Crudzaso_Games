@@ -1,7 +1,7 @@
 import json
 import os
 import bcrypt
-from utils import esperar_tecla
+from utils import esperar_tecla, PUNTOS_POR_ACIERTO
 
 ARCHIVO_USUARIOS = "users.json"
 
@@ -56,19 +56,52 @@ def iniciar_sesion(nombre_usuario: str, contraseña: str):
         esperar_tecla()
         return None
 
+
+
 def guardar_puntaje(usuario_actual, modo, dificultad, puntaje):
     usuarios = cargar_usuarios()
-
+    puntos_ganados = 0
+    
     for u in usuarios:
         if u["usuario"] == usuario_actual["usuario"]:
             if "puntuaciones" not in u:
                 u["puntuaciones"] = []
+            if "puntos" not in u:
+                u["puntos"] = 0
             
             u["puntuaciones"].append({
                 "modo": modo,
                 "dificultad": dificultad,
                 "puntaje": puntaje
             })
+            
+        
+            puntos_ganados = puntaje * PUNTOS_POR_ACIERTO
+            u["puntos"] += puntos_ganados
+            
+            usuario_actual["puntos"] = u["puntos"]
             break
-
+    
     guardar_usuarios(usuarios)
+    return puntos_ganados
+
+def usar_pista(usuario_actual, costo_pista):
+    usuarios = cargar_usuarios()
+    
+    for u in usuarios:
+        if u["usuario"] == usuario_actual["usuario"]:
+            if u.get("puntos", 0) >= costo_pista:
+                u["puntos"] -= costo_pista
+                guardar_usuarios(usuarios)
+                usuario_actual["puntos"] = u["puntos"]
+                return True
+            else:
+                return False
+    return False
+
+def obtener_puntos(usuario_actual):
+    usuarios = cargar_usuarios()
+    for u in usuarios:
+        if u["usuario"] == usuario_actual["usuario"]:
+            return u.get("puntos", 0)
+    return 0

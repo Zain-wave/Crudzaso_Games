@@ -3,6 +3,7 @@ from game import (
     jugar_suicida,
     jugar_contrarreloj
 )
+from auth import obtener_puntos
 import os
 import json
 import readchar
@@ -108,27 +109,29 @@ def mostrar_top_global():
 
 def menu(usuario_actual=None):
     nick = usuario_actual.get("usuario") if usuario_actual else "Invitado"
-
+    
+    puntos = obtener_puntos(usuario_actual) if usuario_actual else 0
+    
     while True:
+        titulo = f"Menú de Juego - {nick} | Puntos: {puntos}"
         opciones = [
             "Iniciar juego (Trivia Normal)",
-            "Ver puntuaciones",
+            "Ver puntuaciones", 
             "Jugar Punto Suicida",
-            #"Jugar Contrarreloj",
             "Top Global",
             "Cerrar sesión / Volver al menú principal"
         ]
-
-        seleccion = menu_vertical(f"Menú de Juego - {nick}", opciones)
-
+        
+        seleccion = menu_vertical(titulo, opciones)
+        
+        puntos = obtener_puntos(usuario_actual) if usuario_actual else 0
+        
         if seleccion == 1:
             jugar_trivia(usuario_actual)
         elif seleccion == 2:
             mostrar_puntuaciones(usuario_actual)
         elif seleccion == 3:
             jugar_suicida(usuario_actual)
-        # elif seleccion == 4:
-        #     jugar_contrarreloj(usuario_actual)
         elif seleccion == 4:
             mostrar_top_global()
         elif seleccion == 5:

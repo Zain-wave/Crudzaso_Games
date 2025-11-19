@@ -6,10 +6,18 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.align import Align
 from rich.table import Table
+from auth import obtener_puntos, usar_pista
 
+import copy
+    
+    
 console = Console()
 
 musica_iniciada = False
+
+PUNTOS_POR_ACIERTO = 5
+COSTO_PISTA_ELIMINAR = 15
+COSTO_PISTA_50_50 = 25
 
 def iniciar_musica():
     global musica_iniciada
@@ -151,3 +159,126 @@ def mezclar_opciones(pregunta):
 def esperar_tecla():
     console.print("\n[bold cyan]Presiona cualquier tecla para continuar...[/bold cyan]")
     readchar.readkey()
+
+def mostrar_menu_pistas(puntos_disponibles):
+    console.print("\n[bold yellow]🎯 SISTEMA DE PISTAS[/bold yellow]")
+    console.print(f"[cyan]Puntos disponibles: {puntos_disponibles}[/cyan]")
+    
+    tabla = Table(show_header=False, box=None, padding=(0, 2))
+    tabla.add_column("Tecla", justify="center", width=8)
+    tabla.add_column("Pista", justify="left")
+    tabla.add_column("Costo", justify="center")
+    
+    tabla.add_row(
+        "[bold yellow]1[/bold yellow]",
+        "❌ Eliminar 2 opciones incorrectas",
+        f"[red]{COSTO_PISTA_ELIMINAR} puntos[/red]"
+    )
+    tabla.add_row(
+        "[bold yellow]2[/bold yellow]", 
+        "🎯 Mostrar respuesta correcta (50/50)",
+        f"[red]{COSTO_PISTA_50_50} puntos[/red]"
+    )
+    tabla.add_row(
+        "[bold yellow]3[/bold yellow]",
+        "🔙 Volver al juego",
+        "[green]Gratis[/green]"
+    )
+    
+    console.print(tabla)
+    console.print("[dim]Presiona la tecla correspondiente...[/dim]")
+
+def aplicar_pista_eliminar(pregunta):
+    pregunta_modificada = copy.deepcopy(pregunta)
+    
+    opciones = pregunta_modificada["opciones"]
+    respuesta_correcta_original = pregunta_modificada["respuesta"]
+    respuesta_correcta_texto = opciones[respuesta_correcta_original]
+
+    opciones_incorrectas = [i for i in range(len(opciones)) if i != respuesta_correcta_original]
+    
+    if len(opciones_incorrectas) >= 2:
+        opciones_a_eliminar = random.sample(opciones_incorrectas, 2)
+        
+        nuevas_opciones = []
+        for i, opcion in enumerate(opciones):
+            if i not in opciones_a_eliminar:
+                nuevas_opciones.append(opcion)
+        
+        nuevo_indice_correcto = nuevas_opciones.index(respuesta_correcta_texto)
+        
+        pregunta_modificada["opciones"] = nuevas_opciones
+        pregunta_modificada["respuesta"] = nuevo_indice_correcto
+        pregunta_modificada["pista_usada"] = True
+        
+        return pregunta_modificada
+    
+    return pregunta_modificada
+
+def aplicar_pista_50_50(pregunta):
+
+    pregunta_modificada = copy.deepcopy(pregunta)
+    
+    opciones = pregunta_modificada["opciones"]
+    respuesta_correcta_original = pregunta_modificada["respuesta"]
+    respuesta_correcta_texto = opciones[respuesta_correcta_original]
+    
+    opciones_incorrectas = [i for i in range(len(opciones)) if i != respuesta_correcta_original]
+    
+    if opciones_incorrectas:
+        opcion_incorrecta_idx = random.choice(opciones_incorrectas)
+        opcion_incorrecta_texto = opciones[opcion_incorrecta_idx]
+        
+        nuevas_opciones = [respuesta_correcta_texto, opcion_incorrecta_texto]
+        
+        random.shuffle(nuevas_opciones)
+        
+        nuevo_indice_correcto = nuevas_opciones.index(respuesta_correcta_texto)
+        
+        pregunta_modificada["opciones"] = nuevas_opciones
+        pregunta_modificada["respuesta"] = nuevo_indice_correcto
+        pregunta_modificada["pista_usada"] = True
+        
+        return pregunta_modificada
+    
+    return pregunta_modificada
+
+def ofrecer_pista(usuario_actual, pregunta_actual):
+    
+    puntos = obtener_puntos(usuario_actual)
+    
+    if puntos < min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_50_50):
+        console.print("\n[bold red]❌ No tienes puntos suficientes para usar pistas[/bold red]")
+        console.print(f"[yellow]Puntos necesarios: {min(COSTO_PISTA_ELIMINAR, COSTO_PISTA_50_50)}[/yellow]")
+        esperar_tecla()
+        return pregunta_actual
+    
+    while True:
+        os.system("cls")
+        console.print("\n")
+        mostrar_menu_pistas(puntos)
+        
+        key = readchar.readkey()
+        
+        if key == '1':
+            if usar_pista(usuario_actual, COSTO_PISTA_ELIMINAR):
+                console.print("\n[bold green]✅ Pista aplicada: 2 opciones eliminadas[/bold green]")
+                nueva_pregunta = aplicar_pista_eliminar(pregunta_actual)
+                esperar_tecla()
+                return nueva_pregunta
+            else:
+                console.print("\n[bold red]❌ No tienes puntos suficientes para esta pista[/bold red]")
+                esperar_tecla()
+                
+        elif key == '2': 
+            if usar_pista(usuario_actual, COSTO_PISTA_50_50):
+                console.print("\n[bold green]✅ Pista aplicada: Opciones reducidas a 50/50[/bold green]")
+                nueva_pregunta = aplicar_pista_50_50(pregunta_actual)
+                esperar_tecla()
+                return nueva_pregunta
+            else:
+                console.print("\n[bold red]❌ No tienes puntos suficientes para esta pista[/bold red]")
+                esperar_tecla()
+                
+        elif key == '3':
+            return pregunta_actual
